@@ -18,7 +18,7 @@ navButton.addEventListener('click', () => {
 // };
 
 //Slider - fade-out effect (but why do the pictures shake?)
-if (window.location.pathname == '/') {
+if (window.location.pathname == '/' || window.location.pathname == '/krasnovidovo-2018/') {
     const holder = document.querySelector('.index-slideshow');
     const img = document.querySelector('.index-slideshow >img');
     const srcs = ['img/lake-kajak-kayak.jpg', 'img/pexels-photo-154246.jpeg', 'img/pexels-photo-417191.jpeg'];
