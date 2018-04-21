@@ -1,0 +1,62 @@
+header {
+    padding-top: 2vh;
+}
+//resizable logos (TODO: change fill color via scss)
+//logos (two --> one line)
+.logos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    >a {
+        margin:auto;
+        min-width: 320px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    >a img {
+        height: calc(10px + 5vw);
+        padding: 0 calc(10px + 2vw);
+    }
+}
+//resizable title
+header > h1 {
+    font-size: calc(1.5em + 2vw);
+    padding: 3vh 0;
+    text-align: center;
+}
+//navigation menu
+.nav {
+    >button {
+        width: 100%;
+        background:  rgba(133, 130, 145, 0.3);
+        border-radius: 5px;
+    }
+}
+//styling of visible links
+.nav-visible-link >a {
+    font-size: calc(1em + 0.5vw);
+    cursor: pointer;
+    display: block;
+}
+
+//hidden links emerge from here (+styling for the dropout)
+.nav-toggling-link {
+    &:hover >a {
+        text-decoration: underline;
+    }
+    &:hover .nav-hidden-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(133, 130, 145, 0.3);
+        padding: 5px 0px 5px 5px;
+        min-width: 30vw;
+        font-size: calc(1em + 0.2vw);
+    }
+}
+
+//invisibility cloak
+.hide-me {
+    display: none;
+}
