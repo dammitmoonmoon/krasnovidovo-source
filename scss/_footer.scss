@@ -1,6 +1,6 @@
 //Temporary adjustments
 footer {
-    margin-top: 3vh;
+    margin-top: 20px;
     background: rgba(133, 130, 145, 0.3);
 }
 
@@ -11,7 +11,7 @@ footer {
     }
     i {
     font-size: 1.8em;
-    padding: 1vw;
+    padding: 0 calc(30px + 0.3vw);
     color: royalblue;
     }
 }
@@ -23,12 +23,11 @@ footer {
     justify-content: space-around;
     >div {
         width: 100vw;
-        margin-bottom: 4vh;
+        margin-bottom: 20px;
         padding: 1vh;
         background: white;
         box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
     padding-top: 4vh;
-
 }
 
