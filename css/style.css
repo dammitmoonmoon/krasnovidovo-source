@@ -9,7 +9,6 @@
 }
 
 html {
-  width: 100vw;
   height: 100%;
   font-family: "Open Sans", sans-serif;
 }
@@ -61,7 +60,7 @@ header > * {
   line-height: 2rem;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 700px) {
   header {
     grid-template-columns: auto 300px 300px auto;
     grid-template-areas: ". . . language" ". logo-msu logo-faculty ." "title title title title" "navigation navigation navigation navigation";
@@ -143,6 +142,12 @@ header {
 
 .grid-language {
   text-align: right;
+  padding-top: 15px;
+}
+
+.grid-language a {
+  padding: 10px;
+  border-radius: 50px;
 }
 
 /*SHOW-HIDE LINKS*/
@@ -178,7 +183,7 @@ header {
   background: white;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 700px) {
   .logo {
     height: 80px;
     width: 80px;
