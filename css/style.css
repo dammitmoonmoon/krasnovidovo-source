@@ -1,0 +1,313 @@
+/* LOGO Sizes */
+/*Maximum width of content sections */
+/*Breakpoints */
+/*Fonts*/
+/*Colors*/
+/*HEADER*/
+* {
+  box-sizing: border-box;
+}
+
+/* Sticky FOOTER */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/*Basic Formating*/
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+}
+
+header {
+  text-align: center;
+}
+
+/* 
+============= LOGOS =============
+LOGOS have three display types: logo + two links, two logos, and logo/title/logo.
+HTML: two interchangable pieces of code (.logos-small vs .logos-large)
+
+ACHTUNG
+    (p) height: 2.5rem; - arbitrary
+    (.main-title) flex-basis: 400px; - arbitrary
+    (.logos-large, nav) width limit is set to 1000px: should be fixed if I want a colored 100vw background
+*/
+.logos-small {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.logos-small .logo {
+  height: 60px;
+  width: 60px;
+  flex-basis: 100%;
+}
+
+.logos-small .formal-links {
+  min-width: 240px;
+}
+
+.logos-small .main-title {
+  flex-basis: 100%;
+  min-width: 240px;
+}
+
+.logos-large {
+  display: none;
+}
+
+@media (min-width: 540px) {
+  .logos-small {
+    display: none;
+  }
+  .logos-large {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .logos-large p {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .logos-large .title-and-lang {
+    width: 100vw;
+  }
+  .logo {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logos-large, nav {
+    width: 1000px;
+    margin: auto;
+  }
+  .logos-large-right {
+    order: 3;
+  }
+  .logos-large {
+    align-items: center;
+  }
+  .logos-large .title-and-lang {
+    flex-basis: 400px;
+  }
+  .logos-large img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/* 
+============= HAMBURGER BUTTON =============
+ACHTUNG
+    (.bar1, .bar2, .bar3) margin-top/bottom 6px - arbitrary, depends on design
+*/
+.nav-button {
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 70px;
+  height: 5px;
+  background-color: #062F4F;
+  margin: 6px auto;
+  border-radius: 10px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.nav-button:hover .bar1, .nav-button:hover .bar3 {
+  -webkit-transform: scaleX(0.8);
+  -ms-transform: scaleX(0.8);
+  transform: scaleX(0.8);
+}
+
+.nav-button:hover .bar2 {
+  -webkit-transform: scaleX(2);
+  -ms-transform: scaleX(2);
+  transform: scaleX(2);
+  opacity: 0.7;
+}
+
+/*============= NAV BAR =============
+Three classes are toggled to enable slower transitions
+.nav-bar-hidden: show/hide main links
+.nav-bar-vis: slowly increase opacity to 1
+.nav-bar-invis: slowly reduce opacity to 0
+*/
+.nav-bar-hidden {
+  display: none;
+}
+
+.nav-bar-invis {
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.nav-bar-vis {
+  opacity: 1;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/*Additional links (.nav-hidden-links) are controlled by .nav-toggler.
+Opacity 0 makes links invisible. Zero heigh with hidden overflow makes them inacessible. */
+.nav-hidden-links {
+  display: none;
+}
+
+.nav-toggler:hover .nav-hidden-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 20px;
+  z-index: 1;
+  min-width: 80vw;
+  background: aqua;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+/*============= From HAMBURGER to NAV BAR =============
+ACHTUNG
+    (.nav-hidden-links) min-width: 30vw; - should be changed, depends on design
+    (.nav-bar) marginX - arbitrary margin for medium viewports
+*/
+@media (min-width: 640px) {
+  .nav-button {
+    display: none;
+  }
+  .nav-bar {
+    margin-left: 2vw;
+    margin-right: 2vw;
+    display: flex;
+    justify-content: space-between;
+    opacity: 1;
+    height: auto;
+  }
+  .nav-toggler {
+    position: relative;
+  }
+  .nav-hidden-links {
+    position: absolute;
+    z-index: 1;
+    min-width: 30vw;
+  }
+}
+
+html {
+  font-size: 12px;
+}
+
+@media (min-width: 540px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+.logos-small .logo {
+  margin: 6px auto;
+}
+
+.logos-small .formal-links {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+.logos-small .formal-links:hover {
+  color: #39454F;
+}
+
+.logos-small .main-title {
+  font-size: 1.5em;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #062F4F;
+  color: #E5ECE9;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.logos-small .main-title:hover {
+  background: #042137;
+}
+
+.logos-small .toggle-language {
+  font-size: 1.2em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  background: #E5ECE9;
+  color: #39454F;
+}
+
+.logos-small .toggle-language:hover {
+  color: black;
+}
+
+.nav-button {
+  background: #E5ECE9;
+  padding: 2px;
+}
+
+.nav-bar p, .nav-bar a {
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  height: 2em;
+}
+
+.nav-bar a {
+  display: block;
+}
+
+.nav-bar .nav-hidden-links a {
+  font-size: 1.5em;
+}
+
+main {
+  max-width: 1000px;
+  min-width: 240px;
+  margin: auto;
+  padding: 2vw;
+  display: flex;
+}
+/*# sourceMappingURL=style.css.map */
