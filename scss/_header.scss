@@ -1,0 +1,140 @@
+header {
+    text-align: center;
+}
+.logo {
+    @include logo-size($logo-min);
+}
+
+// ============= HAMBURGER BUTTON =============
+// ACHTUNG
+//     (.bar1, .bar2, .bar3) margin-top/bottom 6px - arbitrary, depends on design
+
+.nav-button {
+    cursor: pointer;
+}
+//Hamburger button: visual effects
+.bar1, .bar2, .bar3 {
+    width: 70px;
+    height: 5px;
+    background-color: $dark-blue;
+    margin: 6px auto; // Achtung!
+    border-radius: 10px;
+    @include transition(0.5s);
+}
+.bar2 {
+    opacity: 0.7;
+}
+
+.nav-button:hover {
+    .bar1, .bar3 {
+        @include scaleX(0.8);
+        opacity: 0.7;
+    }
+    .bar2 {
+        @include scaleX(2);
+        opacity: 1;
+    }
+}
+//Change language
+.grid-language {
+    text-align: right;
+    // padding-top: 15px;    
+    // a {
+    //     padding: 10px;
+    //     border-radius: 50px;
+    // }
+}
+/*SHOW-HIDE LINKS*/
+//Navigation bar (main)
+.nav-bar {
+    position: absolute;
+    display: block;
+    width: 100%;
+
+}
+.nav-bar-hidden {
+    display: none;
+}
+
+//Navigation bar (extra links)
+.nav-hidden-links {
+    display: none;
+}
+.nav-toggler:hover .nav-hidden-links{
+    display: block;
+    display: flex;
+    flex-direction: column;
+}
+
+//Navigation bar - design
+.nav-bar {
+    // font-size: 1.3em;
+    // line-height: 1.5em;
+    background: lighten($grey, 60%);
+    > * {
+        border-bottom: 1px dashed black;
+    }    
+}
+
+.nav-toggler:hover .nav-hidden-links{
+    background: lighten($grey, 80%);
+}
+
+.nav-hidden-links > a {
+    // font-size: 1em;
+    // line-height: 1.5em;
+}
+
+@media (min-width: $break1) {
+    .logo {
+        @include logo-size($logo-average);
+    }
+    .grid-language {
+        text-align: center;
+        // padding-bottom: 15px;
+    }
+    .nav-button {
+        display: none;
+    }
+    .nav-bar {
+        position: relative;
+        display: block;
+        opacity: 1;
+        display: flex;
+        justify-content: space-around;
+    }
+    //Navigation bar - design
+    .nav-bar {
+        // font-size: 1em;
+        // line-height: 1.8em;
+        background: lighten($grey, 60%);
+        > * {
+            border-bottom: none;
+        }
+        // margin-top: 10px;    
+        // margin-bottom: 20px; 
+    }
+
+    .nav-toggler:hover .nav-hidden-links {
+        position: absolute;
+        // display: block;
+        // opacity: 1;
+        z-index: 2;
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid #000;
+        background: lighten($grey, 80%);
+    }
+
+
+    .nav-hidden-links > a {
+        // font-size: 1em;
+        // line-height: 1.5em;
+    }
+}
+
+@media (min-width: $break2) {
+    .logo {
+        @include logo-size($logo-max);
+    }
+}
