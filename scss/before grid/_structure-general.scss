@@ -7,8 +7,13 @@ html {
 /* Sticky FOOTER */
 body {
     min-height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+main {
+    flex-grow: 1;
 }
 
 /*Basic Formating*/
