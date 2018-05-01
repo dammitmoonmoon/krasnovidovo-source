@@ -47,17 +47,21 @@ main {
     display: none;
 }
 
-header > * {
-    align-self: center;
-}
+// header > * {
+//     align-self: center;
+// }
 
 .grid-logo-faculty p {
     line-height: 2rem;
 }
 
+.grid-language {
+    justify-self: end;
+}
+
 @media (min-width: $break1) {
     header {
-        grid-template-columns: auto max(300px)  max(300px) auto;
+        grid-template-columns: 1fr max(240px)  max(240px) 1fr;
         grid-template-areas: 
             ". . . language"
             ". logo-msu logo-faculty ."
@@ -71,21 +75,26 @@ header > * {
 
 @media (min-width: $break2) {
     header {
-        grid-template-columns: auto 240px minmax(300px,500px) 240px auto;
+        grid-template-columns: 1fr 240px minmax(300px,500px) 240px 1fr;
         grid-template-areas: 
             ". logo-msu  language logo-faculty ."
             ". logo-msu title logo-faculty ."
             ". navigation  navigation navigation .";
+    }
+    .grid-language {
+        justify-self: center;
     }
 }
 
 // GRID AREA TITLES
 .grid-logo-msu {
     grid-area: logo-msu;
+    border: 1px solid #000;
 }
 
 .grid-logo-faculty {
     grid-area: logo-faculty;
+    border: 1px solid #000;
 }
 .grid-title {
     grid-area: title;

@@ -35,6 +35,7 @@ header {
         opacity: 1;
     }
 }
+
 //Change language
 .grid-language {
     text-align: right;
@@ -50,7 +51,7 @@ header {
     position: absolute;
     display: block;
     width: 100%;
-
+    
 }
 .nav-bar-hidden {
     display: none;
@@ -89,10 +90,6 @@ header {
     .logo {
         @include logo-size($logo-average);
     }
-    .grid-language {
-        text-align: center;
-        // padding-bottom: 15px;
-    }
     .nav-button {
         display: none;
     }
@@ -101,7 +98,12 @@ header {
         display: block;
         opacity: 1;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
+        > * {
+            min-width: 200px;
+            border: 1px solid #000;
+        }
     }
     //Navigation bar - design
     .nav-bar {
@@ -141,7 +143,6 @@ header {
 
 //Design of the language button
 .grid-language {
-    justify-self: center;
     .language-button {
         padding: 10px;
         border-radius: 5px;
@@ -150,5 +151,4 @@ header {
 
 .hidden-lang {
     display: none;
-    color: red;
 }

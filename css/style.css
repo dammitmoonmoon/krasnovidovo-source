@@ -52,17 +52,17 @@ main {
   display: none;
 }
 
-header > * {
-  align-self: center;
-}
-
 .grid-logo-faculty p {
   line-height: 2rem;
 }
 
-@media (min-width: 700px) {
+.grid-language {
+  justify-self: end;
+}
+
+@media (min-width: 540px) {
   header {
-    grid-template-columns: auto 300px 300px auto;
+    grid-template-columns: 1fr 240px 240px 1fr;
     grid-template-areas: ". . . language" ". logo-msu logo-faculty ." "title title title title" "navigation navigation navigation navigation";
   }
   .grid-logo-faculty-img {
@@ -72,17 +72,22 @@ header > * {
 
 @media (min-width: 1024px) {
   header {
-    grid-template-columns: auto 240px minmax(300px, 500px) 240px auto;
+    grid-template-columns: 1fr 240px minmax(300px, 500px) 240px 1fr;
     grid-template-areas: ". logo-msu  language logo-faculty ." ". logo-msu title logo-faculty ." ". navigation  navigation navigation .";
+  }
+  .grid-language {
+    justify-self: center;
   }
 }
 
 .grid-logo-msu {
   grid-area: logo-msu;
+  border: 1px solid #000;
 }
 
 .grid-logo-faculty {
   grid-area: logo-faculty;
+  border: 1px solid #000;
 }
 
 .grid-title {
@@ -183,13 +188,10 @@ header {
   background: white;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 540px) {
   .logo {
     height: 80px;
     width: 80px;
-  }
-  .grid-language {
-    text-align: center;
   }
   .nav-button {
     display: none;
@@ -199,7 +201,12 @@ header {
     display: block;
     opacity: 1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+  }
+  .nav-bar > * {
+    min-width: 200px;
+    border: 1px solid #000;
   }
   .nav-bar {
     background: #d8dee3;
@@ -224,10 +231,6 @@ header {
   }
 }
 
-.grid-language {
-  justify-self: center;
-}
-
 .grid-language .language-button {
   padding: 10px;
   border-radius: 5px;
@@ -235,6 +238,5 @@ header {
 
 .hidden-lang {
   display: none;
-  color: red;
 }
 /*# sourceMappingURL=style.css.map */
