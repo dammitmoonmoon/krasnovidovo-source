@@ -3,30 +3,23 @@
 }
 html {
     height: 100%;
-    font-family: $open-sans;
-    h1 {
-        font-family: $montserrat;
-        background: $dark-blue;
-        color:$white;
-    }
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-    a:hover {
-        color: $grey;
-    }
 }
+
 /*BODY: Three-row grid with sticky footer*/
 body {
     max-width: 100vw;
-    min-height: 100%;
+    min-height: 98%;
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
 
+main {
+    max-width: $max-width;
+    margin: auto;
+}
 
-/*HEADER: Five-column grid*/
+/*======HEADER: Three types of grid======*/
+//Type 1
 header {
     max-width: 100%;
     display: grid;
@@ -37,28 +30,33 @@ header {
         "title"
         "navigation";
 }
-
-main {
-    max-width: 800px;
-    margin: auto;
-}
-
+//Minor tweeks for Type 1
+//Hide Faculty logo
 .grid-logo-faculty-img {
     display: none;
 }
-
-// header > * {
-//     align-self: center;
-// }
-
+//Align logo captions (one line => two lines of space)
 .grid-logo-faculty p {
     line-height: 2rem;
 }
-
+//Place language button in the right corner
 .grid-language {
     justify-self: end;
 }
+//Language button (set minimal size and simple design)
+.language-button {
+    line-height:0;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 800;
+    font-family: $montserrat;
+}
+//Resize logos
+.logo {
+    @include logo-size($logo-min);
+}
 
+//Type 2
 @media (min-width: $break1) {
     header {
         grid-template-columns: 1fr max(240px)  max(240px) 1fr;
@@ -68,33 +66,50 @@ main {
             "title title title title"
             "navigation navigation navigation navigation";
     }
+    //Minor tweeks for Type 2
+    //Show second logo
     .grid-logo-faculty-img {
         display: inline-block;
     }
+    //Spread logos away from the center
+    .grid-logo-faculty {
+        justify-self: right;
+    }
+    .grid-logo-msu {
+        justify-self: left;
+    }
+    //Resize logos
+    .logo {
+        @include logo-size($logo-average);
+    }
 }
 
+//Type 3
 @media (min-width: $break2) {
     header {
         grid-template-columns: 1fr 240px minmax(300px,500px) 240px 1fr;
         grid-template-areas: 
-            ". logo-msu  language logo-faculty ."
-            ". logo-msu title logo-faculty ."
+            ". logo-msu  title logo-faculty ."
+            ". logo-msu language logo-faculty ."
             ". navigation  navigation navigation .";
     }
+    //Minor tweeks for Type 3
+    //Center language button
     .grid-language {
         justify-self: center;
+    }
+    //Resize logos
+    .logo {
+        @include logo-size($logo-max);
     }
 }
 
 // GRID AREA TITLES
 .grid-logo-msu {
     grid-area: logo-msu;
-    border: 1px solid #000;
 }
-
 .grid-logo-faculty {
     grid-area: logo-faculty;
-    border: 1px solid #000;
 }
 .grid-title {
     grid-area: title;
@@ -105,3 +120,33 @@ main {
 .grid-nav {
     grid-area: navigation;
 }
+
+// /*======== HIDE EXTRA LANGUAGE =======*/
+//Text appears when the class is removed
+.hidden-lang {
+    display: none;
+}
+
+/*========Basic Design========*/
+html {
+    font-family: $open-sans;
+    h1, h2, h3 {
+        font-family: $montserrat;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    line-height: 1.3em;
+    p {
+        padding: 10px;
+    }
+}
+

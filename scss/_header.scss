@@ -1,30 +1,22 @@
-header {
-    text-align: center;
-}
-.logo {
-    @include logo-size($logo-min);
-}
+/*======= ESSENTIAL SETTINGS =======*/
 
 // ============= HAMBURGER BUTTON =============
-// ACHTUNG
-//     (.bar1, .bar2, .bar3) margin-top/bottom 6px - arbitrary, depends on design
-
 .nav-button {
     cursor: pointer;
 }
-//Hamburger button: visual effects
+// Design
 .bar1, .bar2, .bar3 {
     width: 70px;
     height: 5px;
     background-color: $dark-blue;
-    margin: 6px auto; // Achtung!
+    margin: 6px auto;
     border-radius: 10px;
     @include transition(0.5s);
 }
 .bar2 {
     opacity: 0.7;
 }
-
+// Interactivity
 .nav-button:hover {
     .bar1, .bar3 {
         @include scaleX(0.8);
@@ -36,28 +28,18 @@ header {
     }
 }
 
-//Change language
-.grid-language {
-    text-align: right;
-    padding-top: 15px;    
-    a {
-        padding: 10px;
-        border-radius: 50px;
-    }
-}
-/*SHOW-HIDE LINKS*/
-//Navigation bar (main)
+/* ============= HAMBURGER BUTTON vs NAV BAR
+//Mobile first: nav-baris hidden 
+(note the order => .nav-bar --> .nav-bar-hidden)*/
 .nav-bar {
     position: absolute;
     display: block;
-    width: 100%;
-    
+    width: 100%; 
 }
 .nav-bar-hidden {
     display: none;
 }
-
-//Navigation bar (extra links)
+//Additional links are hidden until hover
 .nav-hidden-links {
     display: none;
 }
@@ -67,88 +49,65 @@ header {
     flex-direction: column;
 }
 
-//Navigation bar - design
-.nav-bar {
-    // font-size: 1.3em;
-    // line-height: 1.5em;
-    background: lighten($grey, 60%);
-    > * {
-        border-bottom: 1px dashed black;
-    }    
-}
-
-.nav-toggler:hover .nav-hidden-links{
-    background: lighten($grey, 80%);
-}
-
-.nav-hidden-links > a {
-    // font-size: 1em;
-    // line-height: 1.5em;
-}
-
+//Breakpoint: Switch from button to nav bar
+//Additional links must be displayed differently
 @media (min-width: $break1) {
-    .logo {
-        @include logo-size($logo-average);
-    }
     .nav-button {
         display: none;
     }
     .nav-bar {
         position: relative;
-        display: block;
-        opacity: 1;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        //provides enough space for each link in nav bar
         > * {
-            min-width: 200px;
-            border: 1px solid #000;
+            min-width: $min-width; 
         }
     }
-    //Navigation bar - design
+    .nav-toggler:hover .nav-hidden-links {
+        position: absolute;
+        min-width: $min-width;
+        display: flex;
+        justify-content: space-around;
+        color: white;
+    }
+}
+
+//======= Design: nav bar (mobile)
+.nav-bar {
+    line-height: 1.5em;
+    color: white;
+    background: $dark-blue;
+    div:nth-child(odd) {
+        background: lighten($grey, 10%);
+    }
+    > * {
+        border-bottom: 1px dashed white;
+    }    
+}
+
+.nav-toggler:hover .nav-hidden-links{
+    color: black;
+    background: lighten($grey, 80%);
+}
+.nav-hidden-links a:hover {
+        color: $dark-blue;
+}
+
+//======= Design: nav bar (laptop)
+@media (min-width: $break1) {
     .nav-bar {
-        // font-size: 1em;
-        // line-height: 1.8em;
-        background: lighten($grey, 60%);
+        color: black;
+        background: $white;
+        div:nth-child(odd) {
+            background: $white;
+        }
+        border: 2px solid $dark-blue;
+        border-radius: 5px;
         > * {
             border-bottom: none;
         }
-        // margin-top: 10px;    
-        // margin-bottom: 20px; 
-    }
-
-    .nav-toggler:hover .nav-hidden-links {
-        position: absolute;
-        // display: block;
-        // opacity: 1;
-        z-index: 2;
-        display: flex;
-        justify-content: space-around;
-        border: 1px solid #000;
-        background: lighten($grey, 80%);
-    }
-
-
-    .nav-hidden-links > a {
-        // font-size: 1em;
-        // line-height: 1.5em;
     }
 }
 
-@media (min-width: $break2) {
-    .logo {
-        @include logo-size($logo-max);
-    }
-}
-
-//Design of the language button
-.grid-language {
-    .language-button {
-        padding: 10px;
-        border-radius: 5px;
-    }
-}
-
-.hidden-lang {
-    display: none;
-}

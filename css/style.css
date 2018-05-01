@@ -10,42 +10,26 @@
 
 html {
   height: 100%;
-  font-family: "Open Sans", sans-serif;
-}
-
-html h1 {
-  font-family: "Montserrat", sans-serif;
-  background: #062F4F;
-  color: #E5ECE9;
-}
-
-html a {
-  text-decoration: none;
-  color: inherit;
-}
-
-html a:hover {
-  color: #39454F;
 }
 
 /*BODY: Three-row grid with sticky footer*/
 body {
   max-width: 100vw;
-  min-height: 100%;
+  min-height: 98%;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-
-/*HEADER: Five-column grid*/
-header {
-  max-width: 100%;
-  display: grid;
-  grid-template-areas: "language" "logo-msu" "logo-faculty" "title" "navigation";
 }
 
 main {
   max-width: 800px;
   margin: auto;
+}
+
+/*======HEADER: Three types of grid======*/
+header {
+  max-width: 100%;
+  display: grid;
+  grid-template-areas: "language" "logo-msu" "logo-faculty" "title" "navigation";
 }
 
 .grid-logo-faculty-img {
@@ -60,6 +44,19 @@ main {
   justify-self: end;
 }
 
+.language-button {
+  line-height: 0;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
+
 @media (min-width: 540px) {
   header {
     grid-template-columns: 1fr 240px 240px 1fr;
@@ -68,26 +65,38 @@ main {
   .grid-logo-faculty-img {
     display: inline-block;
   }
+  .grid-logo-faculty {
+    justify-self: right;
+  }
+  .grid-logo-msu {
+    justify-self: left;
+  }
+  .logo {
+    height: 80px;
+    width: 80px;
+  }
 }
 
 @media (min-width: 1024px) {
   header {
     grid-template-columns: 1fr 240px minmax(300px, 500px) 240px 1fr;
-    grid-template-areas: ". logo-msu  language logo-faculty ." ". logo-msu title logo-faculty ." ". navigation  navigation navigation .";
+    grid-template-areas: ". logo-msu  title logo-faculty ." ". logo-msu language logo-faculty ." ". navigation  navigation navigation .";
   }
   .grid-language {
     justify-self: center;
+  }
+  .logo {
+    height: 100px;
+    width: 100px;
   }
 }
 
 .grid-logo-msu {
   grid-area: logo-msu;
-  border: 1px solid #000;
 }
 
 .grid-logo-faculty {
   grid-area: logo-faculty;
-  border: 1px solid #000;
 }
 
 .grid-title {
@@ -102,15 +111,37 @@ main {
   grid-area: navigation;
 }
 
+.hidden-lang {
+  display: none;
+}
+
+/*========Basic Design========*/
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+html h1, html h2, html h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+html a {
+  text-decoration: none;
+  color: inherit;
+}
+
 header {
   text-align: center;
 }
 
-.logo {
-  height: 60px;
-  width: 60px;
+main {
+  line-height: 1.3em;
 }
 
+main p {
+  padding: 10px;
+}
+
+/*======= ESSENTIAL SETTINGS =======*/
 .nav-button {
   cursor: pointer;
 }
@@ -145,17 +176,9 @@ header {
   opacity: 1;
 }
 
-.grid-language {
-  text-align: right;
-  padding-top: 15px;
-}
-
-.grid-language a {
-  padding: 10px;
-  border-radius: 50px;
-}
-
-/*SHOW-HIDE LINKS*/
+/* ============= HAMBURGER BUTTON vs NAV BAR
+//Mobile first: nav-baris hidden 
+(note the order => .nav-bar --> .nav-bar-hidden)*/
 .nav-bar {
   position: absolute;
   display: block;
@@ -176,67 +199,63 @@ header {
   flex-direction: column;
 }
 
-.nav-bar {
-  background: #d8dee3;
-}
-
-.nav-bar > * {
-  border-bottom: 1px dashed black;
-}
-
-.nav-toggler:hover .nav-hidden-links {
-  background: white;
-}
-
 @media (min-width: 540px) {
-  .logo {
-    height: 80px;
-    width: 80px;
-  }
   .nav-button {
     display: none;
   }
   .nav-bar {
     position: relative;
-    display: block;
-    opacity: 1;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
   .nav-bar > * {
     min-width: 200px;
-    border: 1px solid #000;
   }
+  .nav-toggler:hover .nav-hidden-links {
+    position: absolute;
+    min-width: 200px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+  }
+}
+
+.nav-bar {
+  line-height: 1.5em;
+  color: white;
+  background: #062F4F;
+}
+
+.nav-bar div:nth-child(odd) {
+  background: #4e5f6d;
+}
+
+.nav-bar > * {
+  border-bottom: 1px dashed white;
+}
+
+.nav-toggler:hover .nav-hidden-links {
+  color: black;
+  background: white;
+}
+
+.nav-hidden-links a:hover {
+  color: #062F4F;
+}
+
+@media (min-width: 540px) {
   .nav-bar {
-    background: #d8dee3;
+    color: black;
+    background: #E5ECE9;
+    border: 2px solid #062F4F;
+    border-radius: 5px;
+  }
+  .nav-bar div:nth-child(odd) {
+    background: #E5ECE9;
   }
   .nav-bar > * {
     border-bottom: none;
   }
-  .nav-toggler:hover .nav-hidden-links {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid #000;
-    background: white;
-  }
-}
-
-@media (min-width: 1024px) {
-  .logo {
-    height: 100px;
-    width: 100px;
-  }
-}
-
-.grid-language .language-button {
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.hidden-lang {
-  display: none;
 }
 /*# sourceMappingURL=style.css.map */
