@@ -223,4 +223,18 @@ header {
     width: 100px;
   }
 }
+
+.grid-language {
+  justify-self: center;
+}
+
+.grid-language .language-button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hidden-lang {
+  display: none;
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */

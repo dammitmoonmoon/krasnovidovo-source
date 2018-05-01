@@ -138,3 +138,17 @@ header {
         @include logo-size($logo-max);
     }
 }
+
+//Design of the language button
+.grid-language {
+    justify-self: center;
+    .language-button {
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
+
+.hidden-lang {
+    display: none;
+    color: red;
+}
