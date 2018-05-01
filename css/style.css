@@ -8,9 +8,13 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 /* Sticky FOOTER */
 body {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
