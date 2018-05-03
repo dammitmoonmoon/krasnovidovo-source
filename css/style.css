@@ -374,6 +374,7 @@ main figcaption {
   }
   footer {
     font-size: 14px;
+    line-height: 1em;
     margin-top: 20px;
   }
   footer h3 {
