@@ -61,13 +61,16 @@ header > h1 {
 }
 
 .nav > button {
+  height: 40px;
   width: 100%;
   background: rgba(133, 130, 145, 0.3);
   border-radius: 5px;
 }
 
 .nav-visible-link > a {
-  font-size: calc(1em + 0.5vw);
+  font-size: 1.8em;
+  padding: 5px 0;
+  border-bottom: 1px dashed rgba(133, 130, 145, 0.6);
   cursor: pointer;
   display: block;
 }
@@ -81,16 +84,23 @@ header > h1 {
   flex-direction: column;
   width: 100%;
   background: rgba(133, 130, 145, 0.3);
+}
+
+.nav-toggling-link:hover .nav-hidden-links > a {
+  font-size: 1.6em;
   padding: 5px 0px 5px 5px;
-  min-width: 30vw;
-  font-size: calc(1em + 0.2vw);
+  border-bottom: 1px dashed rgba(133, 130, 145, 0.6);
+}
+
+.nav-hidden-links > a:hover {
+  background: #858291;
 }
 
 .hide-me {
   display: none;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .nav {
     padding: 0 10vw;
   }
@@ -101,14 +111,29 @@ header > h1 {
     display: flex;
     justify-content: space-between;
   }
+  .nav-visible-link > a {
+    font-size: 1.5em;
+    padding: 10px 0;
+    border: none;
+  }
   .nav-toggling-link {
     position: relative;
   }
   .nav-hidden-links {
     position: absolute;
     z-index: 1;
-    background: rgba(133, 130, 145, 0.9) !important;
-    font-size: calc(1.2em + 0.2vw);
+    min-width: 30vw;
+  }
+  .nav-hidden-links > a {
+    display: block;
+    padding: 10px 0px 10px 5px !important;
+    background: rgba(133, 130, 145, 0.9);
+    font-size: 1.2em !important;
+    border-bottom: 1px dashed white !important;
+  }
+  .nav-hidden-links > a:hover {
+    background: rgba(66, 64, 71, 0.829);
+    color: white;
   }
 }
 
@@ -186,7 +211,7 @@ header > h1 {
 }
 
 footer {
-  margin-top: 3vh;
+  margin-top: 20px;
   background: rgba(133, 130, 145, 0.3);
 }
 
@@ -197,7 +222,7 @@ footer {
 
 .social i {
   font-size: 1.8em;
-  padding: 1vw;
+  padding: 0 calc(30px + 0.3vw);
   color: royalblue;
 }
 
@@ -210,7 +235,7 @@ footer {
 
 footer > div {
   width: 100vw;
-  margin-bottom: 4vh;
+  margin-bottom: 20px;
   padding: 1vh;
   background: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -224,9 +249,12 @@ footer > div {
   footer > div {
     width: 45vw;
   }
+  .social i {
+    font-size: 2.2em;
+  }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   footer {
     padding-left: 4vw;
     padding-right: 4vw;

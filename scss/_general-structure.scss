@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+
+/*BODY: Three-row grid with sticky footer*/
+body {
+    max-width: 100vw;
+    min-height: 98%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+main {
+    max-width: $max-width;
+    margin: auto;
+}
+
+/*======HEADER: Three types of grid======*/
+//Type 1
+header {
+    max-width: 100%;
+    display: grid;
+    grid-template-areas: 
+        "language"
+        "logo-msu"
+        "logo-faculty"
+        "title"
+        "navigation";
+}
+//Minor tweeks for Type 1
+//Hide Faculty logo
+.grid-logo-faculty-img {
+    display: none;
+}
+//Align logo captions (one line => two lines of space)
+.grid-logo-faculty p {
+    line-height: 2rem;
+}
+//Place language button in the right corner
+.grid-language {
+    justify-self: end;
+}
+//Language button (set minimal size and simple design) + other buttons on the page
+.language-button,.plain-button {
+    line-height:0;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 800;
+    font-family: $montserrat;
+}
+//Resize logos
+.logo {
+    @include logo-size($logo-min);
+}
+
+//Type 2
+@media (min-width: $break1) {
+    header {
+        grid-template-columns: 1fr max(240px)  max(240px) 1fr;
+        grid-template-areas: 
+            ". . . language"
+            ". logo-msu logo-faculty ."
+            "title title title title"
+            "navigation navigation navigation navigation";
+    }
+    //Minor tweeks for Type 2
+    //Show second logo
+    .grid-logo-faculty-img {
+        display: inline-block;
+    }
+    //Spread logos away from the center
+    .grid-logo-faculty {
+        justify-self: right;
+    }
+    .grid-logo-msu {
+        justify-self: left;
+    }
+    //Resize logos
+    .logo {
+        @include logo-size($logo-average);
+    }
+}
+
+//Type 3
+@media (min-width: $break2) {
+    header {
+        grid-template-columns: 1fr 240px minmax(300px,500px) 240px 1fr;
+        grid-template-areas: 
+            ". logo-msu  title logo-faculty ."
+            ". logo-msu language logo-faculty ."
+            ". navigation  navigation navigation .";
+    }
+    //Minor tweeks for Type 3
+    //Center language button
+    .grid-language {
+        justify-self: center;
+    }
+    //Resize logos
+    .logo {
+        @include logo-size($logo-max);
+    }
+}
+
+// GRID AREA TITLES
+.grid-logo-msu {
+    grid-area: logo-msu;
+}
+.grid-logo-faculty {
+    grid-area: logo-faculty;
+}
+.grid-title {
+    grid-area: title;
+}
+.grid-language {
+    grid-area: language;
+}
+.grid-nav {
+    grid-area: navigation;
+}
+
+// /*======== HIDE EXTRA LANGUAGE =======*/
+//Text appears when the class is removed
+.hidden-lang {
+    display: none;
+}
+
+/*======FOOTER: At least four elements in grid======*/
+footer > * {
+    border: 1px solid #000;
+}
+footer {
+    display: grid;
+    grid-template-areas:
+        "contacts"
+        "address"
+        "subscribe"
+        "search"; 
+        // "contacts address subscribe search"
+    grid-row-gap: 10px;
+    justify-items: center;
+}
+
+@media (min-width: $break1) {
+    footer {
+        grid-template-columns: auto repeat(2, minmax(280px, 350px)) auto;
+        grid-template-areas:
+             ". contacts address ."
+             ". search subscribe .";
+        grid-column-gap: 10px;
+    }
+}
+
+@media (min-width: $break2) {
+    footer {
+        grid-template-columns: auto repeat(4, minmax(280px, 350px)) auto;
+        grid-template-areas: 
+            ". contacts address subscribe search .";
+    }
+}
+
+// GRID AREA TITLES
+.contacts {
+    grid-area: contacts;
+}
+.address {
+    grid-area: address;
+}
+.subscribe {
+    grid-area: subscribe;
+}
+.search {
+    grid-area: search;
+}
+//Extra settings to fit different screen sizes
+//Micro-settings: 240px
+main {
+    font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+    figure {
+        width: 98%;
+        margin: auto;
+        img {
+            width: 100%;
+        }
+    }
+}
+footer {
+    font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+    line-height: 1.5em;
+    grid-row-gap: 10px;
+    div {
+        width: 98%;
+    }
+    h3 {
+        text-align: center;
+        font-size: 15px;
+        padding-bottom: 5px;
+    }
+    .contacts a i {
+        display: none;
+    }
+}
+//Extra settings to fit different screen sizes
+//Large screens: >1000px
+@media (min-width: 1024px) {
+    main {
+        min-width: 80%;
+        font-size: 16px;
+        figure {
+            width: 200px;
+        }
+    }
+}
+
+/*========Basic Design========*/
+html {
+    font-family: $open-sans;
+    h1, h2, h3 {
+        font-family: $montserrat;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    line-height: 1.3em;
+    p {
+        padding: 10px;
+    }
+}
+
+footer {
+    > * {
+        padding: 10px;
+    }
+}
+.contacts {
+    > a {
+        display: block;
+    }
+}
+
+main {
+    figcaption {
+        font-style: italic;
+    }
+}
+

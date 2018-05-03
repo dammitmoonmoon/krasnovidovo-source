@@ -1,0 +1,39 @@
+//Horizontal line of links instead of spreadsheet
+@media (min-width: 800px) {
+    .nav {
+        padding: 0 10vw;
+        >button {
+            display: none;
+        }
+    }
+    #nav-links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-visible-link >a {
+        font-size: 1.5em;
+        padding: 10px 0;
+        border: none;
+    }
+
+    .nav-toggling-link {
+        position: relative;
+    }
+    .nav-hidden-links {
+        position: absolute;
+        z-index: 1;
+        min-width: 30vw;
+        > a {
+        display: block;
+        padding: 10px 0px 10px 5px !important;
+        background: rgba(133, 130, 145, 0.9);
+        font-size: 1.2em !important;
+        border-bottom: 1px dashed white !important;
+        }
+        >a:hover {
+            background:  rgba(66, 64, 71, 0.829);
+            color: white;
+        }
+    }
+}

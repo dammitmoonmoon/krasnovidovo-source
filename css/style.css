@@ -1,0 +1,360 @@
+/* LOGO Sizes */
+/*Maximum width of content sections */
+/*Breakpoints */
+/*Element sizes*/
+/*Fonts*/
+/*Colors*/
+/*HEADER*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+/*BODY: Three-row grid with sticky footer*/
+body {
+  max-width: 100vw;
+  min-height: 98%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
+/*======HEADER: Three types of grid======*/
+header {
+  max-width: 100%;
+  display: grid;
+  grid-template-areas: "language" "logo-msu" "logo-faculty" "title" "navigation";
+}
+
+.grid-logo-faculty-img {
+  display: none;
+}
+
+.grid-logo-faculty p {
+  line-height: 2rem;
+}
+
+.grid-language {
+  justify-self: end;
+}
+
+.language-button, .plain-button {
+  line-height: 0;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
+
+@media (min-width: 600px) {
+  header {
+    grid-template-columns: 1fr 240px 240px 1fr;
+    grid-template-areas: ". . . language" ". logo-msu logo-faculty ." "title title title title" "navigation navigation navigation navigation";
+  }
+  .grid-logo-faculty-img {
+    display: inline-block;
+  }
+  .grid-logo-faculty {
+    justify-self: right;
+  }
+  .grid-logo-msu {
+    justify-self: left;
+  }
+  .logo {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    grid-template-columns: 1fr 240px minmax(300px, 500px) 240px 1fr;
+    grid-template-areas: ". logo-msu  title logo-faculty ." ". logo-msu language logo-faculty ." ". navigation  navigation navigation .";
+  }
+  .grid-language {
+    justify-self: center;
+  }
+  .logo {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.grid-logo-msu {
+  grid-area: logo-msu;
+}
+
+.grid-logo-faculty {
+  grid-area: logo-faculty;
+}
+
+.grid-title {
+  grid-area: title;
+}
+
+.grid-language {
+  grid-area: language;
+}
+
+.grid-nav {
+  grid-area: navigation;
+}
+
+.hidden-lang {
+  display: none;
+}
+
+/*======FOOTER: At least four elements in grid======*/
+footer > * {
+  border: 1px solid #000;
+}
+
+footer {
+  display: grid;
+  grid-template-areas: "contacts" "address" "subscribe" "search";
+  grid-row-gap: 10px;
+  justify-items: center;
+}
+
+@media (min-width: 600px) {
+  footer {
+    grid-template-columns: auto repeat(2, minmax(280px, 350px)) auto;
+    grid-template-areas: ". contacts address ." ". search subscribe .";
+    grid-column-gap: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  footer {
+    grid-template-columns: auto repeat(4, minmax(280px, 350px)) auto;
+    grid-template-areas: ". contacts address subscribe search .";
+  }
+}
+
+.contacts {
+  grid-area: contacts;
+}
+
+.address {
+  grid-area: address;
+}
+
+.subscribe {
+  grid-area: subscribe;
+}
+
+.search {
+  grid-area: search;
+}
+
+main {
+  font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+}
+
+main figure {
+  width: 98%;
+  margin: auto;
+}
+
+main figure img {
+  width: 100%;
+}
+
+footer {
+  font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+  line-height: 1.5em;
+  grid-row-gap: 10px;
+}
+
+footer div {
+  width: 98%;
+}
+
+footer h3 {
+  text-align: center;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+footer .contacts a i {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  main {
+    min-width: 80%;
+    font-size: 16px;
+  }
+  main figure {
+    width: 200px;
+  }
+}
+
+/*========Basic Design========*/
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+html h1, html h2, html h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+html a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  line-height: 1.3em;
+}
+
+main p {
+  padding: 10px;
+}
+
+footer > * {
+  padding: 10px;
+}
+
+.contacts > a {
+  display: block;
+}
+
+main figcaption {
+  font-style: italic;
+}
+
+/*======= ESSENTIAL SETTINGS =======*/
+.nav-button {
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 70px;
+  height: 5px;
+  background-color: #062F4F;
+  margin: 6px auto;
+  border-radius: 10px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.bar2 {
+  opacity: 0.7;
+}
+
+.nav-button:hover .bar1, .nav-button:hover .bar3 {
+  -webkit-transform: scaleX(0.8);
+  -ms-transform: scaleX(0.8);
+  transform: scaleX(0.8);
+  opacity: 0.7;
+}
+
+.nav-button:hover .bar2 {
+  -webkit-transform: scaleX(2);
+  -ms-transform: scaleX(2);
+  transform: scaleX(2);
+  opacity: 1;
+}
+
+/* ============= HAMBURGER BUTTON vs NAV BAR
+//Mobile first: nav-baris hidden 
+(note the order => .nav-bar --> .nav-bar-hidden)*/
+.nav-bar {
+  position: absolute;
+  display: block;
+  width: 100%;
+}
+
+.nav-bar-hidden {
+  display: none;
+}
+
+.nav-hidden-links {
+  display: none;
+}
+
+.nav-toggler:hover .nav-hidden-links {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .nav-button {
+    display: none;
+  }
+  .nav-bar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .nav-bar > * {
+    min-width: 200px;
+  }
+  .nav-toggler:hover .nav-hidden-links {
+    position: absolute;
+    min-width: 200px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+  }
+}
+
+.nav-bar {
+  line-height: 1.5em;
+  color: white;
+  background: #062F4F;
+}
+
+.nav-bar div:nth-child(odd) {
+  background: #4e5f6d;
+}
+
+.nav-bar > * {
+  border-bottom: 1px dashed white;
+}
+
+.nav-toggler:hover .nav-hidden-links {
+  color: black;
+  background: white;
+}
+
+.nav-hidden-links a:hover {
+  color: #062F4F;
+}
+
+@media (min-width: 600px) {
+  .nav-bar {
+    color: black;
+    background: #E5ECE9;
+    border: 2px solid #062F4F;
+    border-radius: 5px;
+  }
+  .nav-bar div:nth-child(odd) {
+    background: #E5ECE9;
+  }
+  .nav-bar > * {
+    border-bottom: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,33 @@
+/* LOGO Sizes */
+$logo-min: 60px;
+$logo-average: 80px;
+$logo-max: 100px;
+
+/*Maximum width of content sections */
+$max-width: 800px;
+$min-width: 200px; //links in nav bar
+
+/*Breakpoints */
+$br1: 240px;
+$br2: 320px;
+$br3: 540px;
+$br4: 1080px;
+/*Element sizes*/
+$width1: 220px;
+$width2: 300px;
+$width3: 500px;
+$width4: 950px;
+
+$break1: 600px; //two logos
+$break2: 1024px; //logo-title-logo
+
+/*Fonts*/
+$montserrat: 'Montserrat', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$open-sans: 'Open Sans', sans-serif;
+
+/*Colors*/
+$dark-blue: #062F4F;
+$grey: #39454F;
+$white: #E5ECE9;
+$violet: #813772;

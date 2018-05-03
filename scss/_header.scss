@@ -1,62 +1,113 @@
-header {
-    padding-top: 2vh;
-}
-//resizable logos (TODO: change fill color via scss)
-//logos (two --> one line)
-.logos {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    >a {
-        margin:auto;
-        min-width: 320px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    >a img {
-        height: calc(10px + 5vw);
-        padding: 0 calc(10px + 2vw);
-    }
-}
-//resizable title
-header > h1 {
-    font-size: calc(1.5em + 2vw);
-    padding: 3vh 0;
-    text-align: center;
-}
-//navigation menu
-.nav {
-    >button {
-        width: 100%;
-        background:  rgba(133, 130, 145, 0.3);
-        border-radius: 5px;
-    }
-}
-//styling of visible links
-.nav-visible-link >a {
-    font-size: calc(1em + 0.5vw);
+/*======= ESSENTIAL SETTINGS =======*/
+
+// ============= HAMBURGER BUTTON =============
+.nav-button {
     cursor: pointer;
+}
+// Design
+.bar1, .bar2, .bar3 {
+    width: 70px;
+    height: 5px;
+    background-color: $dark-blue;
+    margin: 6px auto;
+    border-radius: 10px;
+    @include transition(0.5s);
+}
+.bar2 {
+    opacity: 0.7;
+}
+// Interactivity
+.nav-button:hover {
+    .bar1, .bar3 {
+        @include scaleX(0.8);
+        opacity: 0.7;
+    }
+    .bar2 {
+        @include scaleX(2);
+        opacity: 1;
+    }
+}
+
+/* ============= HAMBURGER BUTTON vs NAV BAR
+//Mobile first: nav-baris hidden 
+(note the order => .nav-bar --> .nav-bar-hidden)*/
+.nav-bar {
+    position: absolute;
     display: block;
+    width: 100%; 
 }
-
-//hidden links emerge from here (+styling for the dropout)
-.nav-toggling-link {
-    &:hover >a {
-        text-decoration: underline;
-    }
-    &:hover .nav-hidden-links {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(133, 130, 145, 0.3);
-        padding: 5px 0px 5px 5px;
-        min-width: 30vw;
-        font-size: calc(1em + 0.2vw);
-    }
-}
-
-//invisibility cloak
-.hide-me {
+.nav-bar-hidden {
     display: none;
 }
+//Additional links are hidden until hover
+.nav-hidden-links {
+    display: none;
+}
+.nav-toggler:hover .nav-hidden-links{
+    display: block;
+    display: flex;
+    flex-direction: column;
+}
+
+//Breakpoint: Switch from button to nav bar
+//Additional links must be displayed differently
+@media (min-width: $break1) {
+    .nav-button {
+        display: none;
+    }
+    .nav-bar {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        //provides enough space for each link in nav bar
+        > * {
+            min-width: $min-width; 
+        }
+    }
+    .nav-toggler:hover .nav-hidden-links {
+        position: absolute;
+        min-width: $min-width;
+        display: flex;
+        justify-content: space-around;
+        color: white;
+    }
+}
+
+//======= Design: nav bar (mobile)
+.nav-bar {
+    line-height: 1.5em;
+    color: white;
+    background: $dark-blue;
+    div:nth-child(odd) {
+        background: lighten($grey, 10%);
+    }
+    > * {
+        border-bottom: 1px dashed white;
+    }    
+}
+
+.nav-toggler:hover .nav-hidden-links{
+    color: black;
+    background: lighten($grey, 80%);
+}
+.nav-hidden-links a:hover {
+        color: $dark-blue;
+}
+
+//======= Design: nav bar (laptop)
+@media (min-width: $break1) {
+    .nav-bar {
+        color: black;
+        background: $white;
+        div:nth-child(odd) {
+            background: $white;
+        }
+        border: 2px solid $dark-blue;
+        border-radius: 5px;
+        > * {
+            border-bottom: none;
+        }
+    }
+}
+
