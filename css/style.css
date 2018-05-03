@@ -137,7 +137,7 @@ footer {
 @media (min-width: 1024px) {
   footer {
     grid-template-columns: repeat(3, minmax(280px, 350px));
-    grid-template-areas: "contacts address subscribe" ". search .";
+    grid-template-areas: "contacts address subscribe" "search . . ";
   }
   footer > * {
     height: 120px;
@@ -188,6 +188,7 @@ main figure {
 
 main figure img {
   width: 100%;
+  max-width: 500px;
 }
 
 footer {
@@ -218,32 +219,93 @@ footer form {
 }
 
 @media (min-width: 600px) {
+  main {
+    padding: 5px 30px;
+  }
   main figure {
-    display: inline-block;
-    margin: auto;
+    margin-top: 10px;
+    width: fit-content;
   }
   main figure img {
-    max-width: 250px;
+    display: block;
+    margin: auto;
+  }
+  main figure figcaption {
+    font-size: 16px;
+  }
+  main .img-left {
+    display: block;
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+  }
+  main .img-left img {
+    width: 300px;
+  }
+  main .img-right {
+    display: block;
+    width: 300px;
+    float: right;
+    margin-left: 10px;
+  }
+  main .img-right img {
+    width: 300px;
+  }
+  main .img-pair-left {
+    width: 50%;
+  }
+  main .img-pair-left img {
+    max-width: 90%;
+  }
+  main .img-pair-right {
+    width: 50%;
+  }
+  main .img-pair-right img {
+    max-width: 90%;
+  }
+  main .img-pair-right figcaption {
+    text-align: right;
+  }
+  main .img-pair {
+    display: flex;
+    flex-direction: row;
+  }
+  main .img-multiple {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  main .img-multiple img {
+    width: 48%;
+    margin: 1%;
+  }
+  main .img-minify {
+    width: 100%;
+  }
+  main .img-minify img {
+    display: inline;
+  }
+  main .img-minify img {
+    width: 30%;
+    margin: 1%;
+  }
+  main .img-faces {
+    max-width: 70%;
+    margin: auto;
+  }
+  main .img-enlarge-on-hover img:hover {
+    z-index: 1;
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    transition: transform 0.5s ease-in-out;
   }
 }
 
 @media (min-width: 1024px) {
   main {
+    padding: 5px 0;
     font-size: 16px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  main figure {
-    width: 220px;
-    display: inline-block;
-  }
-  figure img:hover {
-    z-index: 1;
-    transform: scale(3);
-    transition: transform 1s ease-in-out;
-  }
-  footer {
-    font-size: 15px;
   }
 }
 
@@ -311,7 +373,8 @@ main figcaption {
     padding-right: 100px;
   }
   footer {
-    font-size: 16px;
+    font-size: 14px;
+    margin-top: 20px;
   }
   footer h3 {
     font-size: 20px;
