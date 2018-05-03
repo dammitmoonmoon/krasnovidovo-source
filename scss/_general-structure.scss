@@ -204,14 +204,22 @@ footer {
 }
 //Extra settings to fit different screen sizes
 //Large screens: >1000px
-@media (min-width: 1024px) {
+@media (min-width: $break2) {
     main {
         min-width: 80%;
         font-size: 16px;
+        display: flex;
+        flex-wrap: wrap;     
         figure {
-            width: 200px;
+            width: 220px;
+            display: inline-block;
         }
     }
+    figure img:hover {
+        z-index: 1;
+        transform: scale(3);
+        transition: transform 1s ease-in-out;
+    } 
 }
 
 /*========Basic Design========*/
