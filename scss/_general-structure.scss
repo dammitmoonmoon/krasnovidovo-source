@@ -87,11 +87,11 @@ header {
 //Type 3
 @media (min-width: $break2) {
     header {
-        grid-template-columns: 1fr 240px minmax(300px,500px) 240px 1fr;
+        grid-template-columns: 1fr 240px minmax(300px,600px) 240px 1fr;
         grid-template-areas: 
             ". logo-msu  title logo-faculty ."
             ". logo-msu language logo-faculty ."
-            ". navigation  navigation navigation .";
+            "navigation navigation  navigation navigation navigation";
     }
     //Minor tweeks for Type 3
     //Center language button
@@ -128,36 +128,38 @@ header {
 }
 
 /*======FOOTER: At least four elements in grid======*/
-footer > * {
-    border: 1px solid #000;
-}
 footer {
+    justify-self: center;
+    justify-items: center;
+    align-items: start;
     display: grid;
     grid-template-areas:
         "contacts"
         "address"
         "subscribe"
         "search"; 
-        // "contacts address subscribe search"
-    grid-row-gap: 10px;
-    justify-items: center;
+    max-width: $max-width;
 }
 
 @media (min-width: $break1) {
     footer {
-        grid-template-columns: auto repeat(2, minmax(280px, 350px)) auto;
+        grid-template-columns: repeat(2, minmax(280px, 350px));
         grid-template-areas:
-             ". contacts address ."
-             ". search subscribe .";
-        grid-column-gap: 10px;
+             "contacts address"
+             "search subscribe";
+        grid-column-gap: 5px;
     }
 }
 
 @media (min-width: $break2) {
     footer {
-        grid-template-columns: auto repeat(4, minmax(280px, 350px)) auto;
+        grid-template-columns: repeat(3, minmax(280px, 350px));
         grid-template-areas: 
-            ". contacts address subscribe search .";
+            "contacts address subscribe"
+            ". search .";
+        > * {
+            height: 120px;
+        }
     }
 }
 
@@ -176,7 +178,23 @@ footer {
 }
 //Extra settings to fit different screen sizes
 //Micro-settings: 240px
+header {
+    h1 {
+        font-size: 20px;
+        color: lighten($dark-blue, 10%);
+    }
+    .grid-nav {
+        margin-top: 10px;
+    }
+}
 main {
+    border-bottom: 1px dashed $dark-blue;
+    h1 {
+        padding-top: 20px;
+        font-size: 18px;
+        text-align: center;
+        color: lighten($dark-blue, 10%);
+    }
     font-size: calc(14px + 6 * ((100vw - 320px) / 680));
     figure {
         width: 98%;
@@ -187,26 +205,43 @@ main {
     }
 }
 footer {
-    font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+    font-size: 12px;
     line-height: 1.5em;
     grid-row-gap: 10px;
     div {
-        width: 98%;
+        min-width: 220px;
+        margin: auto;
     }
     h3 {
         text-align: center;
         font-size: 15px;
+        font-weight: 400;
         padding-bottom: 5px;
+        color: $dark-blue;
     }
     .contacts a i {
         display: none;
     }
+    
+    form {
+            text-align: center;
+    }
 }
-//Extra settings to fit different screen sizes
+//Medium screens
+@media (min-width: $break1) {
+    main {
+        figure {
+            display: inline-block;
+            margin: auto;
+            img {
+                max-width: 250px;
+            }
+        }
+    }
+}
 //Large screens: >1000px
 @media (min-width: $break2) {
     main {
-        min-width: 80%;
         font-size: 16px;
         display: flex;
         flex-wrap: wrap;     
@@ -220,6 +255,9 @@ footer {
         transform: scale(3);
         transition: transform 1s ease-in-out;
     } 
+    footer {
+        font-size: 15px;
+    }
 }
 
 /*========Basic Design========*/
@@ -262,3 +300,71 @@ main {
     }
 }
 
+//Media queriesfor font sizes
+//Footer 12px text, 15px h3
+@media (min-width: 320px) {
+    footer {
+        font-size: 15px;
+        h3 {
+            font-size: 18px; 
+        }
+    }
+}
+
+@media (min-width: $break1) {
+    header {
+        margin-top: 10px;
+        h1 {
+            margin: 20px 0;
+            font-size: 22px;
+            line-height: 1.5em;
+            font-weight: bold;
+        }
+    }
+    .nav-bar {
+        font-size: 20px;
+        font-variant:small-caps;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    footer {
+        font-size: 16px;
+        h3 {
+            font-size: 20px; 
+        }
+    }   
+}
+
+@media (min-width: $break2) {
+    header {
+        margin-top: 30px;
+        h1 {
+            font-size: 30px;
+            margin: 50px 0;
+        }
+    }
+    .nav-bar {
+        max-width: 1200px;
+        margin: auto;
+    }
+    main {
+        h1 {
+            padding-top: 50px;
+            margin: auto;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    } 
+}
+
+@media (min-width: 560px) {
+    
+}
+
+@media (min-width: 720px) {
+    
+}
+
+@media (min-width: 1024px) {
+    
+}

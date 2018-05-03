@@ -50,5 +50,5 @@ for (let i = 0; i < images.length; i++) {
             console.log(smallerImg.src);
             container.replaceChild(largerImg, smallerImg);
         }
-    });    
+    });
 }

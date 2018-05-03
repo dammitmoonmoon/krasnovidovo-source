@@ -32,9 +32,13 @@
 //Mobile first: nav-baris hidden 
 (note the order => .nav-bar --> .nav-bar-hidden)*/
 .nav-bar {
+    margin-top: 10px;
     position: absolute;
     display: block;
     width: 100%; 
+    > * {
+        padding: 7px 0; 
+    }
 }
 .nav-bar-hidden {
     display: none;
@@ -47,6 +51,9 @@
     display: block;
     display: flex;
     flex-direction: column;
+    > * {
+        padding: 5px 0; 
+    }
 }
 
 //Breakpoint: Switch from button to nav bar
@@ -56,13 +63,14 @@
         display: none;
     }
     .nav-bar {
+        margin-top: 0;
         position: relative;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         //provides enough space for each link in nav bar
         > * {
-            min-width: $min-width; 
+            padding: 3px 10px; 
         }
     }
     .nav-toggler:hover .nav-hidden-links {

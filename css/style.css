@@ -22,7 +22,7 @@ body {
 }
 
 main {
-  max-width: 800px;
+  max-width: 950px;
   margin: auto;
 }
 
@@ -80,8 +80,8 @@ header {
 
 @media (min-width: 1024px) {
   header {
-    grid-template-columns: 1fr 240px minmax(300px, 500px) 240px 1fr;
-    grid-template-areas: ". logo-msu  title logo-faculty ." ". logo-msu language logo-faculty ." ". navigation  navigation navigation .";
+    grid-template-columns: 1fr 240px minmax(300px, 600px) 240px 1fr;
+    grid-template-areas: ". logo-msu  title logo-faculty ." ". logo-msu language logo-faculty ." "navigation navigation  navigation navigation navigation";
   }
   .grid-language {
     justify-self: center;
@@ -117,29 +117,30 @@ header {
 }
 
 /*======FOOTER: At least four elements in grid======*/
-footer > * {
-  border: 1px solid #000;
-}
-
 footer {
+  justify-self: center;
+  justify-items: center;
+  align-items: start;
   display: grid;
   grid-template-areas: "contacts" "address" "subscribe" "search";
-  grid-row-gap: 10px;
-  justify-items: center;
+  max-width: 950px;
 }
 
 @media (min-width: 600px) {
   footer {
-    grid-template-columns: auto repeat(2, minmax(280px, 350px)) auto;
-    grid-template-areas: ". contacts address ." ". search subscribe .";
-    grid-column-gap: 10px;
+    grid-template-columns: repeat(2, minmax(280px, 350px));
+    grid-template-areas: "contacts address" "search subscribe";
+    grid-column-gap: 5px;
   }
 }
 
 @media (min-width: 1024px) {
   footer {
-    grid-template-columns: auto repeat(4, minmax(280px, 350px)) auto;
-    grid-template-areas: ". contacts address subscribe search .";
+    grid-template-columns: repeat(3, minmax(280px, 350px));
+    grid-template-areas: "contacts address subscribe" ". search .";
+  }
+  footer > * {
+    height: 120px;
   }
 }
 
@@ -159,8 +160,25 @@ footer {
   grid-area: search;
 }
 
+header h1 {
+  font-size: 20px;
+  color: #0a4b7e;
+}
+
+header .grid-nav {
+  margin-top: 10px;
+}
+
 main {
+  border-bottom: 1px dashed #062F4F;
   font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+}
+
+main h1 {
+  padding-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  color: #0a4b7e;
 }
 
 main figure {
@@ -173,28 +191,44 @@ main figure img {
 }
 
 footer {
-  font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+  font-size: 12px;
   line-height: 1.5em;
   grid-row-gap: 10px;
 }
 
 footer div {
-  width: 98%;
+  min-width: 220px;
+  margin: auto;
 }
 
 footer h3 {
   text-align: center;
   font-size: 15px;
+  font-weight: 400;
   padding-bottom: 5px;
+  color: #062F4F;
 }
 
 footer .contacts a i {
   display: none;
 }
 
+footer form {
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  main figure {
+    display: inline-block;
+    margin: auto;
+  }
+  main figure img {
+    max-width: 250px;
+  }
+}
+
 @media (min-width: 1024px) {
   main {
-    min-width: 80%;
     font-size: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -207,6 +241,9 @@ footer .contacts a i {
     z-index: 1;
     transform: scale(3);
     transition: transform 1s ease-in-out;
+  }
+  footer {
+    font-size: 15px;
   }
 }
 
@@ -248,6 +285,59 @@ main figcaption {
   font-style: italic;
 }
 
+@media (min-width: 320px) {
+  footer {
+    font-size: 15px;
+  }
+  footer h3 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 600px) {
+  header {
+    margin-top: 10px;
+  }
+  header h1 {
+    margin: 20px 0;
+    font-size: 22px;
+    line-height: 1.5em;
+    font-weight: bold;
+  }
+  .nav-bar {
+    font-size: 20px;
+    font-variant: small-caps;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  footer {
+    font-size: 16px;
+  }
+  footer h3 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    margin-top: 30px;
+  }
+  header h1 {
+    font-size: 30px;
+    margin: 50px 0;
+  }
+  .nav-bar {
+    max-width: 1200px;
+    margin: auto;
+  }
+  main h1 {
+    padding-top: 50px;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
 /*======= ESSENTIAL SETTINGS =======*/
 .nav-button {
   cursor: pointer;
@@ -287,9 +377,14 @@ main figcaption {
 //Mobile first: nav-baris hidden 
 (note the order => .nav-bar --> .nav-bar-hidden)*/
 .nav-bar {
+  margin-top: 10px;
   position: absolute;
   display: block;
   width: 100%;
+}
+
+.nav-bar > * {
+  padding: 7px 0;
 }
 
 .nav-bar-hidden {
@@ -306,18 +401,23 @@ main figcaption {
   flex-direction: column;
 }
 
+.nav-toggler:hover .nav-hidden-links > * {
+  padding: 5px 0;
+}
+
 @media (min-width: 600px) {
   .nav-button {
     display: none;
   }
   .nav-bar {
+    margin-top: 0;
     position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
   .nav-bar > * {
-    min-width: 200px;
+    padding: 3px 10px;
   }
   .nav-toggler:hover .nav-hidden-links {
     position: absolute;
