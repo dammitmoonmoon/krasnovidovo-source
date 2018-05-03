@@ -43,8 +43,8 @@ header {
 .grid-language {
     justify-self: end;
 }
-//Language button (set minimal size and simple design)
-.language-button {
+//Language button (set minimal size and simple design) + other buttons on the page
+.language-button,.plain-button {
     line-height:0;
     border-radius: 5px;
     padding: 10px;
@@ -127,6 +127,93 @@ header {
     display: none;
 }
 
+/*======FOOTER: At least four elements in grid======*/
+footer > * {
+    border: 1px solid #000;
+}
+footer {
+    display: grid;
+    grid-template-areas:
+        "contacts"
+        "address"
+        "subscribe"
+        "search"; 
+        // "contacts address subscribe search"
+    grid-row-gap: 10px;
+    justify-items: center;
+}
+
+@media (min-width: $break1) {
+    footer {
+        grid-template-columns: auto repeat(2, minmax(280px, 350px)) auto;
+        grid-template-areas:
+             ". contacts address ."
+             ". search subscribe .";
+        grid-column-gap: 10px;
+    }
+}
+
+@media (min-width: $break2) {
+    footer {
+        grid-template-columns: auto repeat(4, minmax(280px, 350px)) auto;
+        grid-template-areas: 
+            ". contacts address subscribe search .";
+    }
+}
+
+// GRID AREA TITLES
+.contacts {
+    grid-area: contacts;
+}
+.address {
+    grid-area: address;
+}
+.subscribe {
+    grid-area: subscribe;
+}
+.search {
+    grid-area: search;
+}
+//Extra settings to fit different screen sizes
+//Micro-settings: 240px
+main {
+    font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+    figure {
+        width: 98%;
+        margin: auto;
+        img {
+            width: 100%;
+        }
+    }
+}
+footer {
+    font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+    line-height: 1.5em;
+    grid-row-gap: 10px;
+    div {
+        width: 98%;
+    }
+    h3 {
+        text-align: center;
+        font-size: 15px;
+        padding-bottom: 5px;
+    }
+    .contacts a i {
+        display: none;
+    }
+}
+//Extra settings to fit different screen sizes
+//Large screens: >1000px
+@media (min-width: 1024px) {
+    main {
+        min-width: 80%;
+        font-size: 16px;
+        figure {
+            width: 200px;
+        }
+    }
+}
+
 /*========Basic Design========*/
 html {
     font-family: $open-sans;
@@ -147,6 +234,23 @@ main {
     line-height: 1.3em;
     p {
         padding: 10px;
+    }
+}
+
+footer {
+    > * {
+        padding: 10px;
+    }
+}
+.contacts {
+    > a {
+        display: block;
+    }
+}
+
+main {
+    figcaption {
+        font-style: italic;
     }
 }
 

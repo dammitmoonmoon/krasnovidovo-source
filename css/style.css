@@ -1,6 +1,7 @@
 /* LOGO Sizes */
 /*Maximum width of content sections */
 /*Breakpoints */
+/*Element sizes*/
 /*Fonts*/
 /*Colors*/
 /*HEADER*/
@@ -44,7 +45,7 @@ header {
   justify-self: end;
 }
 
-.language-button {
+.language-button, .plain-button {
   line-height: 0;
   border-radius: 5px;
   padding: 10px;
@@ -57,7 +58,7 @@ header {
   width: 60px;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 600px) {
   header {
     grid-template-columns: 1fr 240px 240px 1fr;
     grid-template-areas: ". . . language" ". logo-msu logo-faculty ." "title title title title" "navigation navigation navigation navigation";
@@ -115,6 +116,92 @@ header {
   display: none;
 }
 
+/*======FOOTER: At least four elements in grid======*/
+footer > * {
+  border: 1px solid #000;
+}
+
+footer {
+  display: grid;
+  grid-template-areas: "contacts" "address" "subscribe" "search";
+  grid-row-gap: 10px;
+  justify-items: center;
+}
+
+@media (min-width: 600px) {
+  footer {
+    grid-template-columns: auto repeat(2, minmax(280px, 350px)) auto;
+    grid-template-areas: ". contacts address ." ". search subscribe .";
+    grid-column-gap: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  footer {
+    grid-template-columns: auto repeat(4, minmax(280px, 350px)) auto;
+    grid-template-areas: ". contacts address subscribe search .";
+  }
+}
+
+.contacts {
+  grid-area: contacts;
+}
+
+.address {
+  grid-area: address;
+}
+
+.subscribe {
+  grid-area: subscribe;
+}
+
+.search {
+  grid-area: search;
+}
+
+main {
+  font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+}
+
+main figure {
+  width: 98%;
+  margin: auto;
+}
+
+main figure img {
+  width: 100%;
+}
+
+footer {
+  font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+  line-height: 1.5em;
+  grid-row-gap: 10px;
+}
+
+footer div {
+  width: 98%;
+}
+
+footer h3 {
+  text-align: center;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+footer .contacts a i {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  main {
+    min-width: 80%;
+    font-size: 16px;
+  }
+  main figure {
+    width: 200px;
+  }
+}
+
 /*========Basic Design========*/
 html {
   font-family: "Open Sans", sans-serif;
@@ -139,6 +226,18 @@ main {
 
 main p {
   padding: 10px;
+}
+
+footer > * {
+  padding: 10px;
+}
+
+.contacts > a {
+  display: block;
+}
+
+main figcaption {
+  font-style: italic;
 }
 
 /*======= ESSENTIAL SETTINGS =======*/
@@ -199,7 +298,7 @@ main p {
   flex-direction: column;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 600px) {
   .nav-button {
     display: none;
   }
@@ -244,7 +343,7 @@ main p {
   color: #062F4F;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 600px) {
   .nav-bar {
     color: black;
     background: #E5ECE9;
