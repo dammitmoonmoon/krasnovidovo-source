@@ -201,7 +201,6 @@ main {
         margin: auto;
         img {
             width: 100%;
-            max-width: 500px;
         }
     }
 }
@@ -232,87 +231,6 @@ footer {
 @media (min-width: $break1) {
     main {
         padding: 5px 30px;
-        figure {
-            margin-top: 10px;
-            width: fit-content;
-            img {                
-                display: block;
-                margin: auto;
-            }
-            figcaption {
-                font-size: 16px;
-            }
-        }
-        .img-left {
-            display: block;
-            width: 300px;
-            float: left;
-            margin-right: 20px;
-            img {
-                width: 300px;
-            }
-        }
-        .img-right {
-            display: block;
-            width: 300px;
-            float: right;
-            margin-left: 10px;
-            img {
-                width: 300px;
-            }
-        }
-        .img-pair-left {
-            img {
-                max-width: 90%;
-            }
-            width: 50%;            
-        }
-        .img-pair-right {
-            img {
-                max-width: 90%;
-            }
-            width: 50%;
-            figcaption {
-                text-align: right;
-            }
-        }
-        .img-pair {
-            display: flex;
-            flex-direction: row;
-        }
-        .img-multiple {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            img {
-                width: 48%;
-                margin: 1%;
-            }
-        }
-        .img-minify {
-            width: 100%;
-            img {
-                display: inline;
-            }
-            img {
-                width: 30%;
-                margin: 1%;
-            }
-        }
-        .img-faces {
-            max-width: 70%;
-            margin: auto;
-        }
-        .img-enlarge-on-hover {
-            img:hover {
-                z-index: 1;
-                -webkit-transform: scale(2);
-                -ms-transform: scale(2);
-                transform: scale(2);
-                transition: transform 0.5s ease-in-out;
-            }
-        }
-        
     }
 }
 //Large screens: >1000px
@@ -420,16 +338,4 @@ main {
             font-weight: 600;
         }
     } 
-}
-
-@media (min-width: 560px) {
-    
-}
-
-@media (min-width: 720px) {
-    
-}
-
-@media (min-width: 1024px) {
-    
 }

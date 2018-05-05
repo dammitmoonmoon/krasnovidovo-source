@@ -1,0 +1,94 @@
+@import "constants";
+@import "mixins";
+@import "general-structure";
+@import "header";
+
+figcaption {
+    text-align: center;
+}
+
+@media (min-width: $break1) {
+    main {
+        figure {
+            margin-top: 10px;
+            width: fit-content;
+            img {                
+                display: block;
+                margin: auto;
+            }
+            figcaption {
+                font-size: 16px;
+            }
+        }
+        //Individual images (float left/right)
+        .img-left {
+            display: block;
+            width: 300px;
+            float: left;
+            margin-right: 20px;
+            img {
+                width: 300px;
+            }
+        }
+        .img-right {
+            display: block;
+            width: 300px;
+            float: right;
+            margin-left: 10px;
+            img {
+                width: 300px;
+            }
+        }
+        //Pairs of images (1 : 1)
+        .img-pair-wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .img-pair {
+            img {
+                max-width: 90%;
+            }
+            width: 50%;            
+        }
+
+        .img-shared-caption {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+         //Three images under one caption
+         .img-triplet {
+            img {
+                width: 31%;
+                margin: 1%;
+            }
+        }
+
+        //Two images under one caption
+        .img-tweens {
+            img {
+                width: 48%;
+                margin: 1%;
+            }
+        }
+        
+        .img-limit-width {
+            max-width: 70%;
+            margin: auto;
+        }
+
+        .img-enlarge-on-hover {
+            img:hover {
+                z-index: 1;
+                -webkit-transform: scale(2);
+                -ms-transform: scale(2);
+                transform: scale(2);
+                transition: transform 0.5s ease-in-out;
+            }
+        }
+        
+    }
+}
