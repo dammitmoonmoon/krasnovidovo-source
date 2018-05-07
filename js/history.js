@@ -1,5 +1,5 @@
 //Download larger images on hover
-let images = document.querySelectorAll('figure > img');
+let images = document.querySelectorAll('.img-enlarge-on-hover > img');
 for (let i = 0; i < images.length; i++) {
     images[i].addEventListener('mouseover', (event) => {
         if (window.innerWidth > 1000 && ! (/(1000px)/).test(event.target.src)) {
