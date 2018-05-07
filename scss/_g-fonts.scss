@@ -1,0 +1,75 @@
+/*===== Fonts and text styles =====*/
+html {
+    font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+    font-family: $open-sans;
+}
+//html
+h1, h2, h3 {
+    font-family: $montserrat;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5em;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    font-weight: 800;
+    font-family: $montserrat;
+    line-height: 0;
+}
+
+//header
+.nav-bar {
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+
+//main
+main p {
+    padding: 10px;
+    line-height: 1.3em;
+}
+
+@media (min-width: $break1) {
+    html {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .nav-bar {
+        font-size: 20px;
+        font-variant:small-caps;
+    }
+}
+
+@media (min-width: $break2) {
+    //header
+    h1 {
+        font-size: 30px;
+    }
+    .nav-bar {
+        font-size: 22px;
+    }
+}
+

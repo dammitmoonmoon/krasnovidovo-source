@@ -1,0 +1,151 @@
+/*=====BASIC LAYOUT: Three-row grid, sticky footer*/
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/*====== ELEMENT VISIBILITY =====*/
+//Hide language: Russian is hidden by default
+.hidden-lang {
+    display: none;
+}
+
+//Hide faculty logo (only one logo on small screens)
+.grid-logo-faculty-img {
+    display: none;
+}
+
+//Hide nav bar (on small screens)
+.nav-bar {
+    position: absolute;
+    display: block;
+}
+
+.nav-bar-hidden {
+    display: none;
+}
+//Additional links are hidden until hover
+.nav-hidden-links {
+    display: none;
+}
+
+@media (min-width: $break1) {
+    .grid-logo-faculty-img {
+        display: inline-block;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .nav-bar {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .nav-toggler:hover .nav-hidden-links {
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+
+/*===== GRID LAYOUTS: HEADER AND FOOTER =====*/
+//Type 1, small screens
+header {
+    max-width: 100%;
+    display: grid;
+    grid-template-areas: 
+        "language"
+        "logo-msu"
+        "logo-faculty"
+        "title"
+        "navigation";
+}
+
+footer {
+    display: grid;
+    grid-template-areas:
+        "contacts"
+        "address"
+        "subscribe"
+        "search"; 
+    max-width: $max-width;
+    justify-items: center;
+    align-items: start;
+
+    justify-self: center; //footer as an item of BODY grids
+}
+
+//Type 2, medium screens
+@media (min-width: $break1) {
+    header {
+        grid-template-columns: 1fr max(240px)  max(240px) 1fr;
+        grid-template-areas: 
+            ". . . language"
+            ". logo-msu logo-faculty ."
+            "title title title title"
+            "navigation navigation navigation navigation";
+    }
+
+    footer {
+        grid-template-columns: repeat(2, minmax(280px, 350px));
+        grid-template-areas:
+             "contacts address"
+             "search subscribe";
+        grid-column-gap: 5px;
+    }
+}
+
+//Type 3, large screens
+@media (min-width: $break2) {
+    header {
+        grid-template-columns: 1fr 240px minmax(300px,600px) 240px 1fr;
+        grid-template-areas: 
+            ". logo-msu  title logo-faculty ."
+            ". logo-msu language logo-faculty ."
+            "navigation navigation  navigation navigation navigation";
+    }
+
+    footer {
+        grid-template-columns: repeat(3, minmax(280px, 350px));
+        grid-template-areas: 
+            "contacts address subscribe"
+            "search . . ";
+    }
+}
+
+//===== GRID AREA TITLES =====
+//Header
+.grid-logo-msu {
+    grid-area: logo-msu;
+}
+.grid-logo-faculty {
+    grid-area: logo-faculty;
+}
+.grid-title {
+    grid-area: title;
+}
+.grid-language {
+    grid-area: language;
+}
+.grid-nav {
+    grid-area: navigation;
+}
+
+//Footer
+.contacts {
+    grid-area: contacts;
+}
+.address {
+    grid-area: address;
+}
+.subscribe {
+    grid-area: subscribe;
+}
+.search {
+    grid-area: search;
+}
