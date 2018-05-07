@@ -37,19 +37,6 @@ body {
     .nav-button {
         display: none;
     }
-
-    .nav-bar {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    
-    .nav-toggler:hover .nav-hidden-links {
-        position: absolute;
-        display: flex;
-        justify-content: space-around;
-    }
 }
 
 
@@ -65,19 +52,19 @@ header {
         "navigation";
 }
 
-footer {
-    display: grid;
-    grid-template-areas:
-        "contacts"
-        "address"
-        "subscribe"
-        "search"; 
-    max-width: $max-width;
-    justify-items: center;
-    align-items: start;
+// footer {
+//     display: grid;
+//     grid-template-areas:
+//         "contacts"
+//         "address"
+//         "subscribe"
+//         "search"; 
+//     max-width: $max-width;
+//     justify-items: center;
+//     align-items: start;
 
-    justify-self: center; //footer as an item of BODY grids
-}
+//     justify-self: center; //footer as an item of BODY grids
+// }
 
 //Type 2, medium screens
 @media (min-width: $break1) {
@@ -90,13 +77,13 @@ footer {
             "navigation navigation navigation navigation";
     }
 
-    footer {
-        grid-template-columns: repeat(2, minmax(280px, 350px));
-        grid-template-areas:
-             "contacts address"
-             "search subscribe";
-        grid-column-gap: 5px;
-    }
+    // footer {
+    //     grid-template-columns: repeat(2, minmax(280px, 350px));
+    //     grid-template-areas:
+    //          "contacts address"
+    //          "search subscribe";
+    //     grid-column-gap: 5px;
+    // }
 }
 
 //Type 3, large screens
@@ -110,12 +97,12 @@ footer {
             "navigation navigation  navigation navigation navigation";
     }
 
-    footer {
-        grid-template-columns: repeat(3, minmax(280px, 350px));
-        grid-template-areas: 
-            "contacts address subscribe"
-            "search . . ";
-    }
+    // footer {
+    //     grid-template-columns: repeat(3, minmax(280px, 350px));
+    //     grid-template-areas: 
+    //         "contacts address subscribe"
+    //         "search . . ";
+    // }
 }
 
 //===== GRID AREA TITLES =====
@@ -137,15 +124,15 @@ footer {
 }
 
 //Footer
-.contacts {
-    grid-area: contacts;
-}
-.address {
-    grid-area: address;
-}
-.subscribe {
-    grid-area: subscribe;
-}
-.search {
-    grid-area: search;
-}
+// .contacts {
+//     grid-area: contacts;
+// }
+// .address {
+//     grid-area: address;
+// }
+// .subscribe {
+//     grid-area: subscribe;
+// }
+// .search {
+//     grid-area: search;
+// }

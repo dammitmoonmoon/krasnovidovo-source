@@ -1,0 +1,55 @@
+footer {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 13px;
+    color: $white;
+    background: $dark-blue;
+    border-radius: 5px;
+    h3 {
+        padding-bottom: 5px;
+        color: white;
+    }
+    #email, #search {
+        max-width: 200px;
+        padding: 0px;
+        margin:5px 0;
+    }
+    > * {
+        padding: 10px 5px;
+        margin: 5px 0;
+        border-top: 1px dashed white;
+        border-bottom: 1px dashed white;
+    }
+}
+.contacts {
+    a {
+        display: block;
+    }
+    i {
+        display: none;
+    }
+    > a {
+        line-height: 1.2em;
+    }
+    > a:first-of-type {
+        text-align: center;
+    }
+}
+
+.address {
+    text-align: center;
+}
+
+@media (min-width: $break1) {
+    .subscribe {
+        order: 2;
+    }
+}
+
+@media (min-width: $break2) {
+    .search {
+        order: -1;
+    }
+}
