@@ -39,7 +39,6 @@ body {
     }
 }
 
-
 /*===== GRID LAYOUTS: HEADER AND FOOTER =====*/
 //Type 1, small screens
 header {
@@ -52,20 +51,6 @@ header {
         "navigation";
 }
 
-// footer {
-//     display: grid;
-//     grid-template-areas:
-//         "contacts"
-//         "address"
-//         "subscribe"
-//         "search"; 
-//     max-width: $max-width;
-//     justify-items: center;
-//     align-items: start;
-
-//     justify-self: center; //footer as an item of BODY grids
-// }
-
 //Type 2, medium screens
 @media (min-width: $break1) {
     header {
@@ -76,14 +61,6 @@ header {
             "title title title title"
             "navigation navigation navigation navigation";
     }
-
-    // footer {
-    //     grid-template-columns: repeat(2, minmax(280px, 350px));
-    //     grid-template-areas:
-    //          "contacts address"
-    //          "search subscribe";
-    //     grid-column-gap: 5px;
-    // }
 }
 
 //Type 3, large screens
@@ -96,13 +73,6 @@ header {
             ". logo-msu language logo-faculty ."
             "navigation navigation  navigation navigation navigation";
     }
-
-    // footer {
-    //     grid-template-columns: repeat(3, minmax(280px, 350px));
-    //     grid-template-areas: 
-    //         "contacts address subscribe"
-    //         "search . . ";
-    // }
 }
 
 //===== GRID AREA TITLES =====
@@ -123,16 +93,3 @@ header {
     grid-area: navigation;
 }
 
-//Footer
-// .contacts {
-//     grid-area: contacts;
-// }
-// .address {
-//     grid-area: address;
-// }
-// .subscribe {
-//     grid-area: subscribe;
-// }
-// .search {
-//     grid-area: search;
-// }

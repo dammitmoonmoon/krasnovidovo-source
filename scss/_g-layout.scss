@@ -27,6 +27,10 @@ header {
     @include logo-size($logo-min);
 }
 
+#email, #search {
+    max-width: 200px;
+}
+
 @media (min-width: $break1) {
     //html
     header {
@@ -80,11 +84,26 @@ header {
     justify-content: center;
 }
 
-
 .nav-toggler:hover .nav-hidden-links{
     display: flex;
     flex-direction: column;
 }
+
+footer {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contacts {
+    a {
+        display: block;
+    }
+    i {
+        display: none;
+    }
+}
+
 
 @media (min-width: $break1) {
 // html
@@ -103,6 +122,11 @@ header {
         position: absolute;
         text-align: left;
     }
+
+    //footer 
+    .subscribe {
+        order: 2;
+    }
 }
 
 @media (min-width: $break2) {
@@ -110,6 +134,11 @@ header {
     .grid-language input {
         float: none;
         margin: auto;
+    }
+
+    // footer
+    .search {
+        order: -1;
     }
 }
 
@@ -140,6 +169,20 @@ h1 {
 
 .nav-hidden-links > * {
     padding: 5px 0;
+}
+
+footer {
+    h3 {
+        padding-bottom: 5px;
+    }
+    #email, #search {
+        padding: 0px;
+        margin:5px 0;
+    }
+    > * {
+        padding: 10px 5px;
+        margin: 5px 0;
+    }
 }
 
 @media (min-width: $break1) {
@@ -215,6 +258,20 @@ input {
     color: $dark-blue;
 }
 
+footer {
+    color: $white;
+    background: $dark-blue;
+    h3 {
+        color: white;
+    }
+    border-radius: 5px;
+    > * {
+        border-top: 1px dashed white;
+        border-bottom: 1px dashed white;
+    }
+}
+
+
 @media (min-width: $break1) {
     html {
         font-size: 16px;
@@ -236,9 +293,7 @@ input {
     }
 
     .nav-bar {
-        border-top: 3px solid $white;
         background: $dark-blue;
-        border-radius: 10px;
         color: black;
         > div {
             color: white;
@@ -252,5 +307,12 @@ input {
                 color: darken($dark-blue, 50%);
             }
         }
+    }
+}
+
+@media (min-width: $break2) {
+    .nav-bar {
+        border-top: 3px solid $white;
+        border-radius: 10px;
     }
 }

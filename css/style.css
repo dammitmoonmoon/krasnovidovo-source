@@ -112,6 +112,7 @@ h3 {
   font-weight: 400;
   text-align: center;
   font-weight: bold;
+  text-align: left;
 }
 
 a {
@@ -144,6 +145,26 @@ input {
 main p {
   padding: 10px;
   line-height: 1.3em;
+}
+
+footer {
+  font-size: 13px;
+}
+
+footer h3 {
+  text-align: center;
+}
+
+.contacts > a {
+  line-height: 1.2em;
+}
+
+.contacts > a:first-of-type {
+  text-align: center;
+}
+
+.address {
+  text-align: center;
 }
 
 @media (min-width: 600px) {
@@ -204,6 +225,10 @@ header {
   width: 60px;
 }
 
+#email, #search {
+  max-width: 200px;
+}
+
 @media (min-width: 600px) {
   header {
     max-width: 1200px;
@@ -257,6 +282,21 @@ header {
   flex-direction: column;
 }
 
+footer {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contacts a {
+  display: block;
+}
+
+.contacts i {
+  display: none;
+}
+
 @media (min-width: 600px) {
   header, main {
     margin: auto;
@@ -271,12 +311,18 @@ header {
     position: absolute;
     text-align: left;
   }
+  .subscribe {
+    order: 2;
+  }
 }
 
 @media (min-width: 1024px) {
   .grid-language input {
     float: none;
     margin: auto;
+  }
+  .search {
+    order: -1;
   }
 }
 
@@ -307,6 +353,20 @@ h1 {
 
 .nav-hidden-links > * {
   padding: 5px 0;
+}
+
+footer h3 {
+  padding-bottom: 5px;
+}
+
+footer #email, footer #search {
+  padding: 0px;
+  margin: 5px 0;
+}
+
+footer > * {
+  padding: 10px 5px;
+  margin: 5px 0;
 }
 
 @media (min-width: 600px) {
@@ -380,6 +440,21 @@ input {
   color: #062F4F;
 }
 
+footer {
+  color: #E5ECE9;
+  background: #062F4F;
+  border-radius: 5px;
+}
+
+footer h3 {
+  color: white;
+}
+
+footer > * {
+  border-top: 1px dashed white;
+  border-bottom: 1px dashed white;
+}
+
 @media (min-width: 600px) {
   html {
     font-size: 16px;
@@ -399,9 +474,7 @@ input {
     color: white;
   }
   .nav-bar {
-    border-top: 3px solid #E5ECE9;
     background: #062F4F;
-    border-radius: 10px;
     color: black;
   }
   .nav-bar > div {
@@ -416,64 +489,10 @@ input {
   }
 }
 
-footer {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-size: 13px;
-  color: #E5ECE9;
-  background: #062F4F;
-  border-radius: 5px;
-}
-
-footer h3 {
-  padding-bottom: 5px;
-  color: white;
-}
-
-footer #email, footer #search {
-  max-width: 200px;
-  padding: 0px;
-  margin: 5px 0;
-}
-
-footer > * {
-  padding: 10px 5px;
-  margin: 5px 0;
-  border-top: 1px dashed white;
-  border-bottom: 1px dashed white;
-}
-
-.contacts a {
-  display: block;
-}
-
-.contacts i {
-  display: none;
-}
-
-.contacts > a {
-  line-height: 1.2em;
-}
-
-.contacts > a:first-of-type {
-  text-align: center;
-}
-
-.address {
-  text-align: center;
-}
-
-@media (min-width: 600px) {
-  .subscribe {
-    order: 2;
-  }
-}
-
 @media (min-width: 1024px) {
-  .search {
-    order: -1;
+  .nav-bar {
+    border-top: 3px solid #E5ECE9;
+    border-radius: 10px;
   }
 }
 
