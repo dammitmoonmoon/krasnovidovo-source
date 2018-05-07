@@ -26,3 +26,22 @@ toggleLang.addEventListener('click', () => {
     }
 });
 
+window.onscroll = function() {activateStickyNav()};
+
+// Get the navbar
+var navbar = document.querySelector('.grid-nav');
+var main = document.querySelector('main');
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function activateStickyNav() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+    main.classList.add("anti-sticky");
+  } else {
+    navbar.classList.remove("sticky");
+    main.classList.remove("anti-sticky");
+  }
+}

@@ -26,3 +26,40 @@
         opacity: 1;
     }
 }
+
+// STICKY NAV BAR
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $white;
+    width: 100%;
+    margin: auto;
+    > * {
+        margin: 0;
+        padding: 0;
+        line-height: 1em;
+    }
+}
+
+.anti-sticky {
+    margin-top: 60px;
+}
+@media (min-width: $break1) {
+    .sticky {
+        .nav-bar div {
+            min-width: auto;
+            font-size: 15px;
+        }
+    }
+}
+
+@media (min-width: $break2) {
+    .sticky {
+        left: inherit;
+        max-width: $max-nav-width;
+        .nav-bar div {
+            font-size: 18px;
+        }
+    }
+}
