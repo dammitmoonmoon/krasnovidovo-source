@@ -12,17 +12,18 @@ body {
     min-height: 98%;
 }
 
-header, .nav-bar {
+.nav-bar {
     width: 100%;
+}
+
+header {
+    width: 100%;
+    max-width: 100%;
 }
 
 // header
 .logo {
     @include logo-size($logo-min);
-}
-
-.nav-toggler:hover .nav-hidden-links {
-    min-width: $min-width;
 }
 
 @media (min-width: $break1) {
@@ -35,10 +36,20 @@ header, .nav-bar {
     main {
         max-width: $max-width; 
     }
-    
+    .nav-bar {
+        width: auto;
+    }
     //header
     .logo {
         @include logo-size($logo-average);
+    }
+
+    .nav-bar > * {
+        min-width: 150px;
+    }
+
+    .nav-hidden-links {
+        min-width: 150px;
     }
 }
 
@@ -58,10 +69,16 @@ header, footer {
     text-align: center;
 }
 
-// header
-.grid-language {
-    justify-self: end;
+.grid-language input  {
+    float: right;
 }
+
+.grid-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 .nav-toggler:hover .nav-hidden-links{
     display: flex;
@@ -73,37 +90,86 @@ header, footer {
     header, main {
         margin: auto;
     }
-// header
-    .grid-language {
-        justify-self: center;
+
+    .nav-bar {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .nav-toggler:hover .nav-hidden-links {
+        position: absolute;
+        text-align: left;
+    }
+}
+
+@media (min-width: $break2) {
+    // header
+    .grid-language input {
+        float: none;
+        margin: auto;
     }
 }
 
 /*===== Paddings and Margins =====*/
 header, footer {
-    margin: 20px auto;
+    margin: auto;
 }
 
 input {
     padding: 10px;
 }
 
-//header
-.grid-nav {
-    margin-top: 10px;
+.grid-logo-msu {
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+.nav-button {
+    margin-bottom: 10px;
+}
+
+.nav-bar > * {
+    padding: 10px 0;
+}
+
+.nav-hidden-links > * {
+    padding: 5px 0;
 }
 
 @media (min-width: $break1) {
     header {
-        padding: 20px;
+        padding: 5px;
+        margin-bottom: 20px;
     }
-    //header
-    h1 {
-        padding-top: 30px;
-    }
+
     .nav-bar {
-        padding: 10px 0 10px 0;
-    } 
+        margin: 0 20px;        
+    }
+
+    h1 {
+        margin: 0 0 10px 0;
+    }
+
+    .nav-bar > * {
+        padding: 10px 0 0 0;
+        margin-bottom: 5px;
+    }
+    
+    .nav-hidden-links > * {
+        padding: 3px 10px;
+    }
+}
+
+
+@media (min-width: $break2) {
+    .nav-bar {
+        margin-top: 20px;
+    }
 }
 
 /*===== Decorations =====*/
@@ -123,10 +189,15 @@ input {
     border-radius: 5px;
 }
 
+.logo {
+    @include logo-size($logo-min);
+    fill: $dark-blue;
+}
+
 .nav-bar {
     color: white;
     background: $dark-blue;
-    div:nth-child(odd) {
+    > div:nth-child(odd) {
         background: lighten($grey, 10%);
     }
     > * {
@@ -134,9 +205,9 @@ input {
     }    
 }
 
-.nav-toggler:hover .nav-hidden-links{
+.nav-hidden-links {
     color: black;
-    background: lighten($grey, 80%);
+    background: $white;
 }
 
 .nav-hidden-links a:hover {
@@ -154,17 +225,31 @@ input {
         border-top-left-radius: 50px;
     }
     //header
+    .logo {
+        @include logo-size($logo-min);
+        fill: white;
+    }
+
     h1 {
         color:white;
     }
+
     .nav-bar {
         border-top: 3px solid $white;
         background: $dark-blue;
         border-radius: 10px;
         color: black;
-        p, a {
+        > div {
             color: white;
-            background: $dark-blue;
+            background: $dark-blue !important;
+        }
+    }
+    .nav-hidden-links {
+        a {
+            color: darken($dark-blue, 5%);
+            &:hover {
+                color: darken($dark-blue, 50%);
+            }
         }
     }
 }

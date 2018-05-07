@@ -28,15 +28,23 @@ figure {
                 margin: auto;
             }
             figcaption {
-                font-size: 16px;
+                font-size: 14px;
+                text-align: start;
             }
+        }
+        .figcap-center {
+            figcaption {
+                text-align: center;
+            }
+            
         }
         //Individual images (float left/right)
         .img-left {
             display: block;
             width: 300px;
             float: left;
-            margin-right: 20px;
+            margin-right: 10px;
+            margin-left: 10px;
             img {
                 width: 300px;
             }
@@ -45,6 +53,7 @@ figure {
             display: block;
             width: 300px;
             float: right;
+            margin-right: 10px;
             margin-left: 10px;
             img {
                 width: 300px;
@@ -58,9 +67,10 @@ figure {
         
         .img-pair {
             img {
-                max-width: 90%;
+                max-width: 100%;
             }
-            width: 50%;            
+            width: 50%;
+            margin: 3px;            
         }
 
         .img-shared-caption {
@@ -73,9 +83,9 @@ figure {
          //Three images under one caption
          .img-triplet {
             img {
-                width: 31%;
-                margin: 1%;
+                width: 32%;
             }
+            margin: 3px;
         }
 
         //Two images under one caption

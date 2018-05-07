@@ -56,7 +56,6 @@ body {
 /*===== GRID LAYOUTS: HEADER AND FOOTER =====*/
 //Type 1, small screens
 header {
-    max-width: 100%;
     display: grid;
     grid-template-areas: 
         "language"
@@ -83,10 +82,10 @@ footer {
 //Type 2, medium screens
 @media (min-width: $break1) {
     header {
-        grid-template-columns: 1fr max(240px)  max(240px) 1fr;
+        grid-template-columns:  max(240px) 1fr 1fr  max(240px);
         grid-template-areas: 
             ". . . language"
-            ". logo-msu logo-faculty ."
+            "logo-msu . . logo-faculty"
             "title title title title"
             "navigation navigation navigation navigation";
     }
@@ -104,6 +103,7 @@ footer {
 @media (min-width: $break2) {
     header {
         grid-template-columns: 1fr 240px minmax(300px,600px) 240px 1fr;
+        grid-template-rows: auto 25px auto;
         grid-template-areas: 
             ". logo-msu  title logo-faculty ."
             ". logo-msu language logo-faculty ."

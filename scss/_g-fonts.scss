@@ -11,7 +11,7 @@ h1, h2, h3 {
 h1 {
     font-size: 20px;
     text-align: center;
-    line-height: 1.5em;
+    line-height: 1.2em;
     font-weight: bold;
 }
 
@@ -38,9 +38,21 @@ input {
 }
 
 //header
+.grid-logo-msu p {
+    line-height: 1.2em;
+}
+
+.grid-logo-faculty p {
+    line-height: 1.2em;
+}
+
 .nav-bar {
     font-size: 16px;
     line-height: 1.5em;
+}
+
+.nav-hidden-links {
+    line-height: 1.1em;
 }
 
 
@@ -54,7 +66,15 @@ main p {
     html {
         font-size: 16px;
     }
+    .grid-logo-msu p {
+        line-height: 1.5em;
+    }
+    
+    .grid-logo-faculty p {
+        line-height: 3em;
+    }
     h1 {
+        line-height: 1.5em;
         font-size: 22px;
     }
     .nav-bar {
