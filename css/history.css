@@ -594,7 +594,17 @@ figure img {
   width: 100%;
 }
 
+.hide-in-mobile img {
+  display: none;
+}
+
 @media (min-width: 600px) {
+  .hide-in-desktop img {
+    display: none;
+  }
+  .hide-in-mobile img {
+    display: block;
+  }
   main figure {
     margin-top: 10px;
     width: fit-content;
@@ -607,61 +617,61 @@ figure img {
     font-size: 14px;
     text-align: start;
   }
-  main .figcap-center figcaption {
+  .figcap-center figcaption {
     text-align: center;
   }
-  main .img-left {
+  .img-left {
     display: block;
     width: 300px;
     float: left;
     margin-right: 10px;
     margin-left: 10px;
   }
-  main .img-left img {
+  .img-left img {
     width: 300px;
   }
-  main .img-right {
+  .img-right {
     display: block;
     width: 300px;
     float: right;
     margin-right: 10px;
     margin-left: 10px;
   }
-  main .img-right img {
+  .img-right img {
     width: 300px;
   }
-  main .img-pair-wrapper {
+  .img-pair-wrapper {
     display: flex;
     flex-direction: row;
   }
-  main .img-pair {
+  .img-pair {
     width: 50%;
     margin: 3px;
   }
-  main .img-pair img {
+  .img-pair img {
     max-width: 100%;
   }
-  main .img-shared-caption {
+  .img-shared-caption {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
   }
-  main .img-triplet {
+  .img-triplet {
     margin: 3px;
   }
-  main .img-triplet img {
+  .img-triplet img {
     width: 32%;
   }
-  main .img-tweens img {
+  .img-tweens img {
     width: 48%;
     margin: 1%;
   }
-  main .img-limit-width {
+  .img-limit-width {
     max-width: 70%;
     margin: auto;
   }
-  main .img-enlarge-on-hover img:hover {
+  .img-enlarge-on-hover img:hover {
     z-index: 1;
     -webkit-transform: scale(2);
     -ms-transform: scale(2);
