@@ -23,9 +23,20 @@ function activateStickyNav() {
 }
 
 //Language manipulation
+
 let rusText = document.querySelectorAll('.rus');
 let engText = document.querySelectorAll('.eng');
 const toggleLang = document.querySelector('.language-button');
+
+if (localStorage.getItem('language') == 'rus') {
+    for (let index = 0; index < rusText.length; index++) {
+        rusText[index].classList.toggle('hidden-lang');        
+    }
+    for (let index = 0; index < engText.length; index++) {
+        engText[index].classList.toggle('hidden-lang');        
+    }
+    toggleLang.value = "Eng";
+} 
 
 toggleLang.addEventListener('click', () => {
     for (let index = 0; index < rusText.length; index++) {
@@ -36,9 +47,10 @@ toggleLang.addEventListener('click', () => {
     }
     if (toggleLang.value == "Eng") {
         toggleLang.value = "Rus";
+        localStorage.removeItem('language');
     }
     else {
         toggleLang.value = "Eng";
+        localStorage.setItem('language', 'rus');
     }
 });
-
