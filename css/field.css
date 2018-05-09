@@ -30,12 +30,12 @@ main h3 {
 }
 
 @media (min-width: 600px) {
-  main {
+  .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  main img {
+  .container img {
     max-width: fit-content;
     height: 200px;
   }
