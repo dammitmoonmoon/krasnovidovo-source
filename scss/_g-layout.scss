@@ -143,8 +143,12 @@ footer {
 }
 
 /*===== Paddings and Margins =====*/
-header, footer {
+header {
     margin: auto;
+}
+
+footer {
+    margin: 20px auto 0 auto;
 }
 
 input {
