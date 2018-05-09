@@ -1,0 +1,36 @@
+@import "constants";
+
+.employee {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.employee-photo {
+    width: 220px;
+    img {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        display: block;
+        margin: auto;
+    }
+}
+
+.employee-data {
+    width: 220px;
+    text-align: center;
+    border-bottom: 1px dashed $dark-blue;
+}
+
+@media (min-width: $break1) {
+    .employee-data {
+        width: 400px;
+        text-align: left;
+        border-bottom: none;
+    }
+}
+
+.employee-name {
+    font-weight: bold;
+    color: $dark-blue;
+}
