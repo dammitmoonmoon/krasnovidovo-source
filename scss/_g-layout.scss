@@ -89,6 +89,12 @@ header {
     flex-direction: column;
 }
 
+main {
+    .inner-nav-float-right {
+        float: right;
+    }
+}
+
 footer {
     display: flex;
     flex-flow: row;
@@ -147,6 +153,10 @@ header {
     margin: auto;
 }
 
+section {
+    padding: 5px;
+}
+
 footer {
     margin: 20px auto 0 auto;
 }
@@ -174,6 +184,13 @@ h1 {
 .nav-hidden-links > * {
     padding: 5px 0;
 }
+
+@media (min-height: 400px) {
+    .extra-space-above {
+        padding-top: 50px;
+    }
+}
+
 
 footer {
     h3 {
@@ -235,7 +252,6 @@ a {
 
 em, strong {
     color: $dark-blue;
-    color: $dark-blue;
 }
 
 input {
@@ -266,6 +282,20 @@ input {
 .nav-hidden-links a:hover {
     color: $dark-blue;
 }
+
+main {
+    h1 {
+        color: $dark-blue;
+    }
+    i {
+        color: $dark-blue;
+    }
+    .inner-nav-float-right {
+        border-bottom: 1px dashed black;
+        font-weight: bold;
+    }
+}
+
 
 footer {
     color: $white;

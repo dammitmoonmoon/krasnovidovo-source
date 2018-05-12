@@ -7,7 +7,7 @@ body {
 /*====== ELEMENT VISIBILITY =====*/
 //Hide language: Russian is hidden by default
 .hidden-lang {
-    display: none;
+    display: none !important;
 }
 
 //Hide faculty logo (only one logo on small screens)
@@ -34,7 +34,7 @@ body {
         display: inline-block;
     }
 
-    .nav-button {
+    .mobile-only {
         display: none;
     }
 }

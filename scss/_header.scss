@@ -28,17 +28,19 @@
 }
 
 // STICKY NAV BAR
-.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: $white;
-    width: 100%;
-    margin: auto;
-}
-
-.anti-sticky {
-    margin-top: 60px;
+@media (min-height: 400px) {
+    .sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: $white;
+        width: 100%;
+        margin: auto;
+    }
+    
+    .anti-sticky {
+        margin-top: 60px;
+    }
 }
 @media (min-width: $break1) {
     .sticky {

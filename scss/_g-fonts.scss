@@ -67,6 +67,9 @@ input {
 }
 
 //main
+main h1 {
+    color: $dark-blue;
+}
 main p {
     padding: 10px;
     line-height: 1.3em;

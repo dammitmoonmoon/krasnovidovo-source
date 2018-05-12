@@ -12,6 +12,7 @@ main {
 
     img {
         max-width: 200px;
+        max-height: 200px;
         margin: auto;
         display: block;
     }
@@ -20,6 +21,7 @@ main {
         text-align: center;
         font-size: 14px;
         line-height: 1.2em;
+        margin: 0 5px;
     }
 }
 
