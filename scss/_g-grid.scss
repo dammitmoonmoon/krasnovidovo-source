@@ -15,18 +15,18 @@ body {
     display: none;
 }
 
-//Hide nav bar (on small screens)
-.nav-bar {
-    position: absolute;
-    display: block;
+.hide-in-mobile {
+    display: none;
 }
 
-.nav-bar-hidden {
-    display: none;
-}
-//Additional links are hidden until hover
-.nav-hidden-links {
-    display: none;
+@media (min-width: $break1) {
+    .hide-in-desktop {
+        display: none;
+    }
+
+    .hide-in-mobile {
+        display: block;
+    }
 }
 
 @media (min-width: $break1) {

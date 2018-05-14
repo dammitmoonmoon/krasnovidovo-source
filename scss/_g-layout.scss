@@ -1,3 +1,15 @@
+/*===========================================
+General layout. 
+* NavBar and Hamburger ==> _header.scss
+* Grids and language classes ==> _g-grid.scss
+* Fonts (ex. colors) ==> _g-fonts.scss
+
+Max/Min Dimensions
+Alignments
+Paddings and Margins
+Decorations
+=============================================*/
+
 * {
     box-sizing: border-box;
 }
@@ -11,10 +23,6 @@ body {
     max-width: 100vw;
     min-height: 98%;
     max-width: 100vw;
-}
-
-.nav-bar {
-    width: 100%;
 }
 
 header {
@@ -41,20 +49,10 @@ header {
     main {
         max-width: $max-width; 
     }
-    .nav-bar {
-        width: auto;
-    }
+
     //header
     .logo {
         @include logo-size($logo-average);
-    }
-
-    .nav-bar > * {
-        min-width: 150px;
-    }
-
-    .nav-hidden-links {
-        min-width: 150px;
     }
 }
 
@@ -84,11 +82,6 @@ header {
     justify-content: center;
 }
 
-.nav-toggler:hover .nav-hidden-links{
-    display: flex;
-    flex-direction: column;
-}
-
 main {
     .inner-nav-float-right {
         float: right;
@@ -115,18 +108,6 @@ footer {
 // html
     header, main {
         margin: auto;
-    }
-
-    .nav-bar {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    
-    .nav-toggler:hover .nav-hidden-links {
-        position: absolute;
-        text-align: left;
     }
 
     //footer 
@@ -173,18 +154,6 @@ h1 {
     margin: 10px 0;
 }
 
-.nav-button {
-    margin-bottom: 10px;
-}
-
-.nav-bar > * {
-    padding: 10px 0;
-}
-
-.nav-hidden-links > * {
-    padding: 5px 0;
-}
-
 @media (min-height: 400px) {
     .extra-space-above {
         padding-top: 50px;
@@ -212,28 +181,8 @@ footer {
         margin-bottom: 20px;
     }
 
-    .nav-bar {
-        margin: 0 20px;        
-    }
-
     h1 {
         margin: 0 0 10px 0;
-    }
-
-    .nav-bar > * {
-        padding: 10px 0 0 0;
-        margin-bottom: 5px;
-    }
-    
-    .nav-hidden-links > * {
-        padding: 3px 10px;
-    }
-}
-
-
-@media (min-width: $break2) {
-    .nav-bar {
-        margin-top: 20px;
     }
 }
 
@@ -263,25 +212,6 @@ input {
     fill: $dark-blue;
 }
 
-.nav-bar {
-    color: white;
-    background: $dark-blue;
-    > div:nth-child(odd) {
-        background: lighten($grey, 10%);
-    }
-    > * {
-        border-bottom: 1px dashed white;
-    }    
-}
-
-.nav-hidden-links {
-    color: black;
-    background: $white;
-}
-
-.nav-hidden-links a:hover {
-    color: $dark-blue;
-}
 
 main {
     h1 {
@@ -330,28 +260,5 @@ footer {
     h1 {
         color:white;
     }
-
-    .nav-bar {
-        background: $dark-blue;
-        color: black;
-        > div {
-            color: white;
-            background: $dark-blue !important;
-        }
-    }
-    .nav-hidden-links {
-        a {
-            color: darken($dark-blue, 5%);
-            &:hover {
-                color: darken($dark-blue, 50%);
-            }
-        }
-    }
 }
 
-@media (min-width: $break2) {
-    .nav-bar {
-        border-top: 3px solid $white;
-        border-radius: 10px;
-    }
-}

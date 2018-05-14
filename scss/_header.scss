@@ -2,6 +2,7 @@
 // HAMBURGER BUTTON
 .nav-button {
     cursor: pointer;
+    margin-bottom: 10px;
 }
 // Design
 .bar1, .bar2, .bar3 {
@@ -16,7 +17,9 @@
     opacity: 0.7;
 }
 // Interactivity
-.nav-button:hover {
+.nav-button:hover,
+.nav-button:focus,
+ {
     .bar1, .bar3 {
         @include scaleX(0.8);
         opacity: 0.7;
@@ -25,10 +28,12 @@
         @include scaleX(2);
         opacity: 1;
     }
+    outline: none;
 }
 
+
 // STICKY NAV BAR
-@media (min-height: 400px) {
+@media (min-height: 380px) {
     .sticky {
         position: fixed;
         top: 0;
@@ -44,14 +49,20 @@
 }
 @media (min-width: $break1) {
     .sticky {
+        background: $dark-blue;
         > * {
             margin: 0;
             padding: 0;
             line-height: 1em;
         }
-        .nav-bar div {
-            min-width: auto;
-            font-size: 15px;
+
+        .nav-item-main {
+            border: 1px solid white;
+            min-width: 100px;
+            font-size: 16px;
+            line-height: 1em;
+            border-bottom: none;
+            padding: 0 10px;
         }
     }
 }
@@ -60,8 +71,154 @@
     .sticky {
         left: inherit;
         max-width: $max-nav-width;
-        .nav-bar div {
-            font-size: 18px;
+        .nav-bar {
+            margin: 0;
         }
+
+        .nav-item-main {
+            border-radius: 20px;
+            min-width: 100px;
+            font-size: 18px;
+            line-height: 1em;
+            border-bottom: none;
+            padding: 0 10px;
+        }
+    }
+}
+
+// Nav Bar: accessible by Tab, button-based
+.nav-bar {
+    position: absolute;
+    width: 100%;
+
+    display: block;
+
+    background: $dark-blue;
+    > div:nth-child(odd) {
+        background: lighten($grey, 10%);
+    }
+    > * {
+        border-bottom: 1px dashed white;
+    }  
+}
+.nav-item {
+    padding: 5px 0;
+}
+
+.nav-item-main {
+    cursor: pointer;
+    padding: 5px 3px;
+
+    border: none;
+    background: none;
+
+    font-family: $open-sans;
+    font-size: 16px;
+    line-height: 1.5em;
+    font-weight: 400;
+
+    color: white;
+           
+    &:focus {
+        outline: none;
+        border-radius: 20px;
+        box-shadow: 0 0 3pt 2pt $white;
+        border-bottom: none;
+    }
+}
+
+.hide-nav-bar {
+    display: none;
+}
+
+.nav-hidden-links {
+    display: none !important;
+}
+
+.nav-hidden-links-visible {
+    position: absolute;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.1em;
+    font-size: 16px;
+    color: black;
+    padding: 5px;
+    background: rgba($white, 0.9);
+    > * {
+        padding: 5px 0;
+    }
+    a:hover {
+        background: white;
+    }
+}
+
+@media (min-width: $break1) {
+    .nav-bar {
+        width: auto;
+
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        margin: 0 20px;  
+
+    }
+
+    .nav-item {
+        border-bottom: none;
+        background: $dark-blue !important;
+    }
+    
+    .nav-item-main {
+        padding: 5px 0;
+        
+        font-size: 20px;
+        font-variant:small-caps;
+        min-width: 160px;
+
+        border-radius: 20px;
+        border-bottom: 1px dashed white;
+       
+        &:focus {
+            box-shadow: 0 0 1pt 1pt $white;
+        }
+    }
+
+    .nav-hidden-links-visible {
+        text-align: left;
+        width: auto;
+        font-variant: small-caps;
+        min-width: 160px;
+        font-size: 20px;
+        margin-top: 10px;
+        padding: 3px 10px 3px 10px;
+        box-shadow: 0 0 3pt 2pt $white;
+        a {
+            padding: 3px;
+        }
+        a:hover {
+            background: none;
+            color:$dark-blue;
+        } 
+    }
+}
+
+@media (min-width: $break2) {
+    .nav-bar {
+        margin-top: 20px;
+        border-top: 3px solid $white;
+    }
+
+    .nav-item-main {
+        padding: 5px 0;
+        
+        font-size: 22px;
+
+        border-radius: 0;
+        border-bottom: 1px dashed white;
     }
 }

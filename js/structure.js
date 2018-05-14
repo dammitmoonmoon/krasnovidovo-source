@@ -3,7 +3,13 @@ const navButton = document.querySelector('.nav-button');
 const navLinks = document.querySelector('.nav-bar');
 
 navButton.addEventListener('click', () => {
-    navLinks.classList.toggle('nav-bar-hidden');
+    navLinks.classList.toggle('hide-nav-bar');
+});
+
+navButton.addEventListener('keyup', (event) => {
+    if (event.keyCode === 13) {
+        navLinks.classList.toggle('hide-nav-bar');
+    }
 });
 
 //Sticky nav bar
@@ -54,3 +60,18 @@ toggleLang.addEventListener('click', () => {
         localStorage.setItem('language', 'rus');
     }
 });
+
+
+const navTogglers = document.querySelectorAll('.nav-item-main');
+for (let i = 0; i < navTogglers.length; i++) {
+    let navToggler = navTogglers[i];
+    navToggler.addEventListener('click', (ev) => {
+        navToggler.parentNode.children[2].classList.toggle('nav-hidden-links');
+        document.addEventListener("click", function(evt) {
+            let targetElement = evt.target;
+            if (targetElement !== navToggler.parentNode.children[0] && targetElement !== navToggler.parentNode.children[1]) {
+                navToggler.parentNode.children[2].classList.add('nav-hidden-links');
+            }
+        });
+    });
+}
