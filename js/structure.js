@@ -61,7 +61,6 @@ toggleLang.addEventListener('click', () => {
     }
 });
 
-
 const navTogglers = document.querySelectorAll('.nav-item-main');
 for (let i = 0; i < navTogglers.length; i++) {
     let navToggler = navTogglers[i];
