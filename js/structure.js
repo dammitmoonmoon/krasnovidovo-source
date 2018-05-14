@@ -1,77 +1,110 @@
-//Navigation bar
-const navButton = document.querySelector('.nav-button');
-const navLinks = document.querySelector('.nav-bar');
+document.addEventListener('DOMContentLoaded', () => {
+    activateNavButton();
+    considerRussian();
+    activateLanguageButton();
+    activateNavBar();
+}, false);
 
-navButton.addEventListener('click', () => {
-    navLinks.classList.toggle('hide-nav-bar');
-});
+window.onscroll = () => {
+    activateStickyNav();
+};
 
-navButton.addEventListener('keyup', (event) => {
-    if (event.keyCode === 13) {
-        navLinks.classList.toggle('hide-nav-bar');
-    }
-});
+//======================== Main functions ========================//
 
-//Sticky nav bar
-window.onscroll = function() {activateStickyNav()};
-var navbar = document.querySelector('.grid-nav');
-var main = document.querySelector('main');
-var sticky = navbar.offsetTop;
-
-function activateStickyNav() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-    main.classList.add("anti-sticky");
-  } else {
-    navbar.classList.remove("sticky");
-    main.classList.remove("anti-sticky");
-  }
+function activateNavButton() {
+    const navButton = document.querySelector('.nav-button');
+    const navLinks = document.querySelector('.nav-bar');
+    navButton.addEventListener('click', () => {
+        toggleClass(navLinks, 'hide-nav-bar');
+    });
+    
+    navButton.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13) {
+            toggleClass(navLinks, 'hide-nav-bar');
+        }
+    });
 }
 
-//Language manipulation
+function considerRussian() {
+    if (localStorage.getItem('language') == 'rus') {
+        switchLanguage();
+        document.querySelector('.language-button').value = 'Eng';
+    }
+}
 
-let rusText = document.querySelectorAll('.rus');
-let engText = document.querySelectorAll('.eng');
-const toggleLang = document.querySelector('.language-button');
+function activateLanguageButton() {
+    const button = document.querySelector('.language-button');
+    button.addEventListener('click', () => {
+        switchLanguage();
+        toggleLanguageButton(button);
+    });
+}
 
-if (localStorage.getItem('language') == 'rus') {
-    for (let index = 0; index < rusText.length; index++) {
-        rusText[index].classList.toggle('hidden-lang');        
+function activateStickyNav() {
+    const navbar = document.querySelector('.grid-nav');
+    const main = document.querySelector('main');
+    const sticky = navbar.offsetTop;
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+        main.classList.add("anti-sticky");
+    } 
+    else {
+        navbar.classList.remove("sticky");
+        main.classList.remove("anti-sticky");
     }
-    for (let index = 0; index < engText.length; index++) {
-        engText[index].classList.toggle('hidden-lang');        
-    }
-    toggleLang.value = "Eng";
-} 
+}
 
-toggleLang.addEventListener('click', () => {
-    for (let index = 0; index < rusText.length; index++) {
-        rusText[index].classList.toggle('hidden-lang');        
+function activateNavBar() {
+    const navBarButtons = document.querySelectorAll('.nav-item-main');
+    for (let i = 0; i < navBarButtons.length; i++) {
+        let navBarButton = navBarButtons[i];
+        let navBarItem = navBarButton.parentNode;
+        navBarButton.addEventListener('click', (ev) => {
+            navBarItem.children[2].classList.toggle('nav-hidden-links');
+            hideItemsOnClickElsewhere(navBarItem); 
+        });
     }
-    for (let index = 0; index < engText.length; index++) {
-        engText[index].classList.toggle('hidden-lang');        
-    }
-    if (toggleLang.value == "Eng") {
-        toggleLang.value = "Rus";
+}
+
+//======================== Inner functions ========================//
+function switchLanguage() {
+    const rusText = document.querySelectorAll('.rus');
+    const engText = document.querySelectorAll('.eng');
+    toggleClass(rusText, 'hidden-lang');
+    toggleClass(engText, 'hidden-lang');
+}
+
+
+function toggleLanguageButton(button) {  
+    if (button.value == "Eng") {
+        button.value = "Rus";
         localStorage.removeItem('language');
     }
     else {
-        toggleLang.value = "Eng";
+        button.value = "Eng";
         localStorage.setItem('language', 'rus');
     }
-});
+}
 
-// Navigation menu: show/hide extra links on click
-const navTogglers = document.querySelectorAll('.nav-item-main');
-for (let i = 0; i < navTogglers.length; i++) {
-    let navToggler = navTogglers[i];
-    navToggler.addEventListener('click', (ev) => {
-        navToggler.parentNode.children[2].classList.toggle('nav-hidden-links');
-        document.addEventListener("click", function(evt) {
-            let targetElement = evt.target;
-            if (targetElement !== navToggler.parentNode.children[0] && targetElement !== navToggler.parentNode.children[1]) {
-                navToggler.parentNode.children[2].classList.add('nav-hidden-links');
-            }
-        });
+function hideItemsOnClickElsewhere(navBarItem) {
+    document.addEventListener("click", (e) => {
+        let buttonEng = navBarItem.children[0];
+        let buttonRus = navBarItem.children[1];
+        let extraItems = navBarItem.children[2];
+        if (e.target !== buttonEng && e.target !== buttonRus) {
+            extraItems.classList.add('nav-hidden-links');
+        }
     });
 }
+
+//======================== Common functions ========================//
+
+function toggleClass(target, className) {
+    if (NodeList.prototype.isPrototypeOf(target)) {
+        for (let i = 0; i < target.length; i++) {
+            target[i].classList.toggle(className);      
+        }
+    }
+    else target.classList.toggle(className);
+}
+
