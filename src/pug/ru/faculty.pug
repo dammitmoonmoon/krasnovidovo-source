@@ -1,0 +1,62 @@
+doctype html
+html(lang="en")
+  head
+    include head.pug
+    link(rel="stylesheet" href="css/staff.css")
+  body
+    include header.pug
+    main
+      h1 Наши коллеги
+      h2 Кафедра гидрологии суши
+      .employee
+        .employee-photo
+          img(src='img/faculty/edelstein.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Эдельштейн Константин Константинович 
+            a(href='mailto:emek05@mail.ru')
+              i.far.fa-envelope
+          p Профессор, д.г.н.
+      .employee
+        .employee-photo
+          img(src='img/faculty/datsenko.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Даценко Юрий Сергеевич 
+            a(href='mailto:yuri0548@mail.ru')
+              i.far.fa-envelope
+          p Профессор, д.г.н.
+      .employee
+        .employee-photo
+          img(src='img/faculty/goncharov.png', alt='')
+        .employee-data
+          p.employee-name
+            | Гончаров Александр Валентинович 
+            a(href='mailto:mama15333@mail.ru')
+              i.far.fa-envelope
+          p Ведущий научный сотрудник, к.б.н.
+      .employee
+        .employee-photo
+          img(src='img/faculty/grechushnikova.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Гречушникова Мария Георгиевна 
+            a(href='mailto:allavis@mail.ru')
+              i.far.fa-envelope
+          p Ведущий научный сотрудник, к.г.н.
+          p
+            a(href='about-grechushnikova.html')
+              | Личная страница 
+              i.far.fa-address-card
+      .employee
+        .employee-photo
+          img(src='img/faculty/efimova.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Ефимова Людмила Евгеньевна 
+            a(href='mailto:ef_river@mail.ru')
+              i.far.fa-envelope
+          p Старший научный сотрудник, к.г.н.
+
+include footer.pug
+script(src="structure.js")

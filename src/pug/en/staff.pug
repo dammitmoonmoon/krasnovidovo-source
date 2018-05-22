@@ -1,0 +1,84 @@
+doctype html
+html(lang="en")
+  include head.pug
+  link(rel="stylesheet" href="css/staff.css")
+  body
+    include header.pug
+    main
+      .eng(lang='en')
+        h1 Staff and Researchers
+        .employee
+          .employee-photo
+            img(src='img/staff/puklakov.jpg', alt='')
+          .employee-data
+            p.employee-name
+              | Valeriy Puklakov 
+              a(href='mailto:puklakov@mail.ru')
+                i.far.fa-envelope
+            p Director, PhD
+        .employee
+          .employee-photo
+            img(src='img/staff/puklakova.jpg', alt='')
+          .employee-data
+            p.employee-name Nadezhda Puklakova
+            p Administrative Associate
+        .employee
+          .employee-photo
+            img(src='img/staff/sokolov.jpg', alt='')
+          .employee-data
+            p.employee-name
+              | Dmitriy Sokolov 
+              a(href='mailto:dmitriy.sokolov@yandex.ru')
+                i.far.fa-envelope
+            p Senior Scientist, PhD
+        .employee
+          .employee-photo
+            img(src='img/staff/erina.jpg', alt='')
+          .employee-data
+            p.eng.employee-name(lang='en')
+              | Oxana Erina 
+              a(href='mailto:oxana.erina@geogr.msu.ru')
+                i.far.fa-envelope
+            p.eng(lang='en') Research Scientist, PhD
+        .employee
+          .employee-photo
+            img(src='img/staff/shkolnyi.jpg', alt='')
+          .employee-data
+            p.eng.employee-name(lang='en')
+              | Danila Shkolnyi 
+              a(href='mailto:thabigd@gmail.com')
+                i.far.fa-envelope
+            p.eng(lang='en') Research Scientist—GIS/Remote Sensing
+        .employee
+          .employee-photo
+            img(src='img/staff/nemaltsev.jpg', alt='')
+          .employee-data
+        .employee
+          .employee-photo
+            img(src='img/staff/kochneva.jpg', alt='')
+          .employee-data
+            p.employee-name Valentina Kochneva
+            p Technician—Water Chemistry
+        .employee
+          .employee-photo
+            img(src='img/staff/lakhmytkin.jpg', alt='')
+          .employee-data
+            p.employee-name Semen Lakhmytkin
+            p Captain, Facilities Maintenance Specialist
+        .employee
+          .employee-photo
+            img(src='img/staff/bulgakov.jpg', alt='')
+          .employee-data
+            p.employee-name Alexey Bulgakov
+            p Facilities Maintenance Specialist
+        .employee
+          .employee-photo
+            img(src='img/staff/nemaltsevjn.jpg', alt='')
+          .employee-data
+            p.employee-name Alexander Nemaltsev jr
+            p Facilities Maintenance Specialist
+
+
+
+    include footer.pug
+    script(src="structure.js")

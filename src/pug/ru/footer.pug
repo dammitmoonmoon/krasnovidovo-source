@@ -1,0 +1,41 @@
+footer
+  div(class="contacts")
+    h3 Контакты
+    a(href="tel:+1234567890")
+      i(class="fas fa-phone")
+      |+7(49638) 51619
+    a(href="mailto:krasnovidovo.station@gmail.com")
+      i(class="far fa-envelope")
+      |krasnovidovo.station@gmail.com
+    a(href="https://www.instagram.com/krasnovidovo.msu/")
+      i(class="fab fa-instagram")
+      |instagram.com/krasnovidovo.msu
+
+
+  div(class="address")
+      h3 Адрес
+      address
+        p 
+          | Красновидовская
+          br
+          | учебно-научная станция МГУ
+        p 
+          | 143221, Московская обл.,
+          br
+          | Можайский район
+          br
+          | пос. Красновидово, ул.Зеленая, д.5
+
+
+  div(class="subscribe")
+      h3 Наша рассылка
+      p
+        form(action="#" method="POST") 
+          input(id="email"  placeholder="your@email.com" type="email" name="_replyto")
+          input(class="plain-button" type="submit" value="Send")
+
+  div(class="search")
+      h3 Поиск по сайту
+      form
+          input(id="search" type="text" placeholder="Enter your request...")
+          input(class="plain-button" type="submit")

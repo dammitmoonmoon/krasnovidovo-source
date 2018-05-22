@@ -1,0 +1,61 @@
+doctype html
+html(lang="en")
+  head
+    include head.pug
+    link(rel="stylesheet" href="css/staff.css")
+  body
+    include header.pug
+    main
+      h1 Faculty
+      h2 Department of Land Hydrology
+      .employee
+        .employee-photo
+          img(src='img/faculty/edelstein.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Konstantin Edelstein 
+            a(href='mailto:emek05@mail.ru')
+              i.far.fa-envelope
+          p Professor, PhD
+      .employee
+        .employee-photo
+          img(src='img/faculty/datsenko.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Yuri Datsenko 
+            a(href='mailto:yuri0548@mail.ru')
+              i.far.fa-envelope
+          p Professor, PhD
+      .employee
+        .employee-photo
+          img(src='img/faculty/goncharov.png', alt='')
+        .employee-data
+          p.employee-name
+            | Alexander Goncharov 
+            a(href='mailto:mama15333@mail.ru')
+              i.far.fa-envelope
+          p Leading Scientist, PhD
+      .employee.float-left
+        .employee-photo
+          img(src='img/faculty/grechushnikova.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Maria Grechushnikova 
+            a(href='mailto:allavis@mail.ru')
+              i.far.fa-envelope
+          p Leading Scientist, PhD
+          p
+            a(href='about-grechushnikova.html')
+              | Personal page 
+              i.far.fa-address-card
+      .employee
+        .employee-photo
+          img(src='img/faculty/efimova.jpg', alt='')
+        .employee-data
+          p.employee-name
+            | Liudmila Efimova 
+            a(href='mailto:ef_river@mail.ru')
+              i.far.fa-envelope
+          p Senior Scientist, PhD
+include footer.pug
+script(src="structure.js")

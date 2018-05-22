@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    include head.pug
+    link(rel="stylesheet" href="css/staff.css")
+  body
+    include header.pug
+    main
+      h1.eng(lang='en') Field Trainings
+      .container
+        a(href='field-1.html')
+          img.logo-main(src='icons/land-logo-alt.jpg', alt='logo')
+          h3.eng(lang='en')
+            | Department of Land Hydrology,
+            br
+            | Faculty of Geography, MSU
+        a(href='field-2.html')
+          img.logo-main(src='icons/cryo-logo.jpg', alt='logo')
+          h3.eng(lang='en')
+            | Department of Cryolithology and Glaciology,
+            br
+            | Faculty of Geography, MSU
+        a(href='field-3.html')
+          img.logo-main(src='icons/env-logo-alt.jpg', alt='logo')
+          h3.eng(lang='en')
+            | Department of Environmental Management,
+            br
+            | Faculty of Geography, MSU
+include footer.pug
+script(src="structure.js")
