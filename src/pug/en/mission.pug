@@ -1,20 +1,17 @@
+- var link = 'ru/mission.html';
+- var language = 'RU';
+
 doctype html
 html(lang="en")
   include head.pug
-  link(rel="stylesheet" href="css/staff.css")
   body
     include header.pug
-    main
-        h1 Our Mission
-        p
-        | Our mission is creating a database about water ecosystems of the reservoirs and rivers, located in Moscow region, for better understanding of the processes occurring in them.
-        p
-        | Currently information about water systems, and the quality of water in lakes or reservoirs is almost unavailable for free. Commercialising access to hydrochemical and hydrobiological data has led to a lack of knowledge about this state of art. As well as this, these commercial monitoring systems are not perfect and we know nothing about which agencies took samples, where and how many times; what concentrations were observed on particular dates, etc.
-        p
-        | The available reports hardly show exactly what is happening to water bodies and river flows in terms of hydrochemical compositions and hydroecological conditions. This is why it is very hard to understand, which actions to preserve water ecosystems are relevant. Research and educational institutions often can not afford to buy data from Roshydromet divisions, so we can only use open-access archive data, or rely on our own monitoring.
-        p
-        | The observations at the Krasnovidovo station has started in 1968. Since then, the research group at the station has been carefully collecting and storing all the data, including hand-written lab and field journals and digitizing them. Besides that, we participate in other expeditions, organized by LMSU and other collaborative organizations.
-        p
-        | Unfortunately, some pieces of data were lost, misplaced or stolen during the low-funding period of the Krasnovidovo station, during 1990-th. Currently we stay for open-access-to-monitoring data policy. In return, we ask everyone, who work at the station and surrounding territory to share their field and lab data with us and contribute to our station monitoring programme, since our shared goal is preserving natural water bodies, and managing man-made water ecosystems in a sustainable way to ensure their ecological wellbeing.
+    main.main
+        h1.main__h1 Our Mission
+        .main__text
+            p Our mission is creating a database about water ecosystems of the reservoirs and rivers, located in Moscow region, for better understanding of the processes occurring in them.
+            p Currently information about water systems, and the quality of water in lakes or reservoirs is almost unavailable for free. Commercialising access to hydrochemical and hydrobiological data has led to a lack of knowledge about this state of art. As well as this, these commercial monitoring systems are not perfect and we know nothing about which agencies took samples, where and how many times; what concentrations were observed on particular dates, etc.
+            p The available reports hardly show exactly what is happening to water bodies and river flows in terms of hydrochemical compositions and hydroecological conditions. This is why it is very hard to understand, which actions to preserve water ecosystems are relevant. Research and educational institutions often can not afford to buy data from Roshydromet divisions, so we can only use open-access archive data, or rely on our own monitoring.
+            p The observations at the Krasnovidovo station has started in 1968. Since then, the research group at the station has been carefully collecting and storing all the data, including hand-written lab and field journals and digitizing them. Besides that, we participate in other expeditions, organized by LMSU and other collaborative organizations.
+            p Unfortunately, some pieces of data were lost, misplaced or stolen during the low-funding period of the Krasnovidovo station, during 1990-th. Currently we stay for open-access-to-monitoring data policy. In return, we ask everyone, who work at the station and surrounding territory to share their field and lab data with us and contribute to our station monitoring programme, since our shared goal is preserving natural water bodies, and managing man-made water ecosystems in a sustainable way to ensure their ecological wellbeing.
     include footer.pug
-    script(src="structure.js")

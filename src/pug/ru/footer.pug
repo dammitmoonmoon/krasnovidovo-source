@@ -1,41 +1,42 @@
-footer
-  div(class="contacts")
-    h3 Контакты
-    a(href="tel:+1234567890")
-      i(class="fas fa-phone")
-      |+7(49638) 51619
-    a(href="mailto:krasnovidovo.station@gmail.com")
-      i(class="far fa-envelope")
-      |krasnovidovo.station@gmail.com
-    a(href="https://www.instagram.com/krasnovidovo.msu/")
-      i(class="fab fa-instagram")
-      |instagram.com/krasnovidovo.msu
+footer.footer
+  section.footer__section.footer__contacts
+    h3.footer__title Контакты
+    div.footer__section__content
+      a.footer__link(href="tel:+1234567890")
+        i.footer__fa.footer__fa--hidden.fas.fa-phone
+        |+7(49638) 51619
+      a.footer__link(href="mailto:krasnovidovo.station@gmail.com")
+        i.footer__fa.far.fa-envelope
+        |krasnovidovo.station@gmail.com
+      a.footer__link(href="https://www.instagram.com/krasnovidovo.msu/")
+        i.footer__fa.fab.fa-instagram
+        |instagram.com/krasnovidovo.msu
 
 
-  div(class="address")
-      h3 Адрес
-      address
-        p 
-          | Красновидовская
-          br
-          | учебно-научная станция МГУ
-        p 
-          | 143221, Московская обл.,
-          br
-          | Можайский район
-          br
-          | пос. Красновидово, ул.Зеленая, д.5
+  section.footer__section.footer__address
+    h3.footer__title Адрес
+    address.footer__section__content
+      p 
+        | Красновидовская
+        br
+        | учебно-научная станция МГУ
+      p 
+        | 143221, Московская обл.,
+        br
+        | Можайский район
+        br
+        | пос. Красновидово, ул.Зеленая, д.5
 
 
-  div(class="subscribe")
-      h3 Наша рассылка
-      p
-        form(action="#" method="POST") 
-          input(id="email"  placeholder="your@email.com" type="email" name="_replyto")
-          input(class="plain-button" type="submit" value="Send")
+  section.footer__section.footer__subscribe
+    h3.footer__title Наша рассылка
+    form.footer__section__content(action="#" method="POST") 
+      input(id="email"  placeholder="your@email.com" type="email" name="_replyto")
+      input.footer__button(type="submit" value="Отправить")
 
-  div(class="search")
-      h3 Поиск по сайту
-      form
-          input(id="search" type="text" placeholder="Enter your request...")
-          input(class="plain-button" type="submit")
+  section.footer__section.footer__search
+    h3.footer__title Поиск по сайту
+    form.footer__section__content
+      input(id="search" type="text" placeholder="Введите запрос...")
+      input.footer__button(type="submit" value="Искать")
+script(src="../js/functionality-test.js")

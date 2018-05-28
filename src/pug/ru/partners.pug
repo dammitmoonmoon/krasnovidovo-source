@@ -1,0 +1,25 @@
+- var link = '../partners.html';
+- var language = 'EN';
+
+doctype html
+html(lang="ru")
+  head
+    include head.pug
+  body
+    include header.pug
+    main.main
+      h1.main__h1 Наши партнёры
+      .container__flex--row
+        a.main__entity.main__entity--width(href='https://www.iwp.ru/', target="_blank")
+          .wrapper__entity__logo
+            img.entity__logo--by-width.entity__logo--by-smaller-width(src='../img/logos/waterprobl.png', alt='logo')
+          p.entity__title Институт водных проблем Российской академии наук
+        a.main__entity.main__entity--width(href='http://www.ifaran.ru', target="_blank")
+          .wrapper__entity__logo
+            img.entity__logo--by-width(src='../img/logos/atmphis.gif', alt='logo')
+          p.entity__title Институт физики атмосферы им. А.М. Обухова Российской академии наук
+        a.main__entity.main__entity--width(href='www.vniro.ru', target="_blank")
+          .wrapper__entity__logo
+            img.entity__logo--by-width(src='../img/logos/vniro_ru.svg', alt='logo')
+          p.entity__title Всероссийский научно-исследовательский институт водного хозяйства и океанографии
+    include footer.pug 

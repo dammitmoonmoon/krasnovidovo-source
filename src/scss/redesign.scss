@@ -1,0 +1,593 @@
+@import "main";
+
+/*========================================
+Constants
+General settings
+Mobile first
+  Header
+    title, logos, language
+    hamburger
+    navbar
+    all hover effects
+  Main
+  Footer
+Break 1
+  Header
+    title, logos, language
+    hamburger
+    navbar
+    all hover effects
+    flexbox variant
+    grid variant
+Break 2
+  Header
+    title, logos
+    navbar
+    all hover effects
+    flexbox variant
+    grid variant
+
+Sticky header (400px, break1, break2)
+  ========================================== */
+// Constants
+
+$logo-min: 60px;
+$logo-average: 80px;
+$logo-max: 100px;
+
+$break1: 600px; //two logos
+$break2: 1024px; //logo-title-logo
+
+$color-main: #062F4F;
+$grey: #39454F;
+$white: #E5ECE9;
+$color-extra: #0A94FF;
+
+$max-nav-width: 1200px;
+$max-content-width: 950px;
+$min-width: 200px; //links in nav bar
+$max-height: 1000px; //
+
+/* General settings */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+*:focus {
+    outline-color: lighten($color-extra, 30%); 
+}
+
+/* Mobile first */
+html {
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+
+}
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+// HEADER
+// title, logos, language
+.header {
+  text-align: center;
+  padding: 2px 0;
+}
+.logo {
+  height: $logo-min;
+  fill: $color-main;
+}
+.logo--hidden-in-mobile {
+  display: none;
+}
+
+.header__text {
+  padding: 5px 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: black;
+}
+
+.header__text__h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: lighten($color-main, 10%);
+  line-height: 1.2em;
+}
+
+.header__text__language {
+  display: block;
+  width: 50px;
+  height: auto;
+  margin: 0px 0 5px auto;
+	padding: 10px 10px;
+	border-radius: 10px;
+  background-color: $color-extra;
+
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2ch;
+} 
+
+// hamburger
+.nav__hamburger {
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 0;
+}
+
+.nav__hamburger--hidden {
+  display: none;
+}
+
+.nav__hamburger__bar {
+  width: 70px;
+  height: 5px;
+  background-color: $color-main;
+  margin: 6px auto;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+.nav__hamburger__bar2 {
+  opacity: 0.7;
+}
+
+// navbar
+.nav__bar {
+  display: none;
+  width: 100%;
+}
+
+.nav__bar--visible {
+  display: block;
+}
+
+.nav__bar__main {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.1ch;
+  line-height: 1.5em;
+  color: white;
+
+  border-bottom: 1px dashed white;
+  background: $color-main;
+}
+
+.nav__bar__main--odd {
+  background: lighten($grey, 10%);
+}
+
+.bar__extra__set {
+  background: rgba(229, 236, 233, 0.9);
+  width: 100%;
+}
+
+.bar__extra__set--beautify {
+  position: absolute;
+}
+
+.bar__extra__set--hidden {
+  display: none;
+}
+
+.item__extra {
+  padding: 10px 0;
+  border-bottom: 1px dashed $grey;
+  display: block;
+}
+
+.item__extra__text {
+  color: black;
+  line-height: 1.1em;
+  font-size: 16px;
+}
+
+// footer
+.footer {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer {
+  background: $color-main;
+  border-radius: 5px;
+  margin: 20px auto 0 auto; 
+}
+
+.footer,
+.footer__link {
+  color: white;
+  font-size: 13px;
+  line-height: 1.2em;
+}
+
+.footer__link {
+  display: block;
+  &:hover {
+    color: $color-extra;
+  }
+}
+
+.footer__title {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 16px; 
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+  
+.footer__section {
+  border-top: 1px dashed white;
+  border-bottom: 1px dashed white; 
+  padding: 10px 5px;
+  margin: 5px auto;
+}
+
+.footer__contacts,
+.footer__address {
+  text-align: center;
+}
+
+.footer__button {
+  margin: 5px 0;
+  padding: 5px;
+	border: none;
+	border-radius: 10px;
+  background-color: $color-extra;
+
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.1ch;
+}
+
+.footer__button:hover,
+.footer__button:focus {
+  background-color: darken($color-extra, 10%);
+  color: white;
+}
+
+.footer__fa {
+  font-size: 0px;
+}
+
+.footer__fa--hidden {
+  visibility: hidden;
+}
+
+// all hover effects
+.header__text:hover {
+  color: darken($color-extra, 30%);
+}
+.header__logo:hover  .header__text {
+  color: darken($color-extra, 30%);
+}
+.header__text__language:hover {
+  background-color: darken($color-extra, 10%);
+  color: white;
+}
+
+.nav__hamburger:hover,
+.nav__hamburger:focus,
+{
+  .nav__hamburger__bar1, .nav__hamburger__bar3 {
+      transform: scaleX(0.8);
+      opacity: 0.7;
+  }
+  .nav__hamburger__bar2 {
+      transform: scaleX(2);
+      opacity: 1;
+  }
+}
+
+.nav__bar__main:hover {
+  box-shadow: 0px 0px 10px $color-extra;
+}
+
+.item__extra:hover {
+  background: white;
+}
+
+.footer__section__content {
+  text-align: center;
+}
+
+
+// Break 1
+@media (min-width: $break1) {
+  .mobile-only, .header__desktop {
+    display: none;
+  }
+
+// Header
+// title, logos, language
+  .header {
+    padding: 10px 10px;
+    width: 100%;
+    max-width: 100%;
+    background: #062F4F;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px; 
+  }
+
+  .logo {
+    height: $logo-average;
+    fill: white;
+  }
+
+  .logo--hidden-in-mobile {
+    display: inline-block;
+  }
+
+  .header__text {
+    color: white;
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+
+  .header__text--line-height {
+    line-height: 3em;
+  }
+
+  .header__text__language {
+    font-size: 13px;
+  }
+
+  .header__text__h1 {
+    font-size: 22px;
+  }
+
+// hamburger
+  .nav__hamburger {
+    display: none;
+  }
+
+// navbar
+  .nav__bar, 
+  .nav__bar--visible {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .nav__bar__main {
+    margin: 0 5px;
+    font-size: 18px;
+    font-variant: small-caps;
+    width: 160px;
+    border: none;
+    background: $color-main;
+  }
+
+  .nav__bar__main--beautify {
+    border-bottom: 1px dashed white;
+  }
+
+  .bar__extra__set {
+    width: 160px;
+    margin-top: 20px;
+    box-shadow: 0 0 3pt 2pt $white;
+  }
+
+  .item__extra {
+    width: 100%;
+    padding: 5px 0;
+    line-height: 0;
+  }
+
+  .item__extra__text {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+// all hover effects
+  .header__text:hover {
+    color: lighten($color-extra, 30%);
+  }
+  .header__logo:hover  .header__text {
+    color: lighten($color-extra, 30%);
+  }
+
+  .header__logo:hover  .logo {
+    fill: lighten($color-extra, 30%);
+  }
+  
+  .header__text__language:hover {
+    background-color: darken($color-extra, 5%);
+    color: white;
+  }
+
+  .nav__bar__main:hover,
+  .nav__bar__main:focus {
+    color: lighten($color-extra, 30%);
+    box-shadow: none;
+    outline: none;
+  }
+
+  // Footer
+  .footer__section {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer__section__content {
+    margin: auto;
+  }
+  .footer__fa {
+    font-size: 13px;
+    padding-right: 5px;
+  }
+  .footer__button {
+    margin: 0px 2px;
+  }
+
+  //Flexbox variant: in case Grids are not supported
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    padding: 10px 30px;
+  }
+
+  .header__language,
+  .header__title,
+  .nav__bar {
+    flex-basis: 100%; 
+  }
+
+  // Grid variant
+  @supports (display: grid) {
+    .header {
+      display: grid;
+      grid-template-columns: 240px 1fr 240px;
+      grid-template-areas: "logo-msu language logo-faculty" "title title title" "navigation navigation navigation";
+    }
+    .header__logo--right {
+      grid-area: logo-msu;
+    }
+    .header__logo--left {
+      grid-area: logo-faculty;
+    }
+    .header__title {
+      grid-area: title;
+    }
+    .header__language {
+      grid-area: language;
+      margin: 10px auto;
+    }
+    .header__nav {
+      grid-area: navigation;
+    }
+  }
+}
+
+@media (min-width: $break2) {
+//Header
+//title, logos
+  .header, .footer {
+    max-width: $max-nav-width;
+    margin: auto;
+  }
+
+  .header__text__h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .logo {
+    height: $logo-max;
+  }
+
+// Navbar
+  .header__nav {
+    width: 100%;
+    border-top: 3px solid #E5ECE9; 
+  }
+
+  .nav__bar__main {
+    border-radius: 0;
+  }
+
+// Footer
+  .footer {
+    width: $max-nav-width;
+  }
+
+  .footer__search {
+    order: -1;
+  }
+
+// Flexbox variant  
+  .header {
+    align-items:center;
+  }
+
+  .header__title {
+    order: 2;
+    flex-basis: auto;
+  }
+
+  .header__logo--left {
+    order: 3;
+  }
+
+  .header__nav {
+    order: 4;
+    margin: auto;
+  }
+
+// Grid variant
+
+  @supports (display: grid) {
+    .header {
+      grid-template-columns: 1fr 240px minmax(300px, 600px) 240px 1fr;
+      grid-template-areas: ". logo-msu  title logo-faculty ." ". logo-msu language logo-faculty ." "navigation navigation  navigation navigation navigation"; 
+    }
+    .header__title {
+      padding-top: 30px;
+    }
+  }
+}
+
+// Sticky navbar modifications
+@media (min-height: 400px) {
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #E5ECE9;
+    width: 100%;
+  }
+}
+
+@media (min-width: $break1) {
+  .sticky {
+    background: #062F4F;
+  }
+
+  .sticky .nav__bar__main--beautify {
+    width: auto;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1em;
+    border-bottom: none;
+    padding: 0 5px;
+    margin-bottom: 3px;
+  }
+  .sticky .bar__extra__set--beautify {
+    margin: 5px;
+    width: auto;
+  }
+  .sticky .item__extra {
+    margin: 0;
+    padding: 0;
+  }
+  .item__extra__text {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+@media (min-width: $break2) {
+  .sticky {
+    left: inherit;
+    max-width: 1200px;
+    border: none;
+  }
+  .sticky .nav__bar {
+    margin: 0;
+  }
+}

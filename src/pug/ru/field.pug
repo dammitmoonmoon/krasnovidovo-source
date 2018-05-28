@@ -1,30 +1,28 @@
+- var link = '../field.html';
+- var language = 'EN';
+
 doctype html
-html(lang="en")
+html(lang="ru")
   head
     include head.pug
-    link(rel="stylesheet" href="css/staff.css")
   body
     include header.pug
-    main
-      h1.eng(lang='en') Учебные практики
-      .container
-        a(href='field-1.html')
-          img.logo-main(src='icons/land-logo-alt.jpg', alt='logo')
-          h3.eng(lang='en')
-            | Кафедра гидрологии суши
+    main.main
+      h1.main__h1 Учебные практики
+      .container__flex--row
+        a.main__entity(href='field-1.html')
+          img.entity__logo--by-height(src='../img/logos/land.jpg', alt='logo')
+          p.entity__title Кафедра гидрологии суши
             br
             | географического факультета МГУ
-        a(href='field-2.html')
-          img.logo-main(src='icons/cryo-logo.jpg', alt='logo')
-          h3.eng(lang='en')
-            | Кафедра криолитологии и гляциологии,
+        a.main__entity(href='field-2.html')
+          img.entity__logo--by-height(src='../img/logos/cryo.jpg', alt='logo')
+          p.entity__title Кафедра криолитологии и гляциологии
             br
             | географического факультета МГУ
-        a(href='field-3.html')
-          img.logo-main(src='icons/env-logo-alt.jpg', alt='logo')
-          h3.eng(lang='en')
-            | Кафедра рационального природопользования,
+        a.main__entity(href='field-3.html')
+          img.entity__logo--by-height(src='../img/logos/env.jpg', alt='logo')
+          p.entity__title Кафедра рационального природопользования
             br
             | географического факультета МГУ
 include footer.pug
-script(src="structure.js")

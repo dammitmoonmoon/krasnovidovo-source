@@ -1,11 +1,12 @@
+- var link = 'ru/404.html';
+- var language = 'RU';
+
 doctype html
-html(lang="en")
-  include head.pug
-  link(rel="stylesheet" href="css/staff.css")
-  body
-    include header.pug
-    main
-        h1 This page is not ready yet.
-        p Let's try something else!
-    include footer.pug
-    script(src="structure.js")
+html(lang="en-US")
+    head
+        include head.pug
+    body
+        include header.pug
+        main.main
+            h1.main__h1 This page is not ready yet
+        include footer.pug

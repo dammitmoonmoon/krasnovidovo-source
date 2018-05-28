@@ -1,83 +1,85 @@
+- var link = '../staff.html';
+- var language = 'EN';
+
 doctype html
-html(lang="en")
+html(lang="ru")
   include head.pug
-  link(rel="stylesheet" href="css/staff.css")
   body
     include header.pug
-    main
-      h1 Научный и технический персонал
+    main.main
+      h1.main__h1 Научный и технический персонал
       .employee
-        .employee-photo
-          img(src='img/staff/puklakov.jpg', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/puklakov.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Пуклаков Валерий Владимирович 
             a(href='mailto:puklakov@mail.ru')
-              i.far.fa-envelope
-          p Заведующий станцией, к.г.н.
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Заведующий станцией, к.г.н.
       .employee
-        .employee-photo
-          img(src='img/staff/puklakova.jpg', alt='')
-        .employee-data
-          p.employee-name Пуклакова Надежда Герасимовна
-          p Заместитель по административным и хозяйственным вопросам
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/puklakova.jpg', alt='')
+        .employee__data
+          p.employee__data__name Пуклакова Надежда Герасимовна
+          p.employee__data__status Заместитель по административным и хозяйственным вопросам
       .employee
-        .employee-photo
-          img(src='img/staff/sokolov.jpg', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/sokolov.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Соколов Дмитрий Игоревич 
             a(href='mailto:dmitriy.sokolov@yandex.ru')
-              i.far.fa-envelope
-          p Старший научный сотрудник, к.г.н.
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Старший научный сотрудник, к.г.н.
       .employee
-        .employee-photo
-          img(src='img/staff/erina.jpg', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/erina.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Ерина Оксана Николаевна 
             a(href='mailto:oxana.erina@geogr.msu.ru')
-              i.far.fa-envelope
-          p Научный сотрудник, к.г.н.
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Научный сотрудник, к.г.н.
       .employee
-        .employee-photo
-          img(src='img/staff/shkolnyi.jpg', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/shkolnyi.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Школьный Данила Игоревич 
             a(href='mailto:thabigd@gmail.com')
-              i.far.fa-envelope
-          p Научный сотрудник
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Научный сотрудник
       .employee
-        .employee-photo
-          img(src='img/staff/nemaltsev.jpg', alt='')
-        .employee-data
-          p.employee-name Немальцев Александр Семенович
-          p Инженер
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/nemaltsev.jpg', alt='')
+        .employee__data
+          p.employee__data__name Немальцев Александр Семенович
+          p.employee__data__status Инженер
       .employee
-        .employee-photo
-          img(src='img/staff/kochneva.jpg', alt='')
-        .employee-data
-          p.employee-name Кочнева Валентина Васильевна
-          p Лаборант
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/kochneva_.jpg', alt='')
+        .employee__data
+          p.employee__data__name Кочнева Валентина Васильевна
+          p.employee__data__status Лаборант
       .employee
-        .employee-photo
-          img(src='img/staff/lakhmytkin.jpg', alt='')
-        .employee-data
-          p.employee-name Лахмыткин Семен Павлович
-          p Капитан, технический специалист
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/lakhmytkin.jpg', alt='')
+        .employee__data
+          p.employee__data__name Лахмыткин Семен Павлович
+          p.employee__data__status Капитан, технический специалист
       .employee
-        .employee-photo
-          img(src='img/staff/bulgakov.jpg', alt='')
-        .employee-data
-          p.employee-name Булгаков Алексей
-          p Технический специалист
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/bulgakov.jpg', alt='')
+        .employee__data
+          p.employee__data__name Булгаков Алексей
+          p.employee__data__status Технический специалист
       .employee
-        .employee-photo
-          img(src='img/staff/nemaltsevjn.jpg', alt='')
-        .employee-data
-          p.employee-name Немальцев Александр Александрович
-          p Технический специалист
+        .employee__photo
+          img.employee__photo__img(src='../img/staff/nemaltsevjn.jpg', alt='')
+        .employee__data
+          p.employee__data__name Немальцев Александр Александрович
+          p.employee__data__status Технический специалист
     
     include footer.pug
     script(src="structure.js")

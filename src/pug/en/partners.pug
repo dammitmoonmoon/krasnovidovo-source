@@ -1,0 +1,25 @@
+- var link = 'ru/partners.html';
+- var language = 'RU';
+
+doctype html
+html(lang="en")
+  head
+    include head.pug
+  body
+    include header.pug
+    main.main
+      h1.main__h1 Our Partners
+      .container__flex--row
+        a.main__entity.main__entity--width(href='http://old.iwp.ru/eng/content/water-problems-institute-russian-academy-sciences', target="_blank")
+          .wrapper__entity__logo
+            img.entity__logo--by-width.entity__logo--by-smaller-width(src='img/logos/waterprobl.png', alt='logo')
+          p.entity__title Water Problems Institute
+        a.main__entity.main__entity--width(href='http://www.ifaran.ru/index.html?locale=en', target="_blank")
+          .wrapper__entity__logo
+            img.entity__logo--by-width(src='img/logos/atmphis.gif', alt='logo')
+          p.entity__title A.M. Obukhov Instinute of Atmospheric Physics
+        a.main__entity.main__entity--width(href='www.vniro.ru/en/', target="_blank")
+          .wrapper__entity__logo
+            img.entity__logo--by-width(src='img/logos/vniro_en.svg', alt='logo')
+          p.entity__title Russian Federal Research Institute of Fisheries and Oceanography
+    include footer.pug 

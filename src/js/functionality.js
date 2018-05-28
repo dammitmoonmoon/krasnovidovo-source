@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     activateNavBar();
 }, false);
 
-
+const navbar = document.querySelector('.grid-nav');
+const main = document.querySelector('main');
+const sticky = navbar.offsetTop;
 
 window.onscroll = () => {
     activateStickyNav();
@@ -26,9 +28,6 @@ function activateNavButton() {
 }
 
 function activateStickyNav() {
-    const navbar = document.querySelector('.grid-nav');
-    const main = document.querySelector('main');
-    const sticky = navbar.offsetTop;
     if (window.pageYOffset >= sticky) {
         navbar.classList.add("sticky");
         main.classList.add("anti-sticky");

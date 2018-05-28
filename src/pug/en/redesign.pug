@@ -1,0 +1,139 @@
+- var link = 'ru/404.html';
+- var language = 'RU';
+
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="UTF-8")
+    meta#viewport(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Krasnovidovo Limnological Station
+    link(rel="stylesheet", href="css/reset.css")
+    link(rel="stylesheet", href="css/redesign.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.10/css/all.css", integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg", crossorigin="anonymous")
+    link(href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans:400,600", rel="stylesheet")
+  body
+    header.header
+        a.header__language(href=link) 
+            p.header__text.header__text__language #{language} 
+        
+        a.header__logo.header__logo--left(href="https://www.msu.ru", target="_blank") 
+            include ../msu.svg
+            //- (svg-file) .logo
+            p.header__text Lomonosov<br>Moscow State University
+            
+        a.header__logo.header__logo--right(href="http://www.eng.geogr.msu.ru/", target="_blank")
+            include ../geo.svg 
+            //- (svg-file) .logo .logo--hidden-in-mobile
+            p.header__text.header__text--line-height Faculty of Geography
+    
+        a.header__title(href="index.html" target="_blank")
+            h1.header__text.header__text__h1 Krasnovidovo Limnological Station
+
+        nav.header__nav
+            div.nav__hamburger.nav__hamburger--hidden(role="button" tabindex="0")
+                div.nav__hamburger__bar.nav__hamburger__bar1
+                div.nav__hamburger__bar.nav__hamburger__bar2
+                div.nav__hamburger__bar.nav__hamburger__bar3
+            
+            ul.nav__bar.nav__bar--visible
+                li.nav__bar__main.nav__bar__main--odd(role="button" tabindex="0") About Us &#9660;
+                    ul.bar__extra__set
+                        li.item__extra
+                            a.item__extra__text(href="history.html") History
+                        li.item__extra  
+                            a.item__extra__text(href="mission.html") Our Mission
+                
+                li.nav__bar__main.nav__bar__main(role="button" tabindex="0") People &#9660;
+                    ul.bar__extra__set
+                        li.item__extra
+                            a.item__extra__text(href="staff.html") Staff and Researchers
+                        li.item__extra
+                            a.item__extra__text(href="faculty.html") Faculty
+                        li.item__extra
+                            a.item__extra__text(href="partners.html") Our Partners
+                
+                li.nav__bar__main.nav__bar__main--odd(role="button" tabindex="0") Education &#9660;
+                    ul.bar__extra__set
+                        li.item__extra
+                            a.item__extra__text(href="field.html") Field Trainings
+                        li.item__extra
+                            a.item__extra__text(href="#") Summer Internship
+
+                li.nav__bar__main.nav__bar__main(role="button" tabindex="0") Research &#9660;
+                    ul.bar__extra__set
+                        li.item__extra
+                            a.item__extra__text(href="#") Projects
+                        li.item__extra
+                            a.item__extra__text(href="publications.html") Publications
+
+                li.nav__bar__main.nav__bar__main--odd(role="button" tabindex="0") Resources &#9660;
+                    ul.bar__extra__set
+                        li.item__extra
+                            a.item__extra__text(href="#") Our Data
+                        li.item__extra
+                            a.item__extra__text(href="#") Maps
+                        li.item__extra
+                            a.item__extra__text(href="#") Miscellaneous
+                li.nav__bar__main.nav__bar__main(role="button" tabindex="0") Contact Us
+
+    main.main
+      h1 Main heading
+      h2 Subheading
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      a(href="http://") Some link
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      a(href="http://") Some link
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      a(href="http://") Some link
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      img(src="../src/photos-mod/2017/1.jpg", alt="")
+      h1 Main heading
+      h2 Subheading
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      a(href="http://") Some link
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      a(href="http://") Some link
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      a(href="http://") Some link
+      p Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Illo itaque tenetur officia sint minus <em>dolorum doloremque</em> suscipit, fugit beatae deleniti earum, autem natus corrupti veniam voluptates maxime? Ad, iste vero.
+      img(src="../src/photos-mod/2017/1.jpg", alt="")
+    
+    footer.footer
+      section.footer__section.footer__contacts
+        h3.footer__title Contacts
+        a.footer__link(href="tel:+1234567890")
+          i.footer__fa.footer__fa--hidden.fas.fa-phone
+          |+7(49638) 51619
+        a.footer__link(href="mailto:krasnovidovo.station@gmail.com")
+          i.footer__fa.far.fa-envelope
+          |krasnovidovo.station@gmail.com
+        a.footer__link(href="https://www.instagram.com/krasnovidovo.msu/")
+          i.footer__fa.fab.fa-instagram
+          |instagram.com/krasnovidovo.msu
+
+
+      section.footer__section.footer__address
+          h3.footer__title Address
+          address
+            p Krasnovidovo Limnological Station
+            p 5 Zelenaya str., Krasnovidovo, <br>Moscow Region, 143221, Russia
+
+
+      section.footer__section.footer__subscribe
+          h3.footer__title Subscribe
+          p
+            form(action="#" method="POST") 
+              input(id="email"  placeholder="your@email.com" type="email" name="_replyto")
+              input.footer__button(type="submit" value="Send")
+
+      section.footer__section.footer__search
+          h3.footer__title Are you lost?
+          form
+              input(id="search" type="text" placeholder="Enter your request..")
+              input.footer__button(type="submit")
+    script(src="js/functionality-test.js")

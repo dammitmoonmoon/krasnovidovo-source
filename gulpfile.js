@@ -27,7 +27,7 @@ const gulp = require('gulp'),
   path = require('path'),
   // data = require('gulp-data'),
   pug = require('gulp-pug'),
-  prefix = require('gulp-autoprefixer'),
+  autoprefixer = require('gulp-autoprefixer'),
   sass = require('gulp-sass'),
   browserSync = require('browser-sync'),
   imageResize = require('gulp-image-resize'),
@@ -35,7 +35,7 @@ const gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   babel = require('gulp-babel'),
   concat = require('gulp-concat');
-
+ 
 /* Directories */
 const paths = {
   public: './build/',
@@ -53,10 +53,6 @@ const paths = {
   gulp.watch
 */
 
-gulp.task('message', function() {
-  console.log('Gulp is running...');
-})
-
 gulp.task('default', ['sass', 'pug', 'minifyJS']);
 
 //minify images for web
@@ -66,6 +62,18 @@ gulp.task('imageMin', () =>
       .pipe(imagemin())
       .pipe(gulp.dest('src/min-images/*'))
 );
+
+gulp.task('resize', () => {
+    gulp.src('src/photos/history/*')
+        .pipe(imagemin())
+        .pipe(imageResize({
+            height : 300,
+            width : 450, 
+            crop : true,
+            upscale : false
+      }))
+      .pipe(gulp.dest('src/photos/history/crop'));
+  });
 
 //switch to ES5 and minify JS
 
@@ -79,20 +87,40 @@ gulp.task('minifyES5', () => {
 });
 
 // compile sass
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   return gulp.src('src/scss/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist/css'));
 });
  
-gulp.task('pug', function() {  
-  return gulp.src('src/pug/*/*.pug')
+gulp.task('pug-en', () => {  
+  return gulp.src('src/pug/en/*.pug')
       .pipe(pug())
-      .pipe(gulp.dest('dist/html/'));
+      .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('pug-ru', () => {  
+    return gulp.src('src/pug/ru/*.pug')
+        .pipe(pug())
+        .pipe(gulp.dest('dist/ru'));
+  });
 
-gulp.task('watch', function () {
+gulp.task('prefix', () =>
+    gulp.src('dist/css/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('dist/css'))
+);
+
+
+gulp.task('watch', () => {
   gulp.watch('src/scss/*.scss', ['sass']);
-  gulp.watch('src/pug/*/*.pug', ['pug']);
+  gulp.watch('src/pug/*.svg', ['pug']);
+  gulp.watch('src/pug/ru/*.pug', ['pug-ru']);
+  gulp.watch('src/pug/en/*.pug', ['pug-en']);
+  gulp.watch('src/js/*.js', ['minifyES5']);
+  gulp.watch('dist/css/*.css', ['prefix']);
 });
+

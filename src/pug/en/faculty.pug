@@ -1,61 +1,59 @@
+- var link = 'ru/faculty.html';
+- var language = 'RU';
+
 doctype html
-html(lang="en")
+html(lang="en-US")
   head
     include head.pug
-    link(rel="stylesheet" href="css/staff.css")
   body
     include header.pug
-    main
-      h1 Faculty
-      h2 Department of Land Hydrology
+    main.main
+      h1.main__h1 Faculty
+      h2.main__h2 Department of Land Hydrology
       .employee
-        .employee-photo
-          img(src='img/faculty/edelstein.jpg', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='img/faculty/edelstein.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Konstantin Edelstein 
             a(href='mailto:emek05@mail.ru')
-              i.far.fa-envelope
-          p Professor, PhD
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Professor, PhD
       .employee
-        .employee-photo
-          img(src='img/faculty/datsenko.jpg', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='img/faculty/datsenko.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Yuri Datsenko 
             a(href='mailto:yuri0548@mail.ru')
-              i.far.fa-envelope
-          p Professor, PhD
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Professor, PhD
       .employee
-        .employee-photo
-          img(src='img/faculty/goncharov.png', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='img/faculty/goncharov.png', alt='')
+        .employee__data
+          p.employee__data__name
             | Alexander Goncharov 
             a(href='mailto:mama15333@mail.ru')
-              i.far.fa-envelope
-          p Leading Scientist, PhD
-      .employee.float-left
-        .employee-photo
-          img(src='img/faculty/grechushnikova.jpg', alt='')
-        .employee-data
-          p.employee-name
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Leading Scientist, PhD
+      .employee
+        .employee__photo
+          img.employee__photo__img(src='img/faculty/grechushnikova.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Maria Grechushnikova 
             a(href='mailto:allavis@mail.ru')
-              i.far.fa-envelope
-          p Leading Scientist, PhD
-          p
-            a(href='about-grechushnikova.html')
-              | Personal page 
-              i.far.fa-address-card
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Leading Scientist, PhD
+          a.employee__data__page(href='about-grechushnikova.html') Personal page 
       .employee
-        .employee-photo
-          img(src='img/faculty/efimova.jpg', alt='')
-        .employee-data
-          p.employee-name
+        .employee__photo
+          img.employee__photo__img(src='img/faculty/efimova.jpg', alt='')
+        .employee__data
+          p.employee__data__name
             | Liudmila Efimova 
             a(href='mailto:ef_river@mail.ru')
-              i.far.fa-envelope
-          p Senior Scientist, PhD
-include footer.pug
-script(src="structure.js")
+              i.employee__fa.far.fa-envelope
+          p.employee__data__status Senior Scientist, PhD
+    include footer.pug

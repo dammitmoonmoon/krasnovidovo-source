@@ -17,12 +17,12 @@ Decorations
 /*===== Max/Min Dimensions =====*/
 html {
     height: 100%;
+    max-height: $max-height;
 }
 
 body {
     max-width: 100vw;
     min-height: 98%;
-    max-width: 100vw;
 }
 
 header {

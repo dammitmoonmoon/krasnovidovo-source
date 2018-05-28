@@ -1,84 +1,84 @@
+- var link = 'ru/staff.html';
+- var language = 'RU';
+
 doctype html
 html(lang="en")
   include head.pug
   link(rel="stylesheet" href="css/staff.css")
   body
     include header.pug
-    main
-      .eng(lang='en')
-        h1 Staff and Researchers
+    main.main
+        h1.main__h1 Staff and Researchers
         .employee
-          .employee-photo
-            img(src='img/staff/puklakov.jpg', alt='')
-          .employee-data
-            p.employee-name
+          .employee__photo
+            img.employee__photo__img(src='img/staff/puklakov.jpg', alt='')
+          .employee__data
+            p.employee__data__name
               | Valeriy Puklakov 
               a(href='mailto:puklakov@mail.ru')
-                i.far.fa-envelope
-            p Director, PhD
+                i.employee__fa.far.fa-envelope
+            p.employee__data__status Director, PhD
         .employee
-          .employee-photo
-            img(src='img/staff/puklakova.jpg', alt='')
-          .employee-data
-            p.employee-name Nadezhda Puklakova
-            p Administrative Associate
+          .employee__photo
+            img.employee__photo__img(src='img/staff/puklakova.jpg', alt='')
+          .employee__data
+            p.employee__data__name Nadezhda Puklakova
+            p.employee__data__status Administrative Associate
         .employee
-          .employee-photo
-            img(src='img/staff/sokolov.jpg', alt='')
-          .employee-data
-            p.employee-name
+          .employee__photo
+            img.employee__photo__img(src='img/staff/sokolov.jpg', alt='')
+          .employee__data
+            p.employee__data__name
               | Dmitriy Sokolov 
               a(href='mailto:dmitriy.sokolov@yandex.ru')
-                i.far.fa-envelope
-            p Senior Scientist, PhD
+                i.employee__fa.far.fa-envelope
+            p.employee__data__status Senior Scientist, PhD
         .employee
-          .employee-photo
-            img(src='img/staff/erina.jpg', alt='')
-          .employee-data
-            p.eng.employee-name(lang='en')
+          .employee__photo
+            img.employee__photo__img(src='img/staff/erina.jpg', alt='')
+          .employee__data
+            p.employee__data__name
               | Oxana Erina 
               a(href='mailto:oxana.erina@geogr.msu.ru')
-                i.far.fa-envelope
-            p.eng(lang='en') Research Scientist, PhD
+                i.employee__fa.far.fa-envelope
+            p.employee__data__status Research Scientist, PhD
         .employee
-          .employee-photo
-            img(src='img/staff/shkolnyi.jpg', alt='')
-          .employee-data
-            p.eng.employee-name(lang='en')
+          .employee__photo
+            img.employee__photo__img(src='img/staff/shkolnyi.jpg', alt='')
+          .employee__data
+            p.employee__data__name
               | Danila Shkolnyi 
               a(href='mailto:thabigd@gmail.com')
-                i.far.fa-envelope
-            p.eng(lang='en') Research Scientist—GIS/Remote Sensing
+                i.employee__fa.far.fa-envelope
+            p.employee__data__status Research Scientist—GIS/Remote Sensing
         .employee
-          .employee-photo
-            img(src='img/staff/nemaltsev.jpg', alt='')
-          .employee-data
+          .employee__photo
+            img.employee__photo__img(src='img/staff/nemaltsev.jpg', alt='')
+          .employee__data
+            p.employee__data__name Alexander Nemaltsev 
+            p.employee__data__status Engineer
         .employee
-          .employee-photo
-            img(src='img/staff/kochneva.jpg', alt='')
-          .employee-data
-            p.employee-name Valentina Kochneva
-            p Technician—Water Chemistry
+          .employee__photo
+            img.employee__photo__img(src='img/staff/kochneva_.jpg', alt='')
+          .employee__data
+            p.employee__data__name Valentina Kochneva
+            p.employee__data__status Technician—Water Chemistry
         .employee
-          .employee-photo
-            img(src='img/staff/lakhmytkin.jpg', alt='')
-          .employee-data
-            p.employee-name Semen Lakhmytkin
-            p Captain, Facilities Maintenance Specialist
+          .employee__photo
+            img.employee__photo__img(src='img/staff/lakhmytkin.jpg', alt='')
+          .employee__data
+            p.employee__data__name Semen Lakhmytkin
+            p.employee__data__status Captain, Facilities Maintenance Specialist
         .employee
-          .employee-photo
-            img(src='img/staff/bulgakov.jpg', alt='')
-          .employee-data
-            p.employee-name Alexey Bulgakov
-            p Facilities Maintenance Specialist
+          .employee__photo
+            img.employee__photo__img(src='img/staff/bulgakov.jpg', alt='')
+          .employee__data
+            p.employee__data__name Alexey Bulgakov
+            p.employee__data__status Facilities Maintenance Specialist
         .employee
-          .employee-photo
-            img(src='img/staff/nemaltsevjn.jpg', alt='')
-          .employee-data
-            p.employee-name Alexander Nemaltsev jr
-            p Facilities Maintenance Specialist
-
-
-
+          .employee__photo
+            img.employee__photo__img(src='img/staff/nemaltsevjn.jpg', alt='')
+          .employee__data
+            p.employee__data__name Alexander Nemaltsev jr
+            p.employee__data__status Facilities Maintenance Specialist
     include footer.pug
-    script(src="structure.js")

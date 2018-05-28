@@ -1,0 +1,72 @@
+  body
+    header.header
+        a.header__logo.header__logo--right
+            (svg-file) .logo
+            p.header_text
+            
+        a.header__logo.header__logo--left
+			(svg-file) .logo .logo--hidden-in-mobile
+            p.header_text
+    
+        a.header__title(class="main-title" href="index.html" target="_blank")
+            h1.header_text.header__text__h1
+
+        a.header_text.header__language
+
+        nav.nav
+            div.nav__hamburger.nav__hamburger--hidden
+                div.nav__hamburger__bar.nav__hamburger__bar1
+                div.nav__hamburger__bar.nav__hamburger__bar2
+                div.nav__hamburger__bar.nav__hamburger__bar3
+
+            div.nav__bar.nav__bar--visible
+                div.nav__bar__item 
+                    button.nav__bar__item__main.nav__bar__item__main--odd 
+                        i.fas.fa-caret-down.fas--hidden
+                    ul.nav__bar__item__extra
+                        li
+                            a
+                        li  
+                            a
+                div.nav__bar__item 
+                    button.nav__bar__item__main
+                        i.fas.fa-caret-down.fas--hidden
+                    ul.nav__bar__item__extra
+                        li
+                            a
+                        li
+                            a
+                        li
+                            a
+
+                div.header__nav__bar__item 
+                    button.nav__bar__item__main.nav__bar__item__main--odd
+                        i.fas.fa-caret-down.fas--hidden
+                    ul.nav__bar__item__extra
+                        li
+                            a
+                        li 
+                            a
+            
+                div.header__nav__bar__item 
+                    button.nav__bar__item__main Research 
+                        i.fas.fa-caret-down.fas--hidden
+                    ul.nav__bar__item__extra
+                        li
+                            a
+                        li
+                            a
+            
+                div.header__nav__bar__item
+                    button.nav__bar__item__main.nav__bar__item__main--odd Resources 
+                        i.fas.fa-caret-down.fas--hidden
+                    ul.nav__bar__item__extra
+                        li
+                            a
+                        li
+                            a
+                        li
+                            a
+
+                div.header__nav__bar__item 
+                    a.nav__bar__item__main
