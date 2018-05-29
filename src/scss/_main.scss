@@ -71,6 +71,35 @@ $max-height: 1000px; //
 //   font-size: 12px;
 // }
 
+.gallery__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
+}
+
+.gallery__img {
+  max-width: 200px;
+  width: 100%;
+  padding: 5px;
+}
+
+@supports (display: grid) {
+  .gallery__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-auto-rows: 150px;
+    justify-content: space-around;
+    grid-gap: 10px;
+  }
+
+  .gallery__img--150-200 {
+    grid-row-end: span 2;
+    // place-self: center;
+  }
+}
+
 .contacts__link {
   color: $color-extra;
   &:hover {
@@ -165,9 +194,13 @@ $max-height: 1000px; //
 }
 
 .figure__img {
+  cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   width: 100%;
   margin: 5px 0;
+  &:hover {
+    box-shadow: 0 0 20px rgba($color-main, 0.8);
+  }
 }
 
 .figure__img--hide-in-mobile {
@@ -214,6 +247,7 @@ $max-height: 1000px; //
   padding-top: 10px;
   color: black;
   border-bottom: 1px dashed #000;
+  margin: auto;
 }
 
 .employee__data__page:hover,
@@ -301,7 +335,7 @@ $max-height: 1000px; //
     }
 
     .employee__data {
-      width: 400px;
+      width: 340px;
       text-align: left;
       border-bottom: none;
       padding: 10px 0 0 20px;
@@ -395,6 +429,10 @@ $max-height: 1000px; //
       padding-left: 10px;
       padding-right: 15px;
     }
+
+    .employee__data__page  {
+      margin: 0;
+    }
 }
 
 @media (min-width: $break2) {
@@ -406,5 +444,60 @@ $max-height: 1000px; //
   .main__h1 {
     font-size: 30px;
     padding: 20px 10px;
+  }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal__content {
+  margin: auto;
+  display: block;
+  max-height: 90vh;
+  max-width: 90vw;
+}
+
+
+.modal__content { 
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.modal__close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: $color-extra;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+  color: darken($color-extra, 20%);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal__content {
+      width: 100%;
   }
 }

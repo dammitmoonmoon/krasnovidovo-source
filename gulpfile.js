@@ -34,7 +34,8 @@ const gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   uglify = require('gulp-uglify'),
   babel = require('gulp-babel'),
-  concat = require('gulp-concat');
+  concat = require('gulp-concat'),
+  rename = require('gulp-rename');
  
 /* Directories */
 const paths = {
@@ -64,16 +65,31 @@ gulp.task('imageMin', () =>
 );
 
 gulp.task('resize', () => {
-    gulp.src('src/photos/history/*')
+    gulp.src('src/photos/2017/test/*.jpg')
         .pipe(imagemin())
         .pipe(imageResize({
-            height : 300,
-            width : 450, 
-            crop : true,
+            height : 200,
+            width : 200, 
+            crop : false,
             upscale : false
       }))
-      .pipe(gulp.dest('src/photos/history/crop'));
+      .pipe(rename(function (path) {
+        // path.basename += "-1000";
+      }))
+      .pipe(gulp.dest('src/photos/2017/test/200'));
   });
+
+  gulp.task('rename', () => {
+      let num = 1;
+    gulp.src('src/photos/2017/*.jpg')
+        .pipe(rename(function (path) {
+            path.basename = num;
+            num++;
+        }))
+        .pipe(gulp.dest('src/photos/2017/test'));
+  });
+
+
 
 //switch to ES5 and minify JS
 
@@ -86,7 +102,7 @@ gulp.task('minifyES5', () => {
     .pipe(gulp.dest('dist/js'))
 });
 
-// compile sass
+// routine work
 gulp.task('sass', () => {
   return gulp.src('src/scss/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -114,6 +130,44 @@ gulp.task('prefix', () =>
         .pipe(gulp.dest('dist/css'))
 );
 
+// distribution version
+gulp.task('dist-minifyES5', () => {
+    return gulp.src('src/js/*.js')
+      .pipe(babel({
+        presets: ['env']
+      }))
+      .pipe(uglify())
+      .pipe(gulp.dest('/home/moonmoon/Dropbox/Krasnovidovo/Tami-Distribution/js'))
+  });
+  
+  // compile sass
+  gulp.task('dist-sass', () => {
+    return gulp.src('src/scss/*.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest('/home/moonmoon/Dropbox/Krasnovidovo/Tami-Distribution/css'));
+  });
+  
+  gulp.task('dist-pug-en', () => {  
+    return gulp.src('src/pug/en/*.pug')
+        .pipe(pug())
+        .pipe(gulp.dest('/home/moonmoon/Dropbox/Krasnovidovo/Tami-Distribution'));
+  });
+  
+  gulp.task('dist-pug-ru', () => {  
+      return gulp.src('src/pug/ru/*.pug')
+          .pipe(pug())
+          .pipe(gulp.dest('/home/moonmoon/Dropbox/Krasnovidovo/Tami-Distribution/ru'));
+    });
+  
+  gulp.task('dist-prefix', () =>
+      gulp.src('/home/moonmoon/Dropbox/Krasnovidovo/Tami-Distribution/*.css')
+          .pipe(autoprefixer({
+              browsers: ['last 2 versions'],
+              cascade: false
+          }))
+          .pipe(gulp.dest('/home/moonmoon/Dropbox/Krasnovidovo/Tami-Distribution/css'))
+  );
+  
 
 gulp.task('watch', () => {
   gulp.watch('src/scss/*.scss', ['sass']);
@@ -124,3 +178,11 @@ gulp.task('watch', () => {
   gulp.watch('dist/css/*.css', ['prefix']);
 });
 
+gulp.task('watch-dist', () => {
+    gulp.watch('src/scss/*.scss', ['dist-sass']);
+    gulp.watch('src/pug/*.svg', ['pug']);
+    gulp.watch('src/pug/ru/*.pug', ['dist-pug-ru']);
+    gulp.watch('src/pug/en/*.pug', ['dist-pug-en']);
+    gulp.watch('src/js/*.js', ['dist-minifyES5']);
+    gulp.watch('dist/css/*.css', ['dist-prefix']);
+  });

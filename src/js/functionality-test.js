@@ -86,6 +86,24 @@ function activateStickyNav() {
     }
 }
 
+const modal = document.querySelector('.modal');
+const modalImg = document.querySelector(".modal__content");
+const images = Array.from(document.querySelectorAll('.figure__img'));
+
+images.forEach((image) => {
+  image.addEventListener('click', () => {
+    let source = image.src.replace(/.jpg/, '-1000.jpg');;
+    modal.style.display = "block";
+    modalImg.src = source;
+  });
+});
+
+const span = document.getElementsByClassName("modal__close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
 //======================== Common functions ========================//
 
 function toggleClass(target, className) {
