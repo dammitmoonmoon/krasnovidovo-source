@@ -39,6 +39,40 @@
 .extra-space-above {
   padding-top: 40px; }
 
+.gallery__link__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.gallery__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  width: 220px;
+  margin: 5px 0; }
+  .gallery__link:hover {
+    -webkit-box-shadow: 0 0 20px rgba(6, 47, 79, 0.8);
+    box-shadow: 0 0 20px rgba(6, 47, 79, 0.8); }
+
+.gallery__link__img {
+  margin: 5px 5px 0 5px;
+  width: 200px;
+  height: 140px; }
+
 .gallery__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -49,7 +83,8 @@
   justify-content: space-around;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  justify-items: center; }
 
 .gallery__img {
   max-width: 200px;
@@ -65,8 +100,7 @@
     justify-content: space-around;
     grid-gap: 10px; }
   .gallery__img--150-200 {
-    grid-row-end: span 2;
-    place-self: center; } }
+    grid-row-end: span 2; } }
 
 .contacts__link {
   color: #0A94FF; }
@@ -223,7 +257,8 @@
   color: #0A94FF; }
 
 .employee__fa {
-  color: #062F4F; }
+  color: #062F4F;
+  padding-left: 5px; }
 
 .publication__year {
   color: #003f70;
@@ -280,8 +315,6 @@
     text-align: left;
     border-bottom: none;
     padding: 10px 0 0 20px; }
-  .employee--personal {
-    float: left; }
   .employee__data--personal {
     width: auto;
     padding: 10px 20px 0 0; }
@@ -365,30 +398,41 @@
   /* Stay in place */
   z-index: 1;
   /* Sit on top */
-  padding-top: 50px;
-  /* Location of the box */
-  left: 0;
   top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/ opacity */ }
+  /* Black w/ opacity */
+  overflow: auto; }
+
+.modal__sub {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
+.modal__controllers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #0A94FF;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 40px; }
 
 .modal__content {
   margin: auto;
   display: block;
-  max-height: 90vh;
-  max-width: 90vw; }
-
-.modal__content {
+  max-width: 80%;
   -webkit-animation-name: zoom;
   animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-duration: 0.6s; }
+
+.modal__controller {
+  margin: auto; }
 
 @-webkit-keyframes zoom {
   from {
@@ -406,26 +450,87 @@
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
-.modal__close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #0A94FF;
-  font-size: 40px;
-  font-weight: bold;
-  -webkit-transition: 0.3s;
-  transition: 0.3s; }
-
-.modal__close:hover,
-.modal__close:focus {
+.modal__controller:hover,
+.modal__controller:focus {
   color: #005ca3;
   text-decoration: none;
   cursor: pointer; }
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px) {
-  .modal__content {
-    width: 100%; } }
+@media (min-width: 1024px) {
+  .modal__sub {
+    width: 1000px;
+    margin: auto; } }
+
+.dataset {
+  padding: 5px; }
+  .dataset p {
+    padding-left: 10px; }
+
+.dataset__title {
+  display: inline-block;
+  padding-bottom: 5px;
+  line-height: 1.3em;
+  color: #062F4F;
+  padding-right: 10px; }
+
+.dataset__sort {
+  max-width: 500px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin-bottom: 10px; }
+
+.dataset__button {
+  margin: 5px 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0A94FF;
+  min-width: 100px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.1ch; }
+
+.dataset__button--details {
+  background-color: #39454F;
+  display: block;
+  margin: 5px auto 5px 0; }
+
+.dataset__button:hover,
+.dataset__button:focus {
+  background-color: #0079d6; }
+
+.dataset__button--details:hover,
+.dataset__button--details:focus {
+  background-color: #242b31; }
+
+.dataset__subtitle {
+  font-style: italic;
+  padding: 5px 0;
+  color: #062F4F; }
+
+.dataset__variables strong {
+  font-weight: bold; }
+
+.dataset__variables {
+  padding-bottom: 5px;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.3em; }
+  .dataset__variables li {
+    padding: 0 0 10px 10px; }
+
+.dataset__details--hide {
+  display: none; }
+
+@media (min-width: 600px) {
+  .dataset__variables {
+    font-size: 16px; } }
 
 /*========================================
 Constants

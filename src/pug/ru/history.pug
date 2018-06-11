@@ -77,8 +77,12 @@ html(lang="ru")
           sup 2
           | ); складскими помещениями (в отдельной постройке), своим маломерным флотом (две моторных лодки «Прогресс», одна моторная лодка «Вельбот», плавдача-амфибия «Дон», три весельные лодки «Кефаль»), лимнологическими приборами и оборудованием, спецснаряжением, возможностью установить палаточный лагерь на территории станции и непосредственно на берегу Можайского водохранилища.
         .modal 
-          span.modal__close &times;
-          img.modal__content
+          .modal__sub
+            .modal__controllers
+              .modal__controller.modal__controller__arrow--left &larr;
+              .modal__controller.modal__controller__close &times;
+              .modal__controller.modal__controller__arrow--right &rarr;
+            img.modal__content 
     include footer.pug
 
 

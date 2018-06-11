@@ -1,0 +1,33 @@
+- var link = '../data.html';
+- var language = 'EN';
+
+<!DOCTYPE html>
+<html lang="ru">
+    include head.pug
+    body
+        include header.pug
+        main.main
+            h1.main__h1 Наши данные
+            .datasets
+              .dataset
+                a(href="../data/Discharges_ML.csv") 
+                  span.dataset__title Ежедневные расходы воды в р.Москве и р.Лусянке за 1961-1991 гг. <i class="fas fa-download"></i>
+                input.dataset__button.dataset__button--details(type="button", value="Подробности", onclick = "showDetails(event)") 
+                .dataset__details.dataset__variables
+                  h3.dataset__subtitle Описание
+                  p Этот набор данных включает в себя ежесуточные расходы в створах: р.Москва – д.Барсуки, р.Лусянка – д.Черники за период с 1961 по 1991 гг., опубликованные в гидрологических ежегодниках.
+                  h3.dataset__subtitle Методы
+                  p Расходы получены путем проведения ежедневных измерений уровней воды и использования зависимости Q=f(H)
+                  h3.dataset__subtitle Контактная информация
+                  p Для получения информации о  расходах воды с 1992 г. по настоящее время обращайтесь по адресу: krasnovidovo.station@gmail.com
+                  h3.dataset__subtitle <em>Ключевые слова</em>
+                  p расходы воды, приток, реки
+                  input.dataset__button.dataset__button--details(type="button", value="Переменные", onclick = "showDetails(event)")
+                  .dataset__details
+                    h3.dataset__subtitle Переменные
+                    ul.dataset__variables
+                      li <strong>Date</strong> – дата измерения<br>Формат: ГГГГ-ММ-ДД
+                      li <strong>Q_Moskva</strong> – расход воды в р.Москве в створе д.Барсуки<br>Формат: м<sup>3</sup>/с
+                      li <strong>Q_Lusyanka</strong> – расход воды в р.Лусянке в створе д.Черники<br>Формат: м<sup>3</sup>/с
+        include footer.pug
+</html>

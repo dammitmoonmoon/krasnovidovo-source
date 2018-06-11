@@ -1,0 +1,49 @@
+- var link = 'ru/contacts.html';
+- var language = 'RU';
+
+doctype html
+html(lang="en-US")
+  head
+    include head.pug
+  body
+    include header.pug
+    main.main
+      h1.main__h1 Contact Information
+      section.main__text
+        h2.main__h2 Krasnovidovo Research Station<br>(Department of Geography, Lomonosov Moscow State University) 
+        p.contacts__wrapper
+          a.contacts__link.contacts__item(href="tel:+1234567890") +7(49638) 51619
+          a.contacts__link.contacts__item(href="mailto:krasnovidovo.station@gmail.com") krasnovidovo.station@gmail.com
+        p Address: Zelenaya st., 5, Krasnovidivo, Mozhayskiy district, Moscow region, Russia 143221
+        hr
+
+        section.main__text
+          h2.main__h2 Directions
+          .inner__nav
+            a.publication__year.inner__nav__link(href="#subsection-2") By car &#10164;
+          #subsection-1.main__text
+            h3.publication__year  By public transport
+            p There are two ways to get from <strong>Moscow</strong> to Mozhaysk.
+            p &#9658; Suburban train from Belorusskiy railway station to “Mozhaysk” station 
+              a.contacts__link.contacts--hide-in-desktop(href="https://rasp.yandex.ru/search/?fromName=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0+(%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9+%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB)&toName=%D0%9C%D0%BE%D0%B6%D0%B0%D0%B9%D1%81%D0%BA&fromId=s2000006&toId=c10739&when=%D0%BD%D0%B0+%D0%B2%D1%81%D0%B5+%D0%B4%D0%BD%D0%B8" target="_blank") &#32;(schedule, Rus)
+            iframe.contacts--hide-in-mobile.ul-fix(frameborder="0" src="https://rasp.yandex.ru/informers/search/?fromId=s2000006&amp;toId=c10739&amp;size=5&amp;color=1")
+            p &#9658; Bus #457 from Park Pobedy metro station to “Mozhaysk auto-station” (the last stop)
+              a.contacts__link.contacts--hide-in-desktop(href="https://rasp.yandex.ru/search/?fromName=%D0%BC.+%D0%9F%D0%B0%D1%80%D0%BA+%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B&toName=%D0%9C%D0%BE%D0%B6%D0%B0%D0%B9%D1%81%D0%BA&fromId=s9744836&toId=c10739&when=%D0%BD%D0%B0+%D0%B2%D1%81%D0%B5+%D0%B4%D0%BD%D0%B8" target="_blank") &#32;(schedule, Rus)
+            iframe.contacts--hide-in-mobile.ul-fix(frameborder="0" src="https://rasp.yandex.ru/informers/search/?fromId=s9744836&amp;toId=c10739&amp;size=5&amp;color=1&amp;type=bus")
+            p From <strong>Mozhaysk</strong>
+            p From “Mozhaysk auto-station” – bus #31, #37 or #44 to “Krasnovidivo” bus stop 
+            p After you have to cross the road and follow Central (Centralnaya) street to its end. You will be in fron of the station gates. The entrance is 10 meters to the left.  
+              a.contacts__link.contacts--hide-in-desktop(href="https://yandex.com/maps/-/CBqxZ2F~wC" target="_blank") 
+              | &#32;(see map).
+            iframe.contacts--hide-in-mobile(src="https://yandex.com/map-widget/v1/-/CBqKV2tMxC" width="560" height="400" frameborder="0")
+
+          #subsection-2
+            h3.publication__year By car
+              a.contacts__link.contacts--hide-in-desktop(href="https://www.google.com/maps/dir/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0%D1%8F+%D1%83%D0%BB.,+5,+%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B2%D0%B8%D0%B4%D0%BE%D0%B2%D0%BE,+%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB.,+143221/@55.67746,35.6245005,8z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x46b54afc73d4b0c9:0x3d44d6cc5757cf4c!2m2!1d37.6172999!2d55.755826!1m5!1m1!1s0x46ca8ab41cd05761:0x8c42d40c2eadfe86!2m2!1d35.8716299!2d55.581464!3e0?hl=ru" target="_blank") &#32;(road map)
+            p The most convenient way to Krasnovidovo station is by taking the Minsk highway (M1/E30)
+            p If you are traveling from the city center, take Kutuzovskiy prospect, which merges into Mozhaysk highway and then, after the junction with MCAD becomes Minsk highway. If you are following MCAD, take exit 55А towards “M1 E30 Smolensk”. In both cases follow Minsk highway for 92 km.
+            p After “107 km” sign turn right at the traffic light towards “Mozhaysk”, follow this road for 4 km through Yamskaya village. At the end of the village go straight at the traffic light: you will enter Mozhaysk. In 200 meters, at the second traffic light, again go straight. 
+            p Follow Kommunisticheskaya street for 800 m, then take a left turn at the traffic light on Moskovskaya street, towards “Borodino”.
+            p In 1.3 km turn right towards “MIZ”, go straight for 5 km. Then turn left towards “Porechie”. In 7.5 km take a right to Krasnovidovo village. You will be in front of the gates of the Krasnovidivo station in 800 m. 
+            iframe.contacts--hide-in-mobile(src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1151827.461803825!2d35.624500503718245!3d55.677459980350235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCw!3m2!1d55.755826!2d37.6172999!4m5!1s0x46ca8ab41cd05761%3A0x8c42d40c2eadfe86!2z0JfQtdC70LXQvdCw0Y8g0YPQuy4sIDUsINCa0YDQsNGB0L3QvtCy0LjQtNC-0LLQviwg0JzQvtGB0LrQvtCy0YHQutCw0Y8g0L7QsdC7LiwgMTQzMjIx!3m2!1d55.581464!2d35.871629899999995!5e0!3m2!1sru!2sru!4v1526038128163" frameborder="0" allowfullscreen)
+    include footer.pug

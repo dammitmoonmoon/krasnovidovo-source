@@ -1,0 +1,34 @@
+- var link = 'ru/gallery-2015.html';
+- var language = 'RU';
+
+doctype html
+html(lang="en-US")
+  head
+    include head.pug
+  body
+    include header.pug
+    main.main
+      h1.main__h1 2015
+      .gallery__container
+        img.figure__img.gallery__img.gallery__img--150-200(src='img/gallery/2015/1.jpg', alt='')
+        img.figure__img.gallery__img(src="img/gallery/2015/2.jpg" alt="")
+        img.figure__img.gallery__img(src="img/gallery/2015/3.jpg" alt="")
+        img.figure__img.gallery__img.gallery__img--150-200(src='img/gallery/2015/4.jpg', alt='')
+        img.figure__img.gallery__img(src="img/gallery/2015/5.jpg" alt="")
+        img.figure__img.gallery__img(src="img/gallery/2015/6.jpg" alt="")
+        img.figure__img.gallery__img(src="img/gallery/2015/7.jpg" alt="")
+        img.figure__img.gallery__img(src="img/gallery/2015/8.jpg" alt="")
+        img.figure__img.gallery__img.gallery__img--150-200(src='img/gallery/2015/9.jpg', alt='')
+        img.figure__img.gallery__img(src="img/gallery/2015/10.jpg" alt="")
+        img.figure__img.gallery__img(src="img/gallery/2015/11.jpg" alt="")
+        img.figure__img.gallery__img(src="img/gallery/2015/12.jpg" alt="")
+        //- while (n < 13)
+        //-   img.figure__img.gallery__img(src="img/gallery/2015/" + n++ +".jpg", alt="")
+      .modal 
+        .modal__sub
+          .modal__controllers
+            .modal__controller.modal__controller__arrow--left &larr;
+            .modal__controller.modal__controller__close &times;
+            .modal__controller.modal__controller__arrow--right &rarr;
+          img.modal__content 
+    include footer.pug

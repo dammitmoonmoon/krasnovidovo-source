@@ -1,0 +1,26 @@
+- var link = 'ru/about-efimova.html';
+- var language = 'RU';
+
+doctype html
+html(lang="en-US")
+  head
+    include head.pug
+  body
+    include header.pug
+    main.main
+      .employee.employee--personal
+        .employee__photo
+            img.employee__photo__img(src="img/faculty/efimova.jpg" alt="")
+        .employee__data.employee__data--personal
+            p.employee__data__name Liudmila Efimova  
+                a(href="mailto:ef_river@mail.ru")
+                    i.employee__fa.far.fa-envelope
+            p.employee__data__status Senior Scientist, PhD
+      .main__text
+        p While studying at the department, I realized that one of the most interesting topics of land hydrology is water chemical composition and water quality research.
+        p My research interests lie in field of chemical composition water in rivers and lakes and how anthropogenic pressure affect their seasonal. I my research I consider the general landscape parameters as well.
+        p My Ph.D. thesis is devoted to the peculiarities of formation of chemical composition and distribution of biogenic elements in mixing zone of river and sea water in the White Sea region. I continue to work in collaboration with oceanologists and biologists on meromictic lakes - unique water bodies, which used to be connected with the sea.
+        p I often come to Krasnovidovo station, where I have a wonderful opportunity to carry out the research in an analytical laboratory and take part in field work at the Mozhaysk reservoir.
+        p I am interested in studying mass exchange processes on the boundary between water and bottom sediments (exchange of dissolved Fe and Mn, phosphorus emission from sediments) and their interaction with water column structure.
+        p At the Land hydrology department, I am responsible for a hydrochemistry course for the second-year students. I lead a hydrochemical part of the summer course at the Krasnovidovo station, take part in the student’s expeditions, during the summer course, which takes part in the mountains.
+  include footer.pug

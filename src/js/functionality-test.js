@@ -24,7 +24,12 @@ mainLinks.forEach((item) => {
     item.classList.add('nav__bar__main--beautify');
 });
 
-//Toggle navbar on click (hamburger)
+const details = Array.from(document.querySelectorAll('.dataset__details'));
+details.forEach((item) => {
+    item.classList.add('dataset__details--hide');
+})
+
+//======================== Toggle navbar on click (hamburger) ========================//
 navHamburger.addEventListener('click', () => {
     toggleClass(navBar, 'nav__bar--visible');
 });
@@ -86,23 +91,82 @@ function activateStickyNav() {
     }
 }
 
-const modal = document.querySelector('.modal');
-const modalImg = document.querySelector(".modal__content");
-const images = Array.from(document.querySelectorAll('.figure__img'));
+//======================== Display Images As SlideShow ========================//
+if (document.querySelector('.modal')) {
+    const modal = document.querySelector('.modal');
+    const modalImg = document.querySelector(".modal__content");
+    const images = Array.from(document.querySelectorAll('.figure__img'));
+    const close = document.getElementsByClassName("modal__controller__close")[0];
+    const leftArrow = document.getElementsByClassName("modal__controller__arrow--left")[0];
+    const rightArrow = document.getElementsByClassName("modal__controller__arrow--right")[0];
 
-images.forEach((image) => {
-  image.addEventListener('click', () => {
-    let source = image.src.replace(/.jpg/, '-1000.jpg');;
-    modal.style.display = "block";
-    modalImg.src = source;
-  });
-});
-
-const span = document.getElementsByClassName("modal__close")[0];
-
-span.onclick = function() { 
-  modal.style.display = "none";
+    images.forEach((image) => {
+        image.addEventListener('click', (event) => {
+          let source = image.src.replace(/.jpg/, '-1000.jpg');
+          modal.style.display = "block";
+          modalImg.src = source;
+        });
+    });
+    
+    close.addEventListener('click', () => { 
+        modal.style.display = "none";
+    })
+    
+    
+    leftArrow.addEventListener('click', () => { 
+        const images = Array.from(document.querySelectorAll('.figure__img'));
+        let imagesHR = collectHighResolutionImages(images);
+        let newSource = imagesHR[findLeft(modalImg)];
+        modalImg.src = newSource;
+    })
+    
+    
+    rightArrow.addEventListener('click', () => { 
+        const images = Array.from(document.querySelectorAll('.figure__img'));
+        let imagesHR = collectHighResolutionImages(images);
+        let newSource = imagesHR[findRight(modalImg)];
+        modalImg.src = newSource;
+    })
 }
+
+function collectHighResolutionImages(images) {
+    let imagesHR = [];
+    images.forEach((image) => {
+        imagesHR.push(image.src.replace(/.jpg/, '-1000.jpg'));
+    });
+    return imagesHR;
+}
+
+function findLeft(modalImg) {
+    let src = modalImg.src;
+    const images = Array.from(document.querySelectorAll('.figure__img'));
+    let imagesHR = collectHighResolutionImages(images);
+    let position = imagesHR.indexOf(src);
+    let left = 0;
+    if (position == 0) {
+        left = imagesHR.length - 1;
+    }
+    else {
+        left = position - 1;
+    }
+    return left;
+}
+
+function findRight(modalImg) {
+    let src = modalImg.src;
+    const images = Array.from(document.querySelectorAll('.figure__img'));
+    let imagesHR = collectHighResolutionImages(images);
+    let position = imagesHR.indexOf(src);
+    let right = 0;
+    if (position == (imagesHR.length - 1) ) {
+        right = 0;
+    }
+    else {
+        right = position + 1;
+    }
+    return right;
+}
+
 
 //======================== Common functions ========================//
 
@@ -115,3 +179,9 @@ function toggleClass(target, className) {
     else target.classList.toggle(className);
 }
 
+//======================== Datasets ========================//
+function showDetails(event) {
+    let parent = event.target.parentElement;
+    let hidden = parent.children[(parent.children.length)-1];
+    toggleClass(hidden, 'dataset__details--hide');
+}

@@ -1,0 +1,27 @@
+- var link = 'ru/about-sokolov.html';
+- var language = 'RU';
+
+doctype html
+html(lang="en-US")
+  head
+    include head.pug
+  body
+    include header.pug
+    main.main
+        .employee.employee--personal
+            .employee__photo
+                img.employee__photo__img(src="img/staff/sokolov.jpg" alt="")
+            .employee__data.employee__data--personal
+                p.employee__data__name Dmitriy Sokolov
+                    a(href="mailto:dmitriy.sokolov@yandex.ru")
+                        i.employee__fa.far.fa-envelope
+                p.employee__data__status Senior Scientist, PhD
+        .main__text
+            p The first time I got to Krasnovidivo station in 2002, when I was a 2	<sup>nd</sup> year student. Since then, I often come to the station both during summer and winter. I take part in teaching limnological part of the field student course since 2006. I work at the station since 2010.
+            p Since my graduation, I got a chance to work on a several reservoirs and lakes, such as Mozhaysk (Можайском), Ruza (Рузском), Ozerninsk (Озернинском), Istra (Инстринском), Vazuza (Вазузском), Gorky (Горьковском), Cheboksary (Чебоксарском), lake Senezh and its tributaries. As well as lake Glubokoe (Moscow region), and Moscow river section between Mozhaysk hydropower station and Rublevo water intake. Everywhere I have been working on a hydroecological issues.
+            p My main scientific interest is water quality formation and transformation in reservoirs. I have been doing some experiments on bottom sediments in Mozhaysk reservoirs in collaboration with Water Problems Institute (RAS) to estimate the influence of reservoirs on water quality. I have organized first complex water balance monitoring on its catchment in 2012. That showed, that reservoirs water masses can help to increase water quality level, because of holding up to 50% of organic matter and up to 80% of suspended sediments in its water body.
+            p One of the key directions of the research in the Land hydrology department is numerical modelling of hydroecological processes. I am particularly interested in evaluation of the in-situ data quality and its reliability to compare with the results of modelling. 
+            p Besides that, I took part in field experiments “Poligon-2011” and “Triple Poligon-2014”, which aimed to assess the reliability of parameters, measured in different parts of the reservoir in comparison to the whole water body and to develop a proper monitoring system.
+            p Since 2016 me and my colleagues carry out the detailed monitoring of the Mozhaysk reservoirs tributaries. This data is used for a parametrization of the water quality parameters, so that we can ensure, that the model returns the reliable result, even with the lack of observed data.
+            p Since 2009 I am responsible for a “Hydrology of lakes and reservoirs” course seminars and practical part. Since 2016 I give lectures on that course as well. 
+    include footer.pug

@@ -65,26 +65,30 @@ gulp.task('imageMin', () =>
 );
 
 gulp.task('resize', () => {
-    gulp.src('src/photos/2017/test/*.jpg')
+    gulp.src('src/photos/2015/test/*.jpg')
         .pipe(imagemin())
         .pipe(imageResize({
-            height : 200,
-            width : 200, 
+            height : 1000,
+            width : 1000, 
             crop : false,
             upscale : false
       }))
       .pipe(rename(function (path) {
-        // path.basename += "-1000";
+        path.basename += "-1000";
       }))
-      .pipe(gulp.dest('src/photos/2017/test/200'));
+      .pipe(gulp.dest('src/photos/2015/test/1000'));
   });
 
   gulp.task('rename', () => {
       let num = 1;
+      let arr = [5, 10, 14, 17, 21];
     gulp.src('src/photos/2017/*.jpg')
         .pipe(rename(function (path) {
             path.basename = num;
             num++;
+            if (arr.includes(num)) {
+                
+            }
         }))
         .pipe(gulp.dest('src/photos/2017/test'));
   });
