@@ -172,6 +172,7 @@ body {
 .bar__extra__set {
   background: rgba(229, 236, 233, 0.9);
   width: 100%;
+  z-index: 1;
 }
 
 .bar__extra__set--beautify {
@@ -546,6 +547,7 @@ body {
 @media (min-height: 400px) {
   .sticky {
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     background: #E5ECE9;

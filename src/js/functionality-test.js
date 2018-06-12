@@ -185,3 +185,93 @@ function showDetails(event) {
     let hidden = parent.children[(parent.children.length)-1];
     toggleClass(hidden, 'dataset__details--hide');
 }
+
+//======================== Gradual Image Loading ========================//
+// window.onload = function() {
+//     if (document.querySelector('.slideshow__placeholder')) {
+//         let placeholder = document.querySelector('.slideshow__placeholder');
+//         let small = placeholder.querySelector('.slideshow__image');
+//         let img = new Image();
+//         img.src = small.src;
+//         img.onload = function () {
+//             small.classList.add('slideshow__image--loaded');
+//             small.classList.add('slideshow__image--small');
+//         };
+        
+//         let imgLarge = new Image();
+//         imgLarge.src = placeholder.dataset.large;
+//         imgLarge.onload = function () {
+//             imgLarge.classList.add('slideshow__image--loaded');
+//         };
+
+//         placeholder.appendChild(imgLarge);
+//     }
+// }
+
+//======================== Carousel ========================//
+window.onload = function() {
+    if (document.querySelector('.slideshow')) {
+        let images = Array.from(document.querySelectorAll('.slideshow__image'));
+        let dots = Array.from(document.querySelectorAll('.slideshow__dot'));
+        let currentIndex = 0;
+        images[currentIndex].style.opacity = 1;
+        dots[currentIndex].classList.add('slideshow__dot--active');
+
+        function autoScroll() {
+            if (currentIndex == (images.length - 1)) {
+                newIndex = 0;
+            }
+            let newIndex = currentIndex + 1;        
+            let timer = setInterval(() => {
+                currentIndex = showSlide(newIndex, currentIndex);
+                newIndex = currentIndex + 1;
+                if (currentIndex == (images.length - 1)) {
+                    newIndex = 0;
+                }
+            }, 5000);
+            return timer;
+        }
+
+        let timer = autoScroll();
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener('click', () => {
+                clearTimeout(timer);
+                currentIndex = showSlide(i, currentIndex);
+                timer = autoScroll();
+            });
+        }
+
+        let left = document.querySelector('.slideshow__arrow--left');
+        left.addEventListener('click', () => {
+            clearTimeout(timer);
+            let newIndex = currentIndex - 1;
+            if (currentIndex == 0) {
+                newIndex = images.length - 1;
+            }
+            currentIndex = showSlide(newIndex, currentIndex);
+            timer = autoScroll();
+        })
+
+        let right = document.querySelector('.slideshow__arrow--right');
+        right.addEventListener('click', () => {
+            clearTimeout(timer);
+            let newIndex = currentIndex + 1;
+            if (currentIndex == (images.length - 1)) {
+                newIndex = 0;
+            }
+            currentIndex = showSlide(newIndex, currentIndex);
+            timer = autoScroll();
+        })
+    }
+}
+
+function showSlide(newIndex, oldIndex) {
+    let images = Array.from(document.querySelectorAll('.slideshow__image'));
+    let dots = Array.from(document.querySelectorAll('.slideshow__dot'));
+    images[newIndex].style.opacity = 1;
+    images[oldIndex].style.opacity = 0;
+    dots[oldIndex].classList.remove('slideshow__dot--active');
+    dots[newIndex].classList.add('slideshow__dot--active');
+    return newIndex;
+}

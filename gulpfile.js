@@ -65,18 +65,18 @@ gulp.task('imageMin', () =>
 );
 
 gulp.task('resize', () => {
-    gulp.src('src/photos/2015/test/*.jpg')
+    gulp.src('src/photos/slideshow/*.jpg')
         .pipe(imagemin())
         .pipe(imageResize({
-            height : 1000,
-            width : 1000, 
+            height : 500,
+            width : 500, 
             crop : false,
             upscale : false
       }))
       .pipe(rename(function (path) {
-        path.basename += "-1000";
+        path.basename += "-500";
       }))
-      .pipe(gulp.dest('src/photos/2015/test/1000'));
+      .pipe(gulp.dest('src/photos/slideshow/500'));
   });
 
   gulp.task('rename', () => {
