@@ -1,0 +1,22 @@
+- var link = 'ru/index.html';
+- var language = 'RU';
+- var i = 1;
+- var j = 0;
+
+<!DOCTYPE html>
+<html lang="en-US">
+    include head.pug
+    body
+        include header.pug
+        main.main
+            .slideshow
+                .slideshow__container
+                    while (i < 9 )
+                        img.slideshow__image(src="img/slideshow/"+ i +"-500.jpg", alt="image " + i++)
+                    .slideshow__arrow.slideshow__arrow--left &#10094;
+                    .slideshow__arrow.slideshow__arrow--right &#10095;
+                .slideshow__dots
+                    each _ in Array(8)
+                        div.slideshow__dot
+        include footer.pug
+</html>

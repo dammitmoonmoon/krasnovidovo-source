@@ -1,190 +1,278 @@
-//Don't show FA icons unless the font is loaded
-document.fonts.ready.then(function () {
-    const fas = Array.from(document.querySelectorAll('.footer__fa'));
-    fas.forEach((item) => {
-        item.classList.remove('footer__fa--hidden');
-    });
-  });
+const navigationController = (function() {
+    const navHamburger = document.querySelector('.nav__hamburger');
+    const navBar = document.querySelector('.nav__bar');
+    const mainLinks = Array.from(document.querySelectorAll('.nav__bar__main'));
+    const extraLinks = Array.from(document.querySelectorAll('.bar__extra__set'));
+    const main = document.querySelector('main');
+    const sticky = navBar.offsetTop;
 
-//Show Hamburger Button (in mobile) if JS is available
-const navHamburger = document.querySelector('.nav__hamburger');
-const navBar = document.querySelector('.nav__bar');
-navHamburger.classList.remove('nav__hamburger--hidden');
-navBar.classList.remove('nav__bar--visible');
+/* Remove no-JS fallbacks: 
+hide extra links, change menu styles, switch to hamburger button on mobile */
 
-//Hide extra links if JS is available (and display them in different style on click )
-const extraLinks = Array.from(document.querySelectorAll('.bar__extra__set'));
-extraLinks.forEach((item) => {
-    item.classList.add('bar__extra__set--hidden');
-    item.classList.add('bar__extra__set--beautify');
-});
-
-const mainLinks = Array.from(document.querySelectorAll('.nav__bar__main'));
-mainLinks.forEach((item) => {
-    item.classList.add('nav__bar__main--beautify');
-});
-
-const details = Array.from(document.querySelectorAll('.dataset__details'));
-details.forEach((item) => {
-    item.classList.add('dataset__details--hide');
-})
-
-//======================== Toggle navbar on click (hamburger) ========================//
-navHamburger.addEventListener('click', () => {
-    toggleClass(navBar, 'nav__bar--visible');
-});
-
-navHamburger.addEventListener('keyup', (event) => {
-    if (event.keyCode === 13) {
-        toggleClass(navBar, 'nav__bar--visible');
+    const switchToHamburgerButton = () => {
+        navHamburger.classList.remove('nav__hamburger--hidden');
+        navBar.classList.remove('nav__bar--visible')
     }
-});
 
-const navBarMainLinks = Array.from(document.querySelectorAll('.nav__bar__main'));
-navBarMainLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-        link.children[0].classList.toggle('bar__extra__set--hidden');
-        hideItemsOnClickElsewhere(link); 
-    })
-});
+    const beautifyMainLinks = () => {
+        mainLinks.forEach((item) => {
+            item.classList.add('nav__bar__main--beautify');
+        });
+    }
 
-navBarMainLinks.forEach((link) => {
-    link.addEventListener('keyup', (event) => {
-        if (event.keyCode === 13) {
-            link.children[0].classList.toggle('bar__extra__set--hidden');
-            hideItemsOnClickElsewhere(link); 
-        }
-    })
-});
+    const hideExtraLinks = () => {
+        extraLinks.forEach((item) => {
+            item.classList.add('bar__extra__set--hidden');
+            item.classList.add('bar__extra__set--beautify');
+        });
+    }
 
-function hideItemsOnClickElsewhere(link) {
-    document.addEventListener('click', (e) => {
-        if (e.target !== link) {
-            link.children[0].classList.add('bar__extra__set--hidden');
-        }
-    });
-    document.addEventListener('keyup', (e) => {
-        if (event.keyCode === 13) {
+/* Toggle extra links on click */
+
+    const toggleNavBar = () => {
+        navHamburger.addEventListener('click', () => {
+            helper.toggleClass(navBar, 'nav__bar--visible');
+        });
+        navHamburger.addEventListener('keyup', (event) => {
+            if (event.keyCode === 13) {
+                helper.toggleClass(navBar, 'nav__bar--visible');
+            }
+        });
+    }
+
+    const hideItemsOnClickElsewhere = (link) => {
+        document.addEventListener('click', (e) => {
             if (e.target !== link) {
                 link.children[0].classList.add('bar__extra__set--hidden');
             }
+        });
+        document.addEventListener('keyup', (e) => {
+            if (event.keyCode === 13) {
+                if (e.target !== link) {
+                    link.children[0].classList.add('bar__extra__set--hidden');
+                }
+            }
+        });
+    }
+
+    const toggleExtraLinks = () => {
+        mainLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                link.children[0].classList.toggle('bar__extra__set--hidden');
+                hideItemsOnClickElsewhere(link); 
+            })
+        });
+    }
+
+/* Activate sticky nav */
+    const activateStickyNav = () => {
+        if (window.pageYOffset >= sticky) {
+            navBar.classList.add("sticky");
+            main.classList.add("anti-sticky");
+        } 
+        else {
+            navBar.classList.remove("sticky");
+            main.classList.remove("anti-sticky");
         }
-    });
-}
+    }
 
-const navbar = document.querySelector('.header__nav');
-const main = document.querySelector('main');
-const sticky = navbar.offsetTop;
-window.onscroll = () => {
-    activateStickyNav();
-};
+/* "Interface" */
+    return {
+        removeFallbacks: () => {
+            hideExtraLinks();
+            beautifyMainLinks();
+            switchToHamburgerButton();
+        },
 
+        activateNavBar: () => {
+            toggleNavBar();
+            toggleExtraLinks();
+        },
 
-function activateStickyNav() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky");
-        main.classList.add("anti-sticky");
-    } 
-    else {
-        navbar.classList.remove("sticky");
-        main.classList.remove("anti-sticky");
+        activateStickyNav: activateStickyNav,
+    };
+
+})();
+
+const helper = {
+    toggleClass: (target, className) => {
+        if (NodeList.prototype.isPrototypeOf(target)) {
+            for (let i = 0; i < target.length; i++) {
+                target[i].classList.toggle(className);      
+            }
+        }
+        else target.classList.toggle(className);
     }
 }
 
-//======================== Display Images As SlideShow ========================//
-if (document.querySelector('.modal')) {
+const imageController = (function(){
     const modal = document.querySelector('.modal');
     const modalImg = document.querySelector(".modal__content");
     const images = Array.from(document.querySelectorAll('.figure__img'));
     const close = document.getElementsByClassName("modal__controller__close")[0];
     const leftArrow = document.getElementsByClassName("modal__controller__arrow--left")[0];
     const rightArrow = document.getElementsByClassName("modal__controller__arrow--right")[0];
+    const imagesHR = collectHighResolutionImages(images);
 
-    images.forEach((image) => {
-        image.addEventListener('click', (event) => {
-          let source = image.src.replace(/.jpg/, '-1000.jpg');
-          modal.style.display = "block";
-          modalImg.src = source;
+    const setModalImageEvent = () => {
+        images.forEach((image) => {
+            image.addEventListener('click', (event) => {
+              let source = image.src.replace(/.jpg/, '-1000.jpg');
+              modal.style.display = "block";
+              modalImg.src = source;
+            });
         });
-    });
-    
-    close.addEventListener('click', () => { 
-        modal.style.display = "none";
-    })
-    
-    
-    leftArrow.addEventListener('click', () => { 
-        const images = Array.from(document.querySelectorAll('.figure__img'));
-        let imagesHR = collectHighResolutionImages(images);
-        let newSource = imagesHR[findLeft(modalImg)];
-        modalImg.src = newSource;
-    })
-    
-    
-    rightArrow.addEventListener('click', () => { 
-        const images = Array.from(document.querySelectorAll('.figure__img'));
-        let imagesHR = collectHighResolutionImages(images);
-        let newSource = imagesHR[findRight(modalImg)];
-        modalImg.src = newSource;
-    })
-}
-
-function collectHighResolutionImages(images) {
-    let imagesHR = [];
-    images.forEach((image) => {
-        imagesHR.push(image.src.replace(/.jpg/, '-1000.jpg'));
-    });
-    return imagesHR;
-}
-
-function findLeft(modalImg) {
-    let src = modalImg.src;
-    const images = Array.from(document.querySelectorAll('.figure__img'));
-    let imagesHR = collectHighResolutionImages(images);
-    let position = imagesHR.indexOf(src);
-    let left = 0;
-    if (position == 0) {
-        left = imagesHR.length - 1;
     }
-    else {
-        left = position - 1;
+
+    const setCloseEvent = () => {
+        close.addEventListener('click', () => { 
+            modal.style.display = "none";
+        })
     }
-    return left;
-}
 
-function findRight(modalImg) {
-    let src = modalImg.src;
-    const images = Array.from(document.querySelectorAll('.figure__img'));
-    let imagesHR = collectHighResolutionImages(images);
-    let position = imagesHR.indexOf(src);
-    let right = 0;
-    if (position == (imagesHR.length - 1) ) {
-        right = 0;
+    const setScrollLeftEvent = () => {
+        leftArrow.addEventListener('click', () => { 
+            let newSource = imagesHR[findLeft(modalImg)];
+            modalImg.src = newSource;
+        })
     }
-    else {
-        right = position + 1;
+
+    const setScrollRightEvent = () => {
+        rightArrow.addEventListener('click', () => { 
+            let newSource = imagesHR[findRight(modalImg)];
+            modalImg.src = newSource;
+        })
     }
-    return right;
-}
+//Helper functions
+    function collectHighResolutionImages(images) {
+        let imagesHR = [];
+        images.forEach((image) => {
+            imagesHR.push(image.src.replace(/.jpg/, '-1000.jpg'));
+        });
+        return imagesHR;
+    }
 
+    function findLeft(modalImg) {
+        let src = modalImg.src;
+        let position = imagesHR.indexOf(src);
+        let left = 0;
+        if (position == 0) {
+            left = imagesHR.length - 1;
+        }
+        else {
+            left = position - 1;
+        }
+        return left;
+    }
+    
+    function findRight(modalImg) {
+        let src = modalImg.src;
+        let position = imagesHR.indexOf(src);
+        let right = 0;
+        if (position == (imagesHR.length - 1) ) {
+            right = 0;
+        }
+        else {
+            right = position + 1;
+        }
+        return right;
+    }
 
-//======================== Common functions ========================//
-
-function toggleClass(target, className) {
-    if (NodeList.prototype.isPrototypeOf(target)) {
-        for (let i = 0; i < target.length; i++) {
-            target[i].classList.toggle(className);      
+    return {
+        activateModalImageControllers: () => {
+            if (document.querySelector('.modal')) {
+                setModalImageEvent();
+                setCloseEvent();
+                setScrollLeftEvent();
+                setScrollRightEvent();
+            }
         }
     }
-    else target.classList.toggle(className);
-}
+})();
 
-//======================== Datasets ========================//
-function showDetails(event) {
-    let parent = event.target.parentElement;
-    let hidden = parent.children[(parent.children.length)-1];
-    toggleClass(hidden, 'dataset__details--hide');
-}
+
+
+const carouselControls = (function() {
+    const images = Array.from(document.querySelectorAll('.slideshow__image'));
+    const dots = Array.from(document.querySelectorAll('.slideshow__dot'));
+    const left = document.querySelector('.slideshow__arrow--left');
+    const right = document.querySelector('.slideshow__arrow--right');
+    let currentIndex = 0;
+    let timer = 0;
+
+    const setSlideShow = () => {
+        images[currentIndex].style.opacity = 1;
+        dots[currentIndex].classList.add('slideshow__dot--active');
+
+        timer = autoScroll();
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener('click', () => {
+                clearTimeout(timer);
+                currentIndex = showSlide(i, currentIndex);
+                timer = autoScroll();
+            });
+        }
+    }
+    
+    const setControlLeft = () => {
+        left.addEventListener('click', () => {
+            clearTimeout(timer);
+            let newIndex = currentIndex - 1;
+            if (currentIndex == 0) {
+                newIndex = images.length - 1;
+            }
+            currentIndex = showSlide(newIndex, currentIndex);
+            timer = autoScroll();
+        })
+    }
+
+    const setControlRight = () => {
+        right.addEventListener('click', () => {
+            clearTimeout(timer);
+            let newIndex = currentIndex + 1;
+            if (currentIndex == (images.length - 1)) {
+                newIndex = 0;
+            }
+            currentIndex = showSlide(newIndex, currentIndex);
+            timer = autoScroll();
+        })
+    }
+
+    function autoScroll() {
+        let newIndex = currentIndex + 1;
+        if (currentIndex == (images.length - 1)) {
+            newIndex = 0;
+        }
+        let timer = setInterval(() => {
+            currentIndex = showSlide(newIndex, currentIndex);
+            newIndex = currentIndex + 1;
+            if (currentIndex == (images.length - 1)) {
+                newIndex = 0;
+            }
+        }, 5000);
+        return timer;
+    }
+
+    function showSlide(newIndex, oldIndex) {
+        images[newIndex].style.opacity = 1;
+        images[oldIndex].style.opacity = 0;
+        dots[oldIndex].classList.remove('slideshow__dot--active');
+        dots[newIndex].classList.add('slideshow__dot--active');
+        return newIndex;
+    }
+
+    return {
+        setCarousel: () => {
+            if (document.querySelector('.slideshow')) {
+                setSlideShow();
+                setControlLeft();
+                setControlRight();
+            }
+        }
+    }
+})();
+
 
 //======================== Gradual Image Loading ========================//
 // window.onload = function() {
@@ -208,70 +296,144 @@ function showDetails(event) {
 //     }
 // }
 
-//======================== Carousel ========================//
-window.onload = function() {
-    if (document.querySelector('.slideshow')) {
-        let images = Array.from(document.querySelectorAll('.slideshow__image'));
-        let dots = Array.from(document.querySelectorAll('.slideshow__dot'));
-        let currentIndex = 0;
-        images[currentIndex].style.opacity = 1;
-        dots[currentIndex].classList.add('slideshow__dot--active');
 
-        function autoScroll() {
-            if (currentIndex == (images.length - 1)) {
-                newIndex = 0;
-            }
-            let newIndex = currentIndex + 1;        
-            let timer = setInterval(() => {
-                currentIndex = showSlide(newIndex, currentIndex);
-                newIndex = currentIndex + 1;
-                if (currentIndex == (images.length - 1)) {
-                    newIndex = 0;
+//Plot data
+
+let dataParameters = {};
+
+function setDataDescription() {
+    const data = document.getElementById('data_submit');
+    dataParameters.folder = data.dataset.folder;
+    dataParameters.firstYear = data.dataset.firstyear;
+    dataParameters.lastYear = data.dataset.lastyear;
+}
+
+function getDataFromUser() {
+    let select = document.getElementById('data_parameters');
+    dataParameters.parameter = select.options[select.selectedIndex].value;
+
+    let year = document.getElementById('data_year').value;
+    let errorField = document.getElementById('error');
+    
+    if (!validateYear(year, dataParameters.firstYear, dataParameters.lastYear)) {
+        errorField.innerHTML = `Введённый год (${year}) вне диапазона ${dataParameters.firstYear}&ensp;${dataParameters.lastYear}!`;
+        return;
+    }    
+    errorField.innerHTML = "";
+    dataParameters.fileName = year;
+}
+
+function validateYear(year, firstYear, lastYear) {
+    year = +year;
+    if (isNaN(year) || year < firstYear || year > lastYear)
+        return false;
+    return true;
+  }
+
+function plot() {
+    setDataDescription();
+    getDataFromUser();
+    getDataFromServer()
+        .then(plotly);
+}
+
+function getDataFromServer() {
+    return new Promise((resolve, reject) => {
+        let urlRaw = `${dataParameters.folder}/${dataParameters.fileName}.json`;
+        let urlAverage = `${dataParameters.folder}/average.json`;
+        Promise.all([getJSON(urlRaw), getJSON(urlAverage)])
+        .then(results => { 
+            dataParameters.dataRaw = results[0];
+            dataParameters.dataAverage = results[1];
+            console.log(dataParameters);
+            resolve();
+        })
+        .catch(e => {console.log(e.message);});
+    });
+}
+
+
+function getJSON(url) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onload = function() {
+            try {
+                if ((this.status === 200)) {
+                    resolve(JSON.parse(this.responseText));
                 }
-            }, 5000);
-            return timer;
-        }
+                else {
+                    reject(this.status + ' ' + this.statusText); 
+                }
+            } catch(e) {
+                reject(e.message);
+            }  
+        };
 
-        let timer = autoScroll();
+        xhr.onerror = function() {
+            reject(this.status + ' ' + this.statusText);
+        };
+        xhr.send();
+    });
+}
 
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].addEventListener('click', () => {
-                clearTimeout(timer);
-                currentIndex = showSlide(i, currentIndex);
-                timer = autoScroll();
-            });
-        }
+function plotly() {
+    let trace1 = getPlotData(dataParameters.dataRaw, `observed in ${dataParameters.firstYear}`);
+    console.log(trace1);
+    let trace2 = getPlotData(dataParameters.dataAverage, `average (${dataParameters.firstYear}-${dataParameters.lastYear})`);
+    trace2.x = trace1.x;
+    console.log(trace2);
+    let data = [trace1, trace2];
 
-        let left = document.querySelector('.slideshow__arrow--left');
-        left.addEventListener('click', () => {
-            clearTimeout(timer);
-            let newIndex = currentIndex - 1;
-            if (currentIndex == 0) {
-                newIndex = images.length - 1;
-            }
-            currentIndex = showSlide(newIndex, currentIndex);
-            timer = autoScroll();
-        })
+    let layout = {
+        xaxis: {
+            type: 'date',
+            tickformat: '%b',
+            title: 'Date'
+        },
+        yaxis: {
+            title: dataParameters.parameter
+        },
+      };
+      
+    Plotly.newPlot('plot', data, layout);
+}
 
-        let right = document.querySelector('.slideshow__arrow--right');
-        right.addEventListener('click', () => {
-            clearTimeout(timer);
-            let newIndex = currentIndex + 1;
-            if (currentIndex == (images.length - 1)) {
-                newIndex = 0;
-            }
-            currentIndex = showSlide(newIndex, currentIndex);
-            timer = autoScroll();
-        })
+function getPlotData(data, title) {
+    let traceData = {
+        x: [],
+        y: [],
+        type: 'scatter', 
+        name: title
+    };
+
+    for (let prop in data) {
+        traceData.x.push(prop);
+        traceData.y.push(data[prop][dataParameters.parameter]);
     }
+    
+    return traceData;
 }
 
-function showSlide(newIndex, oldIndex) {
-    let images = Array.from(document.querySelectorAll('.slideshow__image'));
-    let dots = Array.from(document.querySelectorAll('.slideshow__dot'));
-    images[newIndex].style.opacity = 1;
-    images[oldIndex].style.opacity = 0;
-    dots[oldIndex].classList.remove('slideshow__dot--active');
-    dots[newIndex].classList.add('slideshow__dot--active');
-    return newIndex;
+
+//======================== Datasets ========================//
+function showDetails(event) {
+    let parent = event.target.parentElement.parentElement;
+    let hidden = parent.querySelector('.dataset__description');
+    helper.toggleClass(hidden, 'dataset--hide');
 }
+
+function showPlot(event) {
+    let parent = event.target.parentElement.parentElement;
+    let hidden = parent.querySelector('.dataset__plot');
+    helper.toggleClass(hidden, 'dataset--hide');
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", navigationController.removeFallbacks);
+document.addEventListener("DOMContentLoaded", navigationController.activateNavBar);
+window.addEventListener("scroll", navigationController.activateStickyNav);
+document.addEventListener("DOMContentLoaded", imageController.activateModalImageControllers);
+document.addEventListener("DOMContentLoaded", carouselControls.setCarousel);

@@ -1,0 +1,93 @@
+- var link = '../data-meteo.html';
+- var language = 'EN';
+
+<!DOCTYPE html>
+<html lang="ru">
+    include head.pug
+    body
+        include header.pug
+        main.main
+          h1.main__h1 Метеорологические данные
+          ul.datasets
+            li.dataset__title Среднесуточные метеорологические характеристики на метеостанции г.Можайск за 1966-2015 гг.
+              .dataset__controls
+                a.dataset__button(href="#description" onclick = "showDetails(event)") Описание
+                a.dataset__button(href="../data/weather-daily.csv") Скачать
+
+              .dataset__plot
+                h2.dataset__plot__title Построение графика
+                .dataset__plot__parameter
+                  label(for="year") Год (1966-2015)
+                  input(type="text" id="data_year" name="year" size="4" 
+                        minLength="4" maxLength="4")
+                .dataset__plot__parameter
+                  label(for="parameters") Параметры
+                  select(id="data_parameters" name="parameters")
+                    each val in ['NTOT', 'NLOW', 'WDIR', 'WSPD', 'PP', 'T', 'WVP', 'PST']
+                      option(value=val) #{val}
+                .dataset__plot__parameter
+                  input(type="submit", id="data_submit", value="Построить!", 
+                  data-firstYear="1966", data-lastYear="2015", data-folder="../data/weather", 
+                  onclick="plot()")
+                #error
+                #plot
+
+              .dataset__description.dataset--hide#description
+                .dataset__subtitle Описание
+                  p Этот набор данных включает информацию о распределении среднесуточных метеорологических характеристик на метеостанции г. Можайск (WMO ID 27509, координаты 55.52 с.ш. 36.00 в.д.) за период с 1966 по 2015 гг.
+                .dataset__subtitle Методы
+                  p Данные с 2005 по 2015 гг. получены путем осреднения срочных наблюдений, полученных с сайта 
+                    a.dataset__link(href="https://rp5.com") "Расписание погоды" 
+                .dataset__subtitle Контактная информация
+                  p Для получения дополнительной информации обращайтесь по адресу: 
+                    a.dataset__link(href="mailto:krasnovidovo.station@gmail.com") krasnovidovo.station@gmail.com
+                .dataset__subtitle <em>Ключевые слова</em>
+                  p погода, температура, ветер, осадки, облачность
+                ul.dataset__subtitle <em>Переменные</em>
+                  li <strong>Date</strong> – дата измерения<br>Формат: ГГГГ-ММ-ДД,  UTC - время по Гринвичу
+                  li <strong>NTOT</strong> – общее количество облачности<br>Формат: баллы (0-10)
+                  li <strong>NLOW</strong> – количество облачности нижнего яруса<br>Формат: баллы (0-10)
+                  li <strong>WDIR</strong> – направление ветра<br>Формат: градусы (0-360; северное направление - 0)
+                  li <strong>WSPD</strong> – средняя скорость ветра<br>Формат: м/с
+                  li <strong>WMAX</strong> – максимальная скорость ветра<br>Формат: м/с
+                  li <strong>PP</strong> – сумма осадков за период между сроками<br>Формат: мм
+                  li <strong>T</strong> – температура воздуха по сухому термометру<br>Формат: градусы Цельсия
+                  li <strong>WVP</strong> – упругость водяного пара (парциальное давление водяного пара)<br>Формат: мбар
+                  li <strong>HUM</strong> – относительная влажность воздуха<br>Формат: %
+                  li <strong>PST</strong> – атмосферное давление на уровне станции <br>Формат: мбар
+                  li <strong>PSEA</strong> – атмосферное давление на уровне моря (парциальное давление водяного пара)<br>Формат: мбар
+                  p Отсутствующие данные обозначены символом “M”
+
+            li.dataset__title Срочные метеорологические характеристики на метеостанции г.Можайск за 1966-2016 гг.
+              .dataset__controls
+                input.dataset__button.dataset__button--details(type="button", value="Описание", onclick = "showDetails(event)")
+                a.dataset__button(href="../data/weather-detailed.csv") Скачать
+              .dataset__description.dataset--hide
+                .dataset__subtitle Описание
+                  p Этот набор данных включает информацию о распределении срочных метеорологических характеристик на метеостанции г. Можайск (WMO ID 27509, координаты 55.52 с.ш. 36.00 в.д.) за период с 1966 по 2016 гг.
+                .dataset__subtitle Методы
+                  p Данные получены  на сервере  
+                    a.dataset__link(href="http://meteo.ru/data/163-basic-parameters#описание-массива-данных") ВНИИГМИ-МЦД 
+                .dataset__subtitle Контактная информация
+                  p Для получения дополнительной информации обращайтесь по адресу: 
+                    a.dataset__link(href="mailto:krasnovidovo.station@gmail.com") krasnovidovo.station@gmail.com
+                .dataset__subtitle <em>Ключевые слова</em>
+                  p погода, температура, ветер, осадки, облачность
+                ul.dataset__subtitle <em>Переменные</em>
+                  li <strong>Date</strong> – дата измерения<br>Формат: ГГГГ-ММ-ДД,  UTC - время по Гринвичу
+                  li <strong>NTOT</strong> – общее количество облачности<br>Формат: баллы (0-10)
+                  li <strong>NLOW</strong> – количество облачности нижнего яруса<br>Формат: баллы (0-10)
+                  li <strong>WDIR</strong> – направление ветра<br>Формат: градусы (0-360; северное направление - 0)
+                  li <strong>WSPD</strong> – средняя скорость ветра<br>Формат: м/с
+                  li <strong>WMAX</strong> – максимальная скорость ветра<br>Формат: м/с
+                  li <strong>PP</strong> – сумма осадков за период между сроками<br>Формат: мм
+                  li <strong>T</strong> – температура воздуха по сухому термометру<br>Формат: градусы Цельсия
+                  li <strong>WVP</strong> – упругость водяного пара (парциальное давление водяного пара)<br>Формат: мбар
+                  li <strong>HUM</strong> – относительная влажность воздуха<br>Формат: %
+                  li <strong>PST</strong> – атмосферное давление на уровне станции <br>Формат: мбар
+                  li <strong>PSEA</strong> – атмосферное давление на уровне моря (парциальное давление водяного пара)<br>Формат: мбар
+                  p Отсутствующие данные обозначены символом “M”
+
+          script(src="https://cdn.plot.ly/plotly-latest.min.js")
+        include footer.pug 
+</html>

@@ -1,0 +1,51 @@
+- var link = '../data-hydro.html';
+- var language = 'EN';
+
+<!DOCTYPE html>
+<html lang="ru">
+    include head.pug
+    body
+        include header.pug
+        main.main
+          h1.main__h1 Гидрологические данные
+          ul.datasets
+            li.dataset__title Ежедневные расходы воды в р.Москве и р.Лусянке за 1961-1991 гг.
+              .dataset__controls
+                a.dataset__button(href="#description" onclick = "showDetails(event)") Описание
+                a.dataset__button(href="../data/Discharges_ML.json") Скачать
+
+              .dataset__plot
+                h2.dataset__plot__title Построение графика
+                .dataset__plot__parameter
+                  label(for="year") Год (1961-1991)
+                  input(type="text" id="data_year" name="year" size="4" 
+                        minLength="4" maxLength="4")
+                .dataset__plot__parameter
+                  label(for="parameters") Параметры
+                  select(id="data_parameters" name="parameters")
+                    each val in ['Q_Moskva', 'Q_Lusyanka']
+                      option(value=val) #{val}
+                .dataset__plot__parameter
+                  input(type="submit", id="data_submit", value="Построить!", 
+                  data-firstYear="1961", data-lastYear="1991", data-folder="../data/discharge", 
+                  onclick="plot()")
+                #error
+                #plot
+
+              .dataset__description.dataset--hide#description
+                .dataset__subtitle Описание
+                  p Этот набор данных включает в себя ежесуточные расходы в створах: р.Москва – д.Барсуки, р.Лусянка – д.Черники за период с 1961 по 1991 гг., опубликованные в гидрологических ежегодниках.
+                .dataset__subtitle Методы
+                  p Расходы получены путем проведения ежедневных измерений уровней воды и использования зависимости Q=f(H)
+                .dataset__subtitle Контактная информация
+                  p Для получения дополнительной информации обращайтесь по адресу: 
+                    a.dataset__link(href="mailto:krasnovidovo.station@gmail.com") krasnovidovo.station@gmail.com
+                .dataset__subtitle <em>Ключевые слова</em>
+                  p погода, температура, ветер, осадки, облачность
+                ul.dataset__subtitle <em>Переменные</em>
+                  li <strong>Date</strong> – дата измерения<br>Формат: ГГГГ-ММ-ДД
+                  li <strong>Q_Moskva</strong> – расход воды в р.Москве в створе д.Барсуки<br>Формат: м<sup>3</sup>/s
+                  li <strong>Q_Lusyanka</strong> – расход воды в р.Лусянке в створе д.Черники<br>Формат: м<sup>3</sup>/с
+          script(src="https://cdn.plot.ly/plotly-latest.min.js")
+        include footer.pug
+</html>
