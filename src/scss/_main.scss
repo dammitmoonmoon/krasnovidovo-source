@@ -17,8 +17,21 @@ $max-content-width: 950px;
 $min-width: 200px; //links in nav bar
 $max-height: 1000px; //
 
-// MAIN
+/* =================================================================
+General layout
+Index section (main page)
+Projects section
+Gallery section
+Contacts
+Logos
+Figures and captions
+Employee cards
+Publications
+Datasets
+Slideshow
+   ================================================================= */
 
+// General layout
 .main {
   flex: 1;
   padding: 10px 5px;
@@ -65,12 +78,95 @@ $max-height: 1000px; //
   padding-top: 40px;
 }
 
-// Contacts
-// .contacts__fa {
-//   color: $color-main;
-//   font-size: 12px;
-// }
+.main__table {
+  margin: auto;
+  caption {
+    color: $color-main;
+    padding: 5px;
+    line-height: 1.2em;
+    font-weight: bold;
+  }
+  tr {
+    border-bottom: 1px dashed $color-extra;
+  }
+  td {
+    padding:5px 15px;
+  }
+}
 
+// Index section (main page)
+.index__em {
+  font-size: 16px;
+  color: $color-main;
+  font-weight: bold;
+}
+
+.index__heading {
+  text-align: center;
+  color: $color-main;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.index__section {
+  margin-bottom: 20px;
+}
+
+.index__section--news {
+  margin: auto;
+  max-width: 400px;
+}
+
+.news__subsection {
+  margin: 20px 0;
+  font-size: 14px;  
+}
+
+.news__subsection--date {
+  background-color: lighten($grey, 70%);
+  padding: 5px 0;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.index__section--map {
+  display: none;
+}
+
+// Projects section
+.projects {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.3em;
+  padding: 5px 0;
+  em {
+    font-style: italic;
+  }
+  strong {
+    font-weight: bold;
+  }
+}
+
+.projects__title {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.3em;
+  padding: 10px 0;
+  color: $color-main;
+  font-weight: bold;
+}
+
+.projects__text {
+  padding-top: 10px;
+}
+
+.projects__list {
+  list-style-type:decimal;
+  padding: 5px 0 0 20px;
+}
+
+// Gallery section
 .gallery__link__container {
   display: flex;
   justify-content: space-around;
@@ -121,10 +217,10 @@ $max-height: 1000px; //
 
   .gallery__img--150-200 {
     grid-row-end: span 2;
-    // place-self: center;
   }
 }
 
+// Contacts 
 .contacts__link {
   color: $color-extra;
   &:hover {
@@ -143,6 +239,7 @@ $max-height: 1000px; //
 }
 
 // Logos
+
 .container__flex--row{
   display: flex;
   flex-wrap: wrap;
@@ -228,11 +325,21 @@ $max-height: 1000px; //
   }
 }
 
+.figure__img--plain {
+  cursor: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  margin: 5px 0;
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
 .figure__img--hide-in-mobile {
   display: none;
 }
 
-// Employee card
+// Employee cards
 .employee {
   display: flex;
   flex-wrap: wrap;
@@ -310,6 +417,7 @@ $max-height: 1000px; //
       }
 }
 
+// Datasets
 .datasets {
   width: 100%;
 }
@@ -404,90 +512,10 @@ $max-height: 1000px; //
   font-style: italic;
 }
 
-@media (min-width: $break1) {
-  .dataset__plot {
-    display: block;
-    margin: auto;
-    min-width: 200px;
-    max-width: 80%;
-  }
-  
-  .dataset__plot__parameter {
-    padding: 5px 0;
-    label {
-      padding-right: 5px;
-      font-weight: normal;
-    }
-    select {
-      padding: 5px;
-      border: none;
-      border-radius: 10px;
-      background-color: $grey;
-      font-size: 14px;
-      text-align: center;
-      line-height: 1.5em;
-      color: white;
-      font-weight: 600;
-      letter-spacing: 0.1ch;
-    }
-    input[type=submit] {
-      padding: 5px;
-      border: none;
-      border-radius: 10px;
-      background-color: $color-extra;
-      font-size: 14px;
-      text-align: center;
-      line-height: 1.5em;
-      color: white;
-      font-weight: 600;
-      letter-spacing: 0.1ch;
-    }
-  }
-
-  .datasets {
-    .dataset__button {
-      margin: 10px auto;
-      width: 350px;
-    }
-  }
-  .dataset__controls{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .dataset__button {
-    font-size: 16px;
-    margin: 10px;
-  }
-  .dataset__subtitle {
-    font-style: italic;
-    padding: 10px 0;
-    color: $color-main;
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    line-height: 1.3em;
-    li {
-      color: black;
-      padding: 0 0 10px 10px;
-      font-style: normal;
-    }
-    p {
-      color: black;
-      padding-left: 10px;
-      font-style: normal;
-    }
-    strong {
-      font-weight: bold;
-    }
-  }
-}
-
+// Slideshow
 .slideshow {
   width: 100%;
   margin: auto;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: space-between;
 }
 
 .slideshow__container {
@@ -527,7 +555,6 @@ $max-height: 1000px; //
   width: 100%;
   height: auto;
   border-radius: 5px;
-  // display: none;
   opacity: 0;
   transition: opacity 1s linear;
 }
@@ -546,14 +573,14 @@ $max-height: 1000px; //
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1; 
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.9); 
   overflow: auto;
 }
 
@@ -596,7 +623,17 @@ $max-height: 1000px; //
   cursor: pointer;
 }
 
+@media (min-width: 420px) {
+ //Index section
+  .index__section--map {
+    display: block;
+    width: 420px;
+    margin: auto;
+  }
+}
+
 @media (min-width: $break1) {
+// General layout
   .main__h1 {
     font-size: 25px;
     padding: 20px 10px;
@@ -605,6 +642,52 @@ $max-height: 1000px; //
   .main__text p {
     padding: 10px;
     font-size: 16px;
+  }
+
+  //Index section
+  .index {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .index__section {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  .index__section--station {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+
+  .index__section--slideshow {
+    padding: 0 35px;
+    margin: auto;
+    flex-basis: 100%;
+  }
+
+  .index__section--news {
+    margin: 20px auto 10px auto;
+    min-width: 400px;
+  }
+
+  .index__em,
+  .index__heading {
+    font-size: 18px;
+  }
+
+  .news__subsection {
+    font-size: 16px;  
+  }
+  // Projects section
+  .projects {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .projects__title {
+    font-size: 18px;
   }
 
   // Contacts
@@ -657,7 +740,7 @@ $max-height: 1000px; //
     padding: 10px 20px 0 0;
   } 
 
-  // Figures and captions    
+  // Figures and captions
   .figcaption {
     font-size: 14px;
     text-align: start;
@@ -736,15 +819,92 @@ $max-height: 1000px; //
     padding-left: 10px;
     padding-right: 15px;
   }
-
+  // Employee cards
   .employee__data__page  {
     margin: 0;
+  }
+  // Datasets
+  .dataset__plot {
+    display: block;
+    margin: auto;
+    min-width: 200px;
+    max-width: 80%;
+  }
+  
+  .dataset__plot__parameter {
+    padding: 5px 0;
+    label {
+      padding-right: 5px;
+      font-weight: normal;
+    }
+    select {
+      padding: 5px;
+      border: none;
+      border-radius: 10px;
+      background-color: $grey;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5em;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.1ch;
+    }
+    input[type=submit] {
+      padding: 5px;
+      border: none;
+      border-radius: 10px;
+      background-color: $color-extra;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5em;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.1ch;
+    }
+  }
+  
+  .datasets {
+    .dataset__button {
+      margin: 10px auto;
+      width: 350px;
+    }
+  }
+  .dataset__controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dataset__button {
+    font-size: 16px;
+    margin: 10px;
+  }
+  .dataset__subtitle {
+    font-style: italic;
+    padding: 10px 0;
+    color: $color-main;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.3em;
+    li {
+      color: black;
+      padding: 0 0 10px 10px;
+      font-style: normal;
+    }
+    p {
+      color: black;
+      padding-left: 10px;
+      font-style: normal;
+    }
+    strong {
+      font-weight: bold;
+    }
   }
 
   .dataset__variables {
     font-size: 16px;
   }
 
+  // Slideshow
   .slideshow {
     width: 500px;
   }
@@ -783,6 +943,7 @@ $max-height: 1000px; //
 }
 
 @media (min-width: $break2) {
+  // General layout
   .main {
     max-width: $max-content-width;
     margin: auto;
@@ -793,31 +954,35 @@ $max-height: 1000px; //
     padding: 20px 10px;
   }
 
+  // Index section (main page)
+  .index__section--news {
+    flex-basis: 35%;
+  }
+  .index__section--slideshow {
+    flex-basis: 45%;
+  }
+  .index__section--news {
+    margin: 5px;
+    padding: 5px;
+    min-width: 200px;
+  }
+
+  .index__section--reservoir,
+  .index__section--map {
+    flex-basis: 48%;
+  }
+  .index__section--map {
+    text-align: center;
+  }
+
+  // Figures and captions
+  .figure--plain {
+    max-width: 70%;
+  }
+
+  // Slideshow
   .modal__sub {
     width: 1000px;
     margin: auto;
   }
 }
-
-
-
-
-// .slideshow__image {
-//   position: absolute;
-//   opacity: 0;
-//   width: 100%;
-//   transition: opacity 1s linear;
-// }
-
-// .slideshow__image--small {
-//   filter: blur(50px);
-//   transform: scale(1);
-// }
-
-// .slideshow__image--loaded {
-//   position: absolute;
-//   opacity: 1;
-//   width: 100%;
-//   transition: opacity 1s linear;
-//   transform: scale(1);
-// }

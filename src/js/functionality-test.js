@@ -316,7 +316,7 @@ function getDataFromUser() {
     let errorField = document.getElementById('error');
     
     if (!validateYear(year, dataParameters.firstYear, dataParameters.lastYear)) {
-        errorField.innerHTML = `Введённый год (${year}) вне диапазона ${dataParameters.firstYear}&ensp;${dataParameters.lastYear}!`;
+        errorField.innerHTML = `Введённый год (${year}) вне диапазона ${dataParameters.firstYear}&ndash;${dataParameters.lastYear}!`;
         return;
     }    
     errorField.innerHTML = "";
@@ -378,7 +378,7 @@ function getJSON(url) {
 }
 
 function plotly() {
-    let trace1 = getPlotData(dataParameters.dataRaw, `observed in ${dataParameters.firstYear}`);
+    let trace1 = getPlotData(dataParameters.dataRaw, `observed in ${dataParameters.fileName}`);
     console.log(trace1);
     let trace2 = getPlotData(dataParameters.dataAverage, `average (${dataParameters.firstYear}-${dataParameters.lastYear})`);
     trace2.x = trace1.x;

@@ -184,7 +184,6 @@ body {
 }
 
 .item__extra {
-  padding: 10px 0;
   border-bottom: 1px dashed $grey;
   display: block;
 }
@@ -193,6 +192,8 @@ body {
   color: black;
   line-height: 1.1em;
   font-size: 16px;
+  display: block;
+  padding: 10px 0;
 }
 
 // footer
@@ -386,13 +387,17 @@ body {
 
   .item__extra {
     width: 100%;
-    padding: 5px 0;
+    padding: 0;
     line-height: 0;
   }
 
   .item__extra__text {
     font-size: 18px;
     line-height: 20px;
+    display: block;
+    padding: 5px 0;
+    width: 100%;
+    height: 100%;
   }
 
 // all hover effects
