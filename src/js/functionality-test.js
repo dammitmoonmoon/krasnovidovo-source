@@ -429,7 +429,19 @@ function showPlot(event) {
     helper.toggleClass(hidden, 'dataset--hide');
 }
 
-
+// Porjects: show/hide description
+const projectPage = () => {
+    if (window.location.href.includes("/projects.html")) {
+        const completeProjects = document.querySelectorAll(".projects__title--clickable");
+        completeProjects.forEach((project) => {
+            project.addEventListener("click", (event) => {
+                project.classList.toggle("projects__title");
+                let hidden = event.target.nextElementSibling;
+                hidden.classList.toggle("projects__description--hidden");
+            });
+        });
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", navigationController.removeFallbacks);
@@ -437,3 +449,4 @@ document.addEventListener("DOMContentLoaded", navigationController.activateNavBa
 window.addEventListener("scroll", navigationController.activateStickyNav);
 document.addEventListener("DOMContentLoaded", imageController.activateModalImageControllers);
 document.addEventListener("DOMContentLoaded", carouselControls.setCarousel);
+document.addEventListener("DOMContentLoaded", projectPage);
